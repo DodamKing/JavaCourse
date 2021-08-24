@@ -1,0 +1,117 @@
+public class Test1 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+public class Test2 {
+	public static void main(String[] args) {
+	
+	}
+}
+
+public class Test3 {
+	public static void main(String[] args) {
+
+	}
+}
+
+public class Test4 {
+	public static void main(String[] args) {
+	
+	}
+}
+
+
+public class Test5 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+public class Test6 {
+	public static void main(String[] args) {
+	}
+}
+
+
+
+public class Test {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+public class Test7 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+
+public class Test8 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+
+public class Test9 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+
+public class Test10 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+
+public class Test11 {
+	public static void main(String[] args) {
+
+	}
+}
+
+
+
+public class 이름12 {
+	public static void main(String[] args) {
+	내ㅔ용
+	}
+}
+
+
+
+publci class '클래스이름13' {
+	public static void main(String[] args) {
+	코드
+	}
+}
+
+
+
+public class 'class_name14' {
+	public static void main(String[] args) {
+	// 입력
+	}
+}
+
+
+
+
+public class Test 15 {
+	public static void main(String[] args) {
+	// 내용
+	}
+}
