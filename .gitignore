@@ -1,10 +1,10 @@
 
 # folder
-java/utility/
+utility/
 java/works/.metadata/
 
 # class path
 *.classpath
 
-# claa file
+# class file
 *.class
