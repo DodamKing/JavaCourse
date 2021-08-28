@@ -1,4 +1,4 @@
-package t1_sample;
+ package t1_sample;
 
 public class Test1 {
 	public static void main(String[] args) {
