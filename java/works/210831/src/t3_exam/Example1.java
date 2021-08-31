@@ -1,4 +1,4 @@
-package t1_array;
+package t3_exam;
 
 public class Example1 {
 	public static void main(String[] args) {

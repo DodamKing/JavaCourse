@@ -1,4 +1,4 @@
-package t1_array;
+package t3_exam;
 
 import java.util.Scanner;
 
