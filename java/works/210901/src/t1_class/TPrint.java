@@ -10,7 +10,7 @@ public class TPrint {
 	
 	public TPrint() {}
 	
-	void print(String name, int kor, int eng, int mat, int total, double avg) {
-		System.out.printf("성명: %s, 국어: %d, 영어: %d, 수학: %d, 총점: %d, 평균: %.1f\n\n", name, kor, eng, mat, total, avg);
+	void print(String name, int kor, int eng, int mat, int total, double avg, String grade) {
+		System.out.printf("성명: %s, 국어: %d, 영어: %d, 수학: %d, 총점: %d, 평균: %.1f, 학점: %s\n\n", name, kor, eng, mat, total, avg, grade);
 	}
 }

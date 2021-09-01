@@ -23,7 +23,8 @@ public class TPrun {
 			}
 			total = tps.total2(name, jumsu[0], jumsu[1], jumsu[2]);
 			avg = tps.avg2(total);
-			tpt.print(name, jumsu[0], jumsu[1], jumsu[2], total, avg);
+			grade = tps.grade();
+			tpt.print(name, jumsu[0], jumsu[1], jumsu[2], total, avg, grade);
 		}
 		System.out.println("프로그램 종료");
 		scanner.close();
