@@ -1,0 +1,32 @@
+package t7_getter_setter;
+
+public class Test1 {
+	private String name="홍길동";
+	private int age = 25;
+	private boolean gender = true;
+	private String address = "서울";
+	
+	String getName() {return name;}
+	void setName(String name) {
+		this.name = name;
+	}
+	
+	int getAge() { return age;}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public boolean isGender() {
+		return gender;
+	}
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+}
