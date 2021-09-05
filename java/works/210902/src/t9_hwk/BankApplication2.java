@@ -6,12 +6,13 @@ public class BankApplication2 {
 	private static Account[] accountArray = new Account[100];
 	private static Scanner scanner = new Scanner(System.in);
 	private static int index = 0;
+	private static int accountNumber = 1;
 	public static void main(String[] args) {
 		boolean run = true;
 		while(run) {
-			System.out.println("----------------------------------------------------");
-			System.out.println("1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금| 5. 종료");
-			System.out.println("----------------------------------------------------");
+			System.out.println("----------------------------------------------------------");
+			System.out.println(" 1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.계좌삭제 | 6.종료");
+			System.out.println("----------------------------------------------------------");
 			System.out.print("선택> ");
 			
 			int selentNo = scanner.nextInt();
@@ -29,12 +30,40 @@ public class BankApplication2 {
 				withdraw();
 			}
 			else if(selentNo == 5) {
+				deleteAccount();
+			}
+			else if(selentNo == 6) {
 				run = false;
 			}
 		}
 		System.out.println("프로그램 종료");
 	}
 	
+	// 계좌 삭제
+	private static void deleteAccount() {
+		int check = -1;
+		System.out.print("삭제할 계좌번호를 입력하세요:");
+		String ano = scanner.next();
+		for (int i=0; i<index; i++) {
+			if (accountArray[i].getAno().equals(ano)) {
+				check = i;
+				break;
+			}
+		}
+		if (check == -1) {
+			System.out.println("해당 계좌를 찾을 수 없습니다.");
+			System.out.println();
+		}
+		else {
+			for (int i=check; i<index; i++) {
+				accountArray[i] = accountArray[i+1];
+			}
+			index--;
+			System.out.println("해당 계좌를 정상 삭제 하였습니다.");
+			System.out.println();
+		}
+	}
+
 	//계좌생성하기
 	private static void createAccount() {
 		System.out.println();
@@ -43,19 +72,20 @@ public class BankApplication2 {
 		String owner = scanner.next();
 		System.out.print("초기 입금액: ");
 		int balance  = scanner.nextInt();
-		accountArray[index] = new Account("111-"+(String.format("%03d", index+1)), owner, balance); 
+		accountArray[index] = new Account("111-"+(String.format("%03d", accountNumber)), owner, balance); 
 		System.out.printf("%s님 계좌를 생성했습니다.\n", owner);
 		System.out.println();
 		index++;
+		accountNumber++;
 	}
 	
 	//계좌목록보기
 	private static void accountList() {
 		System.out.println();
 		System.out.println("----------------계좌목록-----------------");
-		System.out.println("번호\t계좌번호\t\t예금주\t잔액");
+		System.out.println("번호\t계좌번호\t\t예금주\t잔액(원)");
 		for (int i=0; i<index; i++) {
-			System.out.println(" " + (i+1) + "\t" + accountArray[i].getAno() + "\t\t" + accountArray[i].getOwner() + "\t" + accountArray[i].getBalance());
+			System.out.printf(" %d\t%s\t\t%s\t%7d\n", i+1, accountArray[i].getAno(), accountArray[i].getOwner(), accountArray[i].getBalance());
 		}
 		System.out.println();
 	}

@@ -4,10 +4,16 @@ public class SungjukVO {
 	private int no;
 	private String name;
 	private int kor, eng, mat;
-	private int tot;
+	private int tot, rank;
 	private double avg;
 	private String grade;
 	
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 	public int getNo() {
 		return no;
 	}
@@ -41,7 +47,6 @@ public class SungjukVO {
 		this.mat = mat;
 	}
 	public int getTot() {
-		tot = kor + eng + mat;
 		return tot;
 	}
 	public void setTot(int tot) {

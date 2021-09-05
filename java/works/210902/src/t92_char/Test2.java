@@ -9,12 +9,13 @@ public class Test2 {
 		
 		// 문자열을 배열로 처리해서 하나씩 출력: charAt()
 		for (int i=0; i<str.length(); i++) {
-			System.out.println("str[] = " + str.charAt(i));
+			System.out.println(str.charAt(i));
 		}
+		System.out.println();
 		
 		char[] charArr = str.toCharArray();
 		for (int i=0; i<charArr.length; i++) {
-			System.out.println("charArr = " + charArr[i]);
+			System.out.println(charArr[i]);
 		}
 		
 		for (int i=0; i<str.length(); i++) {
