@@ -7,8 +7,10 @@ package t03_interface;
 // CCompany 		가능						LTE						기본 탑재
 // DCompany 		가능						5G						기본 미탑재
 
-public interface Phone {
-	public void status();
-	public void communite();
-	public void function();
+public abstract class Phone {
+	String status = "가능", communite, remote;
+	
+	public abstract String status();
+	public abstract String communite();
+	public abstract String function();
 }

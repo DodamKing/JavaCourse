@@ -1,20 +1,21 @@
 package t03_interface;
 
-public class BCompany implements Phone {
-	String status, communite, remote;
+public class BCompany extends Phone {
 	@Override
-	public void status() {
-		status = "가능";
+	public String status() {
+		return status;
 	}
 
 	@Override
-	public void communite() {
+	public String communite() {
 		communite = "4G";
+		return communite;
 	}
 
 	@Override
-	public void function() {
+	public String function() {
 		remote = "기본 탑제";
+		return remote;
 	}
 
 }
