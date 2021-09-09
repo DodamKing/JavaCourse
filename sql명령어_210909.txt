@@ -1,0 +1,120 @@
+-- 표준 sql 주석
+/* 모든 sql 주석 */
+
+-- mysql 접속하기(명령어 프롬프트에서 접근방법) : mysql이 있는곳에서 접속한다.
+>mysql -u root -p
+password: 1234
+-------------------------------------------------
+-- 접속완료후
+-- 데이터베이스 확인
+> show databases;
+
+-- 데이터베이스 접근(열기-open)
+> use 데이터베이스명;
+> use mysql;
+
+-- (mysql)데이터베이스안의 테이블 목록보기
+> show tables;
+
+-- user테이블의 구조보기
+> desc 테이블명;
+> desc user;
+
+-- user테이블의 내용보기
+> select * from 테이블명;
+> select * from user;
+
+-- user테이블의 host필드와 user필드만 확인하기?
+> select 필드명1,필드명2,... from 테이블명;
+> select host,user from user;
+
+-- 사용자 계정(atom계정) 생성(root만 가능....)
+> create user '계정명';
+> create user 'atom';
+
+-- 사용자 계정(atom) 삭제
+> drop user atom;
+> drop user atom@'%' identified by '1234';
+
+-- 사용자 계정만들때 비밀번호 부여하기
+> create user 'atom'@'localhost' identified by '1234';
+
+-- 사용자 계정만들때 비밀번호 부여하기(외부접속가능)
+> create user 'atom'@'%' identified by '1234';
+
+-- 권한 보기
+> show grants for 'atom'@'%';
+> show grants for 'root'@'localhost';
+-- 현재사용자의 권한보기(현재 로그인한사용자의 권한을 볼 수 있다.)
+> show grants for current_user;
+
+-- 권한 부여하기
+-- atom사용자가 javacourse데이터베이스의 모든 사용권한부여
+> grant all privileges on javacourse.* to 'atom'@'%' identified by '1234';
+
+-- 권한 해제
+-- atom사용자가 javacourse데이터베이스의 모든 사용권한해제
+> revoke all on javacourse.* from 'atom'@'%';
+
+
+--------------------------------------------------
+
+-- 데이터베이스 생성하기
+> create database seoul;
+
+-- 데이터베이스 생성시 문자코드 형식을 'utf8'로 지정하기
+> create database javacourse character set utf8 collate utf8_general_ci;
+
+-- 데이터베이스 삭제하기
+> drop database seoul;
+
+------------------------------------------------------
+-- CRUD (Create / Select / Update / Delete)
+-- DML(데이터 조작어) : select / insert / update / delete
+
+-- 테이블 생성하기
+> create table 테이블이름;
+> create table test (
+   name  varchar(20) not null,
+   age     int  default  20,
+   joinday  datetime  default now()
+  );
+-- 모든 테이블 목록을 보여주세요
+> show tables;
+
+-- test테이블의 구조보기
+> desc test;
+
+-- test테이블의 전체 내용 보기(select)
+> select * from test;
+
+-- test테이블에 내용 삽입하기(insert)
+> insert into 테이블명 (필드1, 필드2,...) values (값1, 값2,.....);
+> insert into test (name, age, joinday) values ('HongKilDong',25,'2000-1-10');
+> insert into test (name, age, joinday) values ('HongKilDong',25,'1999-5-10');
+> insert into test (age, name) values (25,'LeeSunSin');
+> insert into test (name, joinday) values ('LeeGiJa',default);
+> insert into test (name) values ('KangKamChan');
+> insert into test values ('KimMalSuk',29,default);
+> insert into test (age) values (35);
+> insert into test values ('SoNaMu',50,'2000-1-1');
+
+-- 필요한 필드만 전체 조회(select 필드1,.... from 테이블명);
+> select name, joinday from test;
+
+-- 조건에 맞는 내용만 조회?(where절)
+-- 이름이 'HongKilDong'을 조회하시오?
+> select * from test where name='HongKilDong';
+
+-- 나이가 20세인 자료만 조회?
+> select * from test where age=20;
+
+-- 나이가 25세이하인 자료만 조회?
+> select * from test where age<=20;
+
+-- 나이가 25세 이상이면서, 주소(address)가 '서울'인 자료를 출력하세요?
+> select * from test where age>=25 and address='서울';
+-- 나이가 주소(address)가 '서울'이거나 '부산'인 자료를 출력하세요?
+> select * from test where address='부산' or and address='서울';
+-- 나이가 25세~30세까지 출력하시오.
+> select * from test where age>=25 and age<=30;
