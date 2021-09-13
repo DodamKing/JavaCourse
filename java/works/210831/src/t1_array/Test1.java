@@ -1,5 +1,7 @@
 package t1_array;
 
+import java.util.Iterator;
+
 public class Test1 {
 	public static void main(String[] args) {
 		int atom  = 0;
@@ -40,5 +42,7 @@ public class Test1 {
 			System.out.println("fff[" + i + "] = " + fff[i]);
 		}
 		System.out.println();
+		
+		
 	}
 }

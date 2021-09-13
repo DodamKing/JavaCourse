@@ -1,0 +1,57 @@
+ 9/3 20번 삭제 루틴
+
+성적프로그램 석차까지 추가
+
+https://www.filehorse.com/download-mysql-64/57331/download/
+
+
+9/9 mysql
+-- 표준 sql 주석
+/* */ 모든 sql 주석
+
+mysql이 있는 폴더에서 mysql -u root -p로 접속
+show databases; 	데이터베이스 확인
+use mysql(데이터베이스명); 	데이터베이스 접근
+show tables; 	테이블 목록 보기
+desc user; 	user테이블 구조 보기
+select * from user(테이블명); 	user테이블(테이블명)의 내용 보기
+select host, user from user; 		user테이블의 host필드와 user필드 확인하기
+
+사용자 계정 생성 (생성은 root만 가능)
+create user '계정명';	생성
+drop user 계정명;		삭제
+
+비밀번호를 부여한 계정 생성
+create user '계정명'@'localhost' identified by '비밀번호';	생성
+drop user 계정명@'%' identified by '비밀번호'; 		삭제
+
+외부에서 접속 가능하게 생성
+create user '계정명'@'%'localhost identified by '비밀번호';
+
+권한 보기
+show grants for '계정명'@'%';	일반일때
+show grants for 'root'@'localhost'; 	루트일때
+show grants for current_user; 	현재 로그인한 사용자의 권한 보기
+
+권한 부여
+grant all privileges on 파일명.* to 계정생성할때 썼던 내용
+grant all privileges on javacourse.* to 'atom'@'%' identified by '1234';
+
+권한 해제
+revoke all on javacourse.* from 'atom'@'%';
+
+
+데이터베이스 생성하기
+create database seoul;
+
+데이터베이스 생성시 문자코드 형식을 'utf8'로 지정
+create database javacourse character set utf8 collate utf8_general_ci;
+
+데이터베이스 삭제
+drop database seoul;
+
+데이터 테이블 만들기
+create table test(name varchar(20) not null, age int  default 20, join datetime  default now());
+
+테이블 구조 보기
+desc test;

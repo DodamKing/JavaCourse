@@ -30,7 +30,7 @@ public class Homework_5_1 {
 			
 			else {
 				while (true) {
-					if (more > 5) {
+					if (more > morning) {
 						more -= day;
 						cnt++;
 					}

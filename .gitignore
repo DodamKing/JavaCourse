@@ -2,9 +2,12 @@
 # folder
 utility/
 java/works/.metadata/
+*.settings/
 
 # class path
 *.classpath
 
 # class file
 *.class
+
+*.project
