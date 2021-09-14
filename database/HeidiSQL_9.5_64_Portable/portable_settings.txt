@@ -1,18 +1,18 @@
-LastSessions<|||>1<|||>
-LastActiveSession<|||>1<|||>sample2(atom2)
+LastSessions<|||>1<|||>javacourse(atom)
+LastActiveSession<|||>1<|||>javacourse(atom)
 ColWidths_connform.ListSessions<|||>1<|||>163,50,50,50,50,50,53
 ColsVisible_connform.ListSessions<|||>1<|||>0
 ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
 ColSort_connform.ListSessions<|||>1<|||>0,0
-ColWidths_frmTableEditor.listColumns<|||>1<|||>22,167,154,90,60,279,70,193,130,140,100,100
+ColWidths_frmTableEditor.listColumns<|||>1<|||>23,167,154,90,60,279,70,193,130,140,100,100
 ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColSort_frmTableEditor.listColumns<|||>1<|||>-1,0
-ColWidths_frmTableEditor.treeIndexes<|||>1<|||>434,100,80
+ColWidths_frmTableEditor.treeIndexes<|||>1<|||>979,100,80
 ColsVisible_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
 ColPositions_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
 ColSort_frmTableEditor.treeIndexes<|||>1<|||>-1,0
-ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>205,80,100,80,80,80
+ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>752,80,100,80,80,80
 ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
@@ -141,11 +141,11 @@ CSVSeparatorV2<|||>1<|||>
 CSVEncloserV2<|||>1<|||>
 CSVImportFieldEscaperV2<|||>1<|||>
 SQLFile0<|||>1<|||>C:\Users\김디디\Desktop\JavaCourse\database\work\backup\210913_sqlHS.sql
-Servers\javacourse(atom)\SessionCreated<|||>1<|||>2021-09-13 15:28:03
+Servers\javacourse(atom)\SessionCreated<|||>1<|||>2021-09-14 10:03:22
 Servers\javacourse(atom)\Host<|||>1<|||>127.0.0.1
 Servers\javacourse(atom)\WindowsAuth<|||>3<|||>0
 Servers\javacourse(atom)\User<|||>1<|||>atom
-Servers\javacourse(atom)\Password<|||>1<|||>333435362
+Servers\javacourse(atom)\Password<|||>1<|||>343536373
 Servers\javacourse(atom)\LoginPrompt<|||>3<|||>0
 Servers\javacourse(atom)\Port<|||>1<|||>3306
 Servers\javacourse(atom)\NetType<|||>3<|||>0
@@ -154,7 +154,7 @@ Servers\javacourse(atom)\LocalTimeZone<|||>3<|||>0
 Servers\javacourse(atom)\QueryTimeout<|||>3<|||>0
 Servers\javacourse(atom)\KeepAlive<|||>3<|||>0
 Servers\javacourse(atom)\FullTableStatus<|||>3<|||>1
-Servers\javacourse(atom)\Databases<|||>1<|||>
+Servers\javacourse(atom)\Databases<|||>1<|||>javacourse;sample2
 Servers\javacourse(atom)\Comment<|||>1<|||>
 Servers\javacourse(atom)\StartupScriptFilename<|||>1<|||>
 Servers\javacourse(atom)\TreeBackground<|||>3<|||>536870911
@@ -170,45 +170,8 @@ Servers\javacourse(atom)\SSL_Key<|||>1<|||>
 Servers\javacourse(atom)\SSL_Cert<|||>1<|||>
 Servers\javacourse(atom)\SSL_CA<|||>1<|||>
 Servers\javacourse(atom)\SSL_Cipher<|||>1<|||>
-Servers\javacourse(atom)\RefusedCount<|||>3<|||>1
 Servers\javacourse(atom)\ServerVersionFull<|||>1<|||>5.7.32-log - MySQL Community Server (GPL)
-Servers\javacourse(atom)\ConnectCount<|||>3<|||>1
+Servers\javacourse(atom)\ConnectCount<|||>3<|||>4
 Servers\javacourse(atom)\ServerVersion<|||>3<|||>50732
-Servers\javacourse(atom)\LastConnect<|||>1<|||>2021-09-13 15:29:12
+Servers\javacourse(atom)\LastConnect<|||>1<|||>2021-09-14 10:24:22
 Servers\javacourse(atom)\lastUsedDB<|||>1<|||>
-Servers\sample2(atom2)\SessionCreated<|||>1<|||>2021-09-13 15:29:40
-Servers\sample2(atom2)\Host<|||>1<|||>127.0.0.1
-Servers\sample2(atom2)\WindowsAuth<|||>3<|||>0
-Servers\sample2(atom2)\User<|||>1<|||>atom2
-Servers\sample2(atom2)\Password<|||>1<|||>393A3B3C8
-Servers\sample2(atom2)\LoginPrompt<|||>3<|||>0
-Servers\sample2(atom2)\Port<|||>1<|||>3306
-Servers\sample2(atom2)\NetType<|||>3<|||>0
-Servers\sample2(atom2)\Compressed<|||>3<|||>0
-Servers\sample2(atom2)\LocalTimeZone<|||>3<|||>0
-Servers\sample2(atom2)\QueryTimeout<|||>3<|||>0
-Servers\sample2(atom2)\KeepAlive<|||>3<|||>0
-Servers\sample2(atom2)\FullTableStatus<|||>3<|||>1
-Servers\sample2(atom2)\Databases<|||>1<|||>
-Servers\sample2(atom2)\Comment<|||>1<|||>
-Servers\sample2(atom2)\StartupScriptFilename<|||>1<|||>
-Servers\sample2(atom2)\TreeBackground<|||>3<|||>536870911
-Servers\sample2(atom2)\SSHtunnelHost<|||>1<|||>
-Servers\sample2(atom2)\SSHtunnelHostPort<|||>3<|||>0
-Servers\sample2(atom2)\SSHtunnelUser<|||>1<|||>
-Servers\sample2(atom2)\SSHtunnelPassword<|||>1<|||>4
-Servers\sample2(atom2)\SSHtunnelTimeout<|||>3<|||>4
-Servers\sample2(atom2)\SSHtunnelPrivateKey<|||>1<|||>
-Servers\sample2(atom2)\SSHtunnelPort<|||>3<|||>3307
-Servers\sample2(atom2)\SSL_Active<|||>3<|||>0
-Servers\sample2(atom2)\SSL_Key<|||>1<|||>
-Servers\sample2(atom2)\SSL_Cert<|||>1<|||>
-Servers\sample2(atom2)\SSL_CA<|||>1<|||>
-Servers\sample2(atom2)\SSL_Cipher<|||>1<|||>
-Servers\sample2(atom2)\ServerVersionFull<|||>1<|||>5.7.32-log - MySQL Community Server (GPL)
-Servers\sample2(atom2)\ConnectCount<|||>3<|||>3
-Servers\sample2(atom2)\ServerVersion<|||>3<|||>50732
-Servers\sample2(atom2)\LastConnect<|||>1<|||>2021-09-13 17:48:44
-Servers\sample2(atom2)\lastUsedDB<|||>1<|||>sample2
-Servers\sample2(atom2)\QueryHistory\2<|||>1<|||>2021-09-13 15:42:33|sample2|0|
-Servers\sample2(atom2)\QueryHistory\3<|||>1<|||>2021-09-13 15:42:39|sample2|0|select * from sinsang2;
