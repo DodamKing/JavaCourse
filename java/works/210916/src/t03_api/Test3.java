@@ -1,0 +1,31 @@
+package t03_api;
+
+public class Test3 {
+	private String name;
+	private int age;
+	public Test3(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public String toString() {
+		return "Test3 [name=" + name + ", age=" + age + "]";
+	}
+	
+	public void prn() {
+		System.out.println("Test3 = [성명: " + name + ", 나이: " + age +  "]");
+	}
+}

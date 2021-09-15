@@ -21,6 +21,9 @@ public class Test1 {
 		vos.add("소나무");
 		vos.add("소나무");
 		
+		System.out.println(vos.indexOf("소나무"));
+		System.out.println(vos.lastIndexOf("소나무")); 
+		
 		System.out.println("vos의 크기: " + vos.size());
 		System.out.println("vos: " + vos);
 		System.out.println();
