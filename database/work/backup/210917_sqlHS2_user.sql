@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`idx`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- 테이블 데이터 javacourse.user:~3 rows (대략적) 내보내기
+-- 테이블 데이터 javacourse.user:~6 rows (대략적) 내보내기
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`idx`, `name`, `mid`, `password`, `age`, `gender`, `address`) VALUES
