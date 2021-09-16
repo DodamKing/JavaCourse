@@ -2,6 +2,7 @@ package t03_DBConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnection {
 	Connection conn = null;
@@ -21,6 +22,15 @@ public class DBConnection {
 //			e.printStackTrace();
 		} catch (Exception e) {
 			System.out.println("데이터베이스 연결 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	public void dbClose() {
+		try {
+			conn.close();
+			System.out.println("데이터베이스가 닫혔습니다.");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
