@@ -10,8 +10,6 @@
 <!-- name="빈이름", property="필드명", value="값" -->
 
 <jsp:setProperty name="user" property="password" />
-<!-- joinAction페이지는 아이뒤, 비밀번호 외에도 이름, 성별, 이메일을 입력받아야 하므로 추가한다.  -->
-
 <jsp:setProperty name="user" property="name" />
 <jsp:setProperty name="user" property="age" />
 <jsp:setProperty name="user" property="gender" />
@@ -20,7 +18,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP 연습</title>
 </head>
 <body>
 
@@ -51,19 +49,36 @@
 			UserDAO dao = new UserDAO();
 			int result = dao.join(user); // 각각의 값을 입력받은 user라는 인스턴스가 join 함수를 수행하도록 매개변수가 됨
 			
-			 if(result == -1) {
+			if (result == -2) {
+				 PrintWriter script = response.getWriter();
+				 script.println("<script>");
+				 script.println("alert('아이디는 영문 대소문자와 숫자만 가능합니다.')");
+				 script.println("history.back()"); //이전 페이지로 돌려보냄(join 페이지)
+				 script.println("</script>"); 
+		 	}
+			
+			else if (result == -3) {
+				 PrintWriter script = response.getWriter();
+				 script.println("<script>");
+				 script.println("alert('비밀번호는 영문 대소문자와 숫자만 가능합니다.')");
+				 script.println("history.back()"); //이전 페이지로 돌려보냄(join 페이지)
+				 script.println("</script>"); 
+		 	} 
+			 
+			 
+			else if (result == -1) {
 				 PrintWriter script = response.getWriter();
 				 script.println("<script>");
 				 script.println("alert('중복된 아이디 입니다.')");
 				 script.println("history.back()"); //이전 페이지로 돌려보냄(join 페이지)
 				 script.println("</script>"); 
 		 	}
-		//DB를 생성할때 PRIMARY값으로 userID를 주었기 때문에, 동일한 아이뒤는 생성불가
 		 
 		 	else {
 				session.setAttribute("mid", user.getMid());
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
+				script.println("alert('회원 가입이 완료 되었습니다.')");
 				script.println("location.href = 'main.jsp'"); //회원가입이 된경우 => main.jsp 페이지로 이동
 				script.println("</script>");
 			}

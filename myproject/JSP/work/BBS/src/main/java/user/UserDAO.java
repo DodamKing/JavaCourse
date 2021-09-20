@@ -51,24 +51,66 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
+		Check check = new Check();
+		int cr = check.check(user); 
 		sql = "insert into user values (NULL, ?, ?, ?, ?, ?, ?)";
+		if (cr == -2) {
+			return -2;
+		}
+		else if (cr == -3) {
+			return -3;
+		}
+		else {
+			try {
+				PreparedStatement temp = conn.prepareStatement("select mid from user where mid=?");
+				temp.setString(1, user.getMid());
+				rs = temp.executeQuery();
+				if (!rs.next()) {
+					pstmt =conn.prepareStatement(sql);
+					pstmt.setString(1, user.getName());
+					pstmt.setString(2, user.getMid());
+					pstmt.setString(3, user.getPassword());
+					pstmt.setInt(4, user.getAge());
+					pstmt.setString(5, user.getGender());
+					pstmt.setString(6, user.getAddress()); 
+					return pstmt.executeUpdate();
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return -1; // 아이디 중복
+	}
+	
+	public User profile(String mid) {
+		User user = new User();
+		sql = "select * from user where mid=?";
 		try {
-			PreparedStatement temp = conn.prepareStatement("select mid from user where mid=?");
-			temp.setString(1, user.getMid());
-			rs = temp.executeQuery();
-			if (!rs.next()) {
-				pstmt =conn.prepareStatement(sql);
-				pstmt.setString(1, user.getName());
-				pstmt.setString(2, user.getMid());
-				pstmt.setString(3, user.getPassword());
-				pstmt.setInt(4, user.getAge());
-				pstmt.setString(5, user.getGender());
-				pstmt.setString(6, user.getAddress());
-				return pstmt.executeUpdate();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				user.setPassword(rs.getString("password"));
+				user.setName(rs.getString("name"));
+				user.setGender(rs.getString("gender"));
+				user.setAge(rs.getInt("age"));
+				user.setAddress(rs.getString("address"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1; // 아이디 중복
+		return user;
+	}
+	
+	public void dropout(String mid) {
+		sql = "delete from user where mid=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

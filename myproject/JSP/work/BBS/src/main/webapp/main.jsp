@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>JSP 연습</title>
 </head>
 <body style= "background-color : lightblue;">
 	<%
@@ -18,7 +18,7 @@
 	%>
 
 	<audio controls loop controls autoplay>
-		<source src="lovepratice.mp3" type="audio/mpeg" >
+		<source src="Purple+Cat+-+메이엘로(Maiello)ㅣFree+BGM.mp3" type="audio/mpeg" >
 	</audio>
 	<!-- 오디오 태그, hidden => 오디오창 안보이게, loop => 무한반복, autoplay => 자동재생 -->
 
@@ -34,7 +34,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<!-- 상단 바에 제목이 나타나고 클릭하면 main 페이지로 이동한다 -->
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">JSP 연습 사이트</a>
 		</div>
 		<!-- 게시판 제목 이름 옆에 나타나는 메뉴 영역 -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -82,6 +82,7 @@
 						
 								<li><a href="profile.jsp">회원정보</a></li>
 								<li><a href="logoutAction.jsp">로그아웃</a></li>
+								<li><a href="dropoutAction.jsp">회원탈퇴</a></li>
 							</ul>
 					</li>	
 				</ul>	
@@ -91,8 +92,8 @@
 			
 		</div>
 	</nav>
-	<img alt="그림 없음" src="Circle.png">
-	<img src="JJWORLD.png">
+	<img alt="그림 없음" src="1581336829635.png">
+	<img src="하트하트+스티커(윤곽검은색).png">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	
