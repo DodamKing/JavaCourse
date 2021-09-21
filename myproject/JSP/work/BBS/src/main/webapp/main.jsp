@@ -81,6 +81,7 @@
 								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
 						
 								<li><a href="profile.jsp">회원정보</a></li>
+								<li><a href="userUpdate.jsp">정보수정</a></li>
 								<li><a href="logoutAction.jsp">로그아웃</a></li>
 								<li><a href="dropoutAction.jsp">회원탈퇴</a></li>
 							</ul>

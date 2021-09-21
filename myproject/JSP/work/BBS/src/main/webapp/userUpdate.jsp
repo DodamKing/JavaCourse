@@ -1,5 +1,3 @@
-<%@page import="user.User"%>
-<%@page import="user.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,8 +37,8 @@
 						aria-expanded="false">회원관리<span class="caret"></span></a>
 					<!-- 드랍다운 아이템 영역 -->	
 					<ul class="dropdown-menu">
-						<li class="active"><a href="profile.jsp">회원정보</a></li>
-						<li><a href="userUpdate.jsp">정보수정</a></li>
+						<li><a href="profile.jsp">회원정보</a></li>
+						<li class="active"><a href="userUpdate.jsp">정보수정</a></li>
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
 						<li><a href="dropoutAction.jsp">회원탈퇴</a></li>
 					</ul>
@@ -48,43 +46,36 @@
 			</ul>
 		</div>
 	</nav>
-
-<%
-	request.setCharacterEncoding("utf-8");
-	String mid = (String) session.getAttribute("mid");
-	UserDAO dao = new UserDAO();
-	User user = dao.profile(mid);
-	String password = user.getPassword();
-	String name = user.getName();
-	String gender = user.getGender();
-	int age = user.getAge();
-	String address = user.getAddress();
-%>
-
-
-<div class="container">		<!-- 하나의 영역 생성 -->
+	<div class="container">		<!-- 하나의 영역 생성 -->
 		<div class="col-lg-4">	<!-- 영역 크기 -->
 			<!-- 점보트론은 특정 컨텐츠, 정보를 두드러지게 하기 위한 큰 박스 -->
 			<div class="jumbotron" style="padding-top: 20px;">
-				<h3 style="text-align: center;">회원정보</h3>
-					<table border=1 style="width:800px; heigth:200px; align:center">
-					    <tr align="center" bgcolor="#FFFF66">
-					        <th>아이디</th>
-					        <th>비밀번호</th>
-					        <th>이름</th>
-					        <th>성별</th>
-					        <th>나이</th>
-					        <th>주소</th>
-					    </tr>
-					    <tr align="center">
-					        <td><%= mid %></td>
-					        <td><%= password %></td>
-					        <td><%= name %></td>
-					        <td><%= gender %></td>
-					        <td><%= age %></td>
-					        <td><%= address %></td>
-					    </tr>
-					</table>
+				<form method="post" action="userUpdateAction.jsp">
+					<h3 style="text-align: center;">회원정보 수정 화면</h3>
+					<div class="form-group">
+						비밀번호 수정: <input type="password" class="form-control" placeholder="비밀번호" name="password" maxlength="20">
+					</div>
+					<div class="form-group">
+						이름 수정: <input type="text" class="form-control" placeholder="이름" name="name" maxlength="20">
+					</div>
+					<div class="form-group">
+						나이 수정: <input type="number" class="form-control" placeholder="나이" name="age" maxlength="20">
+					</div>
+					<div class="form-group" style="text-align: center;">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary">
+								<input type="radio" name="gender" autocomplete="off" value="남자" checked>남자
+							</label>
+							<label class="btn btn-primary">
+								<input type="radio" name="gender" autocomplete="off" value="여자" checked>여자
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						주소 수정: <input type="text" class="form-control" placeholder="주소" name="address" maxlength="20">
+					</div>
+					<input type="submit" class="btn btn-primary form-control" value="정보수정">
+				</form>
 			</div>
 		</div>	
 	</div>

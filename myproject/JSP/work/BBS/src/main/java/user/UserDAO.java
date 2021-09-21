@@ -46,6 +46,8 @@ public class UserDAO {
 		} catch (Exception e) {
 			System.out.println(sql);
 			e.printStackTrace();
+		} finally {
+			rsClose();
 		}
 		return -2; // 데이터베이스 오류
 	}
@@ -78,6 +80,8 @@ public class UserDAO {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				rsClose();
 			}
 		}
 		return -1; // 아이디 중복
@@ -111,6 +115,43 @@ public class UserDAO {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			rsClose();
 		}
+	}
+	
+	public void userUpdate(User user) {
+		try {
+			PreparedStatement temp = conn.prepareStatement("select * from user where mid=?");
+			temp.setString(1, user.getMid());
+			rs = temp.executeQuery();
+			if (user.getPassword() == null) user.setPassword(rs.getString("password"));
+			if (user.getName() == null) user.setName("name");
+			if (user.getAge() == 0) user.setAge(rs.getInt("age"));
+			if (user.getGender() == null) user.setGender(rs.getString("gender"));
+			if (user.getAddress() == null) user.setAddress(rs.getString("address"));
+			sql = "update user set password=?, name=?, age=?, gender=?, address=? where mid=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user.getPassword());
+			pstmt.setString(2, user.getName());
+			pstmt.setInt(3, user.getAge());
+			pstmt.setString(4, user.getGender());
+			pstmt.setString(5, user.getAddress());
+			pstmt.setString(6, user.getMid());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void rsClose() {
+		try {
+			if (rs != null) {
+				rs.close();
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			}
+		} catch (Exception e) {}
 	}
 }
