@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="bbs.Bbs" %>
+<%@ page import="bbs.BbsDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,34 @@
 			mid = (String) session.getAttribute("mid");
 		} //로그인이 된 회원은 로그인의 정보를 담을수 있도록 설정  
 		
+		if (mid == null) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인이 필요합니다.')");
+			script.println("location.href='login.jsp'");
+			script.println("</script>");
+		}
+		
+		int bbsID = 0;
+		if (request.getParameter("bbsID") != null) {
+			bbsID = Integer.parseInt(request.getParameter("bbsID"));
+		}
+		if (bbsID == 0) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('유효하지 않은 글입니다.')");
+			script.println("location.href='bbs.jsp'");
+			script.println("</script>");
+		}
+		
+		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		if (!mid.equals(bbs.getUserID())) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('권한이 없습니다.')");
+			script.println("location.href='bbs.jsp'");
+			script.println("</script>");
+		}
 	%>
 
 	<audio controls loop controls autoplay>
@@ -43,79 +73,49 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="bbs.jsp">게시판</a></li>
 			</ul>
-			<%
-				if(mid == null) { //로그인이 되어있지 않았을때, 
-			%>
-			
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
-						<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">접속하기<span class="caret"></span></a>
-							<!-- 임시의 주소링크 "#"을 기재한다. -->
-							<!-- caret = creates a caret arrow icon (▼) -->
-					
-						<ul class="dropdown-menu">
-							<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
-					
-							<li><a href="login.jsp">로그인</a></li>
-							<li><a href="join.jsp">회원가입</a></li>
-						</ul>
-					</li>	
-			</ul>
-			
-			<%
-				} 
-				else {	//로그인이 되었을때
-			%>	
-			
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-							<a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">회원관리<span class="caret"></span>
-							</a>
-								<!-- 임시의 주소링크 "#"을 기재한다. -->
-								<!-- caret = creates a caret arrow icon (▼) -->
-						
-							<ul class="dropdown-menu">
-								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
-						
-								<li><a href="profile.jsp">회원정보</a></li>
-								<li><a href="userUpdate.jsp">정보수정</a></li>
-								<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp">로그아웃</a></li>
-								<li><a onclick="return confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp">회원탈퇴</a></li>
-							</ul>
-					</li>	
-				</ul>	
-			<% 
-				}
-			%>
-			
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">회원관리<span class="caret"></span>
+					</a>
+						<!-- 임시의 주소링크 "#"을 기재한다. -->
+						<!-- caret = creates a caret arrow icon (▼) -->
+				
+					<ul class="dropdown-menu">
+						<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
+				
+						<li><a href="profile.jsp">회원정보</a></li>
+						<li><a href="userUpdate.jsp">정보수정</a></li>
+						<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp">로그아웃</a></li>
+						<li><a onclick="return confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp">회원탈퇴</a></li>
+					</ul>
+				</li>	
+			</ul>	
 		</div>
 	</nav>
 	
 	<!-- 게시판 글쓰기 양식 영역 시작 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="writeAction.jsp">
+			<form method="post" action="bbsUpdateAction.jsp?bbsID=<%=bbsID %>">
 				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 					<thead>
 						<tr>
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 화면</th>
+							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글 수정하기 화면</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="제목을 입력하세요" name="bbsTitle" maxlength="50"></td>
+							<td><input type="text" class="form-control" name="bbsTitle" maxlength="50" value="<%=bbs.getBbsTitle()%>"></td>
 						</tr>
 						<tr>
-							<td><textarea class="form-control" placeholder="내용을 입력하세요" name="bbsContent" maxlength="2048" style="height: 400px;"></textarea></td>
+							<td><textarea class="form-control" name="bbsContent" maxlength="2048" style="height: 400px;"><%=bbs.getBbsContent()%>></textarea></td>
 						</tr>
 					</tbody>
 				</table>
-				<!-- 글쓰기 버튼 생성 -->
-				<input type="submit" class="btn btn-primary pull-right" value="등록">
+				<!-- 수정 버튼 생성 -->
+				<input onclick="return confirm('위 내용으로 수정 하시겠습니까?')" type="submit" class="btn btn-primary pull-right" value="수정">
 			</form>
 		</div>
 	</div>

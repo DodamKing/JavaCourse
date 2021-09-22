@@ -98,8 +98,8 @@
 						
 								<li><a href="profile.jsp">회원정보</a></li>
 								<li><a href="userUpdate.jsp">정보수정</a></li>
-								<li><a href="logoutAction.jsp">로그아웃</a></li>
-								<li><a href="dropoutAction.jsp">회원탈퇴</a></li>
+								<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp">로그아웃</a></li>
+								<li><a onclick="return confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp">회원탈퇴</a></li>
 							</ul>
 					</li>	
 				</ul>	
@@ -131,7 +131,7 @@
 						%>
 						<td><%= bbsList.get(i).getBbsID() %></td>
 						<td><a href="view.jsp?bbsID=<%= bbsList.get(i).getBbsID() %>">
-							<%= bbsList.get(i).getBbsTitle() %></a></td>
+							<%= bbsList.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
 						<td><%= userDAO.getName(bbsList.get(i).getUserID()) %></td>
 						<td><%= bbsList.get(i).getBbsDate().substring(0, 11) + bbsList.get(i).getBbsDate().substring(11, 13) + "시" + bbsList.get(i).getBbsDate().substring(14, 16) + "분" %></td>
 					</tr>

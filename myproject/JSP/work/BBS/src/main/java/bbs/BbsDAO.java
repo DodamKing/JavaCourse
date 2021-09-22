@@ -99,4 +99,52 @@ public class BbsDAO {
 		} 
 		return false;
 	}
+	
+	public Bbs getBbs (int bbsID) { // 해당 게시글 조회
+		sql = "select * from bbs where bbsID=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(bbsID);
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				return bbs;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public int update (String bbsTitle, String bbsContent, int bbsID) {
+		sql = "update bbs set bbsTitle = ?, bbsContent = ? where bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public int delete (int bbsID) {
+		sql = "update bbs set bbsAvailable = 0 where bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
 }

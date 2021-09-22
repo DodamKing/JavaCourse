@@ -41,8 +41,8 @@
 					<ul class="dropdown-menu">
 						<li class="active"><a href="profile.jsp">회원정보</a></li>
 						<li><a href="userUpdate.jsp">정보수정</a></li>
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-						<li><a href="dropoutAction.jsp">회원탈퇴</a></li>
+						<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp">로그아웃</a></li>
+						<li><a onclick="return confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp">회원탈퇴</a></li>
 					</ul>
 				</li>
 			</ul>
