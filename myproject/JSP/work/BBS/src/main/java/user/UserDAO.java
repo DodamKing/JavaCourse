@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import bbs.Bbs;
 
 public class UserDAO {
 	
@@ -46,9 +49,7 @@ public class UserDAO {
 		} catch (Exception e) {
 			System.out.println(sql);
 			e.printStackTrace();
-		} finally {
-			rsClose();
-		}
+		} 
 		return -2; // 데이터베이스 오류
 	}
 	
@@ -80,11 +81,9 @@ public class UserDAO {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
-				rsClose();
 			}
+			return -1;
 		}
-		return -1; // 아이디 중복
 	}
 	
 	public User profile(String mid) {
@@ -103,7 +102,7 @@ public class UserDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} 
 		return user;
 	}
 	
@@ -115,9 +114,7 @@ public class UserDAO {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			rsClose();
-		}
+		} 
 	}
 	
 	public void userUpdate(User user) {
@@ -125,11 +122,13 @@ public class UserDAO {
 			PreparedStatement temp = conn.prepareStatement("select * from user where mid=?");
 			temp.setString(1, user.getMid());
 			rs = temp.executeQuery();
-			if (user.getPassword() == null) user.setPassword(rs.getString("password"));
-			if (user.getName() == null) user.setName("name");
-			if (user.getAge() == 0) user.setAge(rs.getInt("age"));
-			if (user.getGender() == null) user.setGender(rs.getString("gender"));
-			if (user.getAddress() == null) user.setAddress(rs.getString("address"));
+			if (rs.next()) {
+				if (user.getPassword() == null) user.setPassword(rs.getString("password"));
+				if (user.getName() == null) user.setName("name");
+				if (user.getAge() == 0) user.setAge(rs.getInt("age"));
+				if (user.getGender() == null) user.setGender(rs.getString("gender"));
+				if (user.getAddress() == null) user.setAddress(rs.getString("address"));
+			}
 			sql = "update user set password=?, name=?, age=?, gender=?, address=? where mid=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getPassword());
@@ -141,17 +140,19 @@ public class UserDAO {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 	
-	private void rsClose() {
+	public String getName(String mid) {
+		sql = "select name from user where mid = ?";
 		try {
-			if (rs != null) {
-				rs.close();
-				if (pstmt != null) {
-					pstmt.close();
-				}
-			}
-		} catch (Exception e) {}
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) return rs.getString(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		return "";
 	}
 }
