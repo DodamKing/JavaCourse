@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>JSP 연습</title>
 <style type="text/css">
 	a, a:hover{
@@ -127,21 +128,27 @@
 							UserDAO userDAO = new UserDAO();
 							BbsDAO bbsDAO = new BbsDAO();
 							ArrayList<Bbs> bbsList = bbsDAO.getBbsList(pageNumber);
+							int cnt = bbsDAO.getCount() - ((pageNumber - 1) * 10);
 							for (int i=0; i<bbsList.size(); i++) {
 						%>
-						<td><%= bbsList.get(i).getBbsID() %></td>
+						<td><%= cnt %></td>
 						<td><a href="view.jsp?bbsID=<%= bbsList.get(i).getBbsID() %>">
 							<%= bbsList.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
-						<td><%= userDAO.getName(bbsList.get(i).getUserID()) %></td>
+						<td><a href="userbbs.jsp?userID=<%= bbsList.get(i).getUserID() %>">
+							<%= userDAO.getName(bbsList.get(i).getUserID()) %></a></td>
+						
 						<td><%= bbsList.get(i).getBbsDate().substring(0, 11) + bbsList.get(i).getBbsDate().substring(11, 13) + "시" + bbsList.get(i).getBbsDate().substring(14, 16) + "분" %></td>
 					</tr>
 					<%
+							cnt--;
 							}
 					%>
 				</tbody>
 			</table>
 			
 			<!-- 페이징 처리 영역 -->
+				<a href="bbs.jsp?pageNumber=<%=1 %>"
+					class="btn btn-success btn-arraw-left">처음</a>
 			<%
 				if (pageNumber != 1) {
 			%>
@@ -155,15 +162,22 @@
 			<%
 				}
 			%>
+				<a href="bbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getCount()/10.0) %>"
+						class="btn btn-success btn-arraw-left">마지막</a>
 			
 			<!-- 글쓰기 버튼 생성 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<%
+			if (mid != null) {
+			%>
+			<a href="mybbs.jsp" class="btn btn-primary pull-right">내글보기</a>
+			<%
+			} 
+			%>
 		</div>
 	</div>
 	<!-- 게시판 메인 페이지 영역 끝 -->
 	
-	<img alt="그림 없음" src="1581336829635.png">
-	<img src="하트하트+스티커(윤곽검은색).png">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>JSP 연습</title>
 </head>
 <body style= "background-color : lightblue;">
@@ -48,19 +49,19 @@
 			
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
-						<a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">접속하기<span class="caret"></span></a>
-							<!-- 임시의 주소링크 "#"을 기재한다. -->
-							<!-- caret = creates a caret arrow icon (▼) -->
-					
-						<ul class="dropdown-menu">
-							<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
-					
-							<li><a href="login.jsp">로그인</a></li>
-							<li><a href="join.jsp">회원가입</a></li>
-						</ul>
-					</li>	
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">접속하기<span class="caret"></span></a>
+						<!-- 임시의 주소링크 "#"을 기재한다. -->
+						<!-- caret = creates a caret arrow icon (▼) -->
+				
+					<ul class="dropdown-menu">
+						<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
+				
+						<li><a href="login.jsp">로그인</a></li>
+						<li><a href="join.jsp">회원가입</a></li>
+					</ul>
+				</li>	
 			</ul>
 			
 			<%
@@ -68,33 +69,70 @@
 				else {	//로그인이 되었을때
 			%>	
 			
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-							<a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">회원관리<span class="caret"></span>
-							</a>
-								<!-- 임시의 주소링크 "#"을 기재한다. -->
-								<!-- caret = creates a caret arrow icon (▼) -->
-						
-							<ul class="dropdown-menu">
-								<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
-						
-								<li><a href="profile.jsp">회원정보</a></li>
-								<li><a href="userUpdate.jsp">정보수정</a></li>
-								<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp" >로그아웃</a></li>
-								<li><a onclick="retrun confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp" >회원탈퇴</a></li>
-							</ul>
-					</li>	
-				</ul>	
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">회원관리<span class="caret"></span>
+					</a>
+						<!-- 임시의 주소링크 "#"을 기재한다. -->
+						<!-- caret = creates a caret arrow icon (▼) -->
+				
+					<ul class="dropdown-menu">
+						<!-- dropdown-menu : 버튼을 눌렀을때, 생성되는 메뉴(접속하기를 눌렀을때 로그인, 회원가입 메뉴 -->
+				
+						<li><a href="profile.jsp">회원정보</a></li>
+						<li><a href="userUpdate.jsp">정보수정</a></li>
+						<li><a onclick="return confirm('정말 로그아웃 하시겠습니까?')" href="logoutAction.jsp" >로그아웃</a></li>
+						<li><a onclick="retrun confirm('정말 탈퇴 하시겠습니까?')" href="dropoutAction.jsp" >회원탈퇴</a></li>
+					</ul>
+				</li>	
+			</ul>	
 			<% 
 				}
 			%>
-			
 		</div>
 	</nav>
-	<img alt="그림 없음" src="1581336829635.png">
-	<img src="하트하트+스티커(윤곽검은색).png">
+	
+	<div class="container"> 
+		<div class="jumbotron">
+			<div class="container">
+				<h1>게시판 프로젝트</h1>
+				<p>웹페이지의 회원관리와 게시판의 게시글 관리로 기본적인 CRUD를 익힙니다.</p>
+				<p>jsp를 이용해봤습니다. was는 tomcat을 사용했습니다.</p>
+				<p>디자인 템플릿으로는 부트스트랩을 이용했습니다.</p>
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li date-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li date-target="#myCarousel" data-slide-to="0" ></li>
+				<li date-target="#myCarousel" data-slide-to="0" ></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img class="img-responsive center-block" src="images/1.png">
+				</div>
+				<div  class="item">
+					<img class="img-responsive center-block" src="images/1.jpg">
+				</div>
+				<div class="item">
+					<img class="img-responsive center-block" src="images/1.jpeg">
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	

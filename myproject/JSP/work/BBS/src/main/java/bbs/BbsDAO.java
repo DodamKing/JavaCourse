@@ -63,11 +63,11 @@ public class BbsDAO {
 	}
 	
 	public ArrayList<Bbs> getBbsList(int pageNumber){
-		sql = "select * from bbs where bbsID < ? and bbsAvailable = 1 order by bbsID desc limit 10";
+		sql = "select * from bbs where bbsAvailable = 1 order by bbsID desc limit ?, 10";
 		ArrayList<Bbs> bbsList = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getEndBbsID() - (pageNumber - 1) * 10);
+			pstmt.setInt(1, (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Bbs bbs = new Bbs();
@@ -85,11 +85,51 @@ public class BbsDAO {
 		return bbsList;
 	}
 	
-	public boolean nextPage(int pageNumber) {
-		sql = "select * from bbs where bbsID < ? and bbsAvailable = 1";
+	public ArrayList<Bbs> getMyBbsList(String userID, int pageNumber){
+		sql = "select * from bbs where userID =? and bbsAvailable = 1 order by bbsID desc limit ?, 10";
+		ArrayList<Bbs> myBbsList = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, getEndBbsID() - (pageNumber - 1) * 10);
+			pstmt.setString(1, userID);
+			pstmt.setInt(2, (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				myBbsList.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
+		return myBbsList;
+	}
+	
+	public boolean nextPage(int pageNumber) {
+		sql = "select * from bbs where bbsAvailable = 1 order by bbsID desc limit ?, 10";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	public boolean myNextPage(String userID, int pageNumber) {
+		sql = "select * from bbs where userID = ? and bbsAvailable = 1 order by bbsID desc limit ?, 10";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userID );
+			pstmt.setInt(2, (pageNumber - 1) * 10);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -146,5 +186,30 @@ public class BbsDAO {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+	
+	public int getCount () { // 삭제되지 않은 게시글 총 개수
+		sql = "select count(*) from bbs where bbsAvailable = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) return rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; // 오류
+	}
+	
+	public int getMyCount (String UserID) { 
+		sql = "select count(*) from bbs where userID = ? and bbsAvailable = 1";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, UserID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) return rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; // 오류
 	}
 }

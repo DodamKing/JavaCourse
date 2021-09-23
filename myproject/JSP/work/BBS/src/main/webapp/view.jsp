@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>JSP 연습</title>
 </head>
 <body style= "background-color : lightblue;">
@@ -142,7 +143,7 @@
 				</tbody>
 			</table>
 			<!-- 목록 버튼 생성 -->
-			<a href="bbs.jsp" class="btn btn-primary">목록</a>
+			<a href="bbs.jsp" class="btn btn-primary pull-right">목록</a>
 			
 			<!-- 수정 삭제 버튼 생성 -->
 			<%
@@ -157,8 +158,6 @@
 	</div>
 	<!-- 게시판 글쓰기 양식 영역 끝 -->
 	
-	<img alt="그림 없음" src="1581336829635.png"> 
-	<img src="하트하트+스티커(윤곽검은색).png">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	

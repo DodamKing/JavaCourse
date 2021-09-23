@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="user.UserDAO" %>
+<%@ page import="bbs.BbsDAO" %>
+<%@ page import="bbs.Bbs" %>
+<%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +13,12 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
 <title>JSP 연습</title>
+<style type="text/css">
+	a, a:hover{
+		color: #000000;
+		text-decoration: none;
+	}
+</style>
 </head>
 <body style= "background-color : lightblue;">
 	<%
@@ -16,6 +26,16 @@
 		if(session.getAttribute("mid") != null) {
 			mid = (String) session.getAttribute("mid");
 		} //로그인이 된 회원은 로그인의 정보를 담을수 있도록 설정  
+		
+		int pageNumber = 1; // 첫페이지 번호 1
+		if (request.getParameter("pageNumber") != null) {
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		} // 오브젝트 타입의 파라미터로 넘어온 게 존재하면 int로 형 변환 해서 세팅 
+
+		String userID = null; 
+		if (request.getParameter("userID") != null) {
+			userID = (String) request.getParameter("userID");
+		} 
 		
 	%>
 
@@ -96,32 +116,64 @@
 		</div>
 	</nav>
 	
-	<!-- 게시판 글쓰기 양식 영역 시작 -->
 	<div class="container">
 		<div class="row">
-			<form method="post" action="writeAction.jsp">
-				<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-					<thead>
-						<tr>
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 화면</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="text" class="form-control" placeholder="제목을 입력하세요" name="bbsTitle" maxlength="50"></td>
-						</tr>
-						<tr>
-							<td><textarea class="form-control" placeholder="내용을 입력하세요" name="bbsContent" maxlength="2048" style="height: 400px;"></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- 글쓰기 버튼 생성 -->
-				<a onclick="return confirm('작성하던 게시글은 저장 되지 않습니다.\n정말 이동하시겠습니까?')" href="bbs.jsp" class="btn btn-primary">목록</a>
-				<input type="submit" class="btn btn-primary pull-right" value="등록">
-			</form>
+			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+				<thead>
+					<tr>
+						<th style="background-color: #eeeeee; text-align: center;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center;">제목</th>
+						<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+						<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<%
+							UserDAO userDAO = new UserDAO();
+							BbsDAO bbsDAO = new BbsDAO();
+							ArrayList<Bbs> MyBbsList = bbsDAO.getMyBbsList(userID, pageNumber);
+							int cnt = bbsDAO.getMyCount(userID) - ((pageNumber - 1) * 10);
+							for (int i=0; i<MyBbsList.size(); i++) {
+						%>
+						<td><%= cnt %></td>
+						<td><a href="view.jsp?bbsID=<%= MyBbsList.get(i).getBbsID() %>">
+							<%= MyBbsList.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
+						<td><%= userDAO.getName(MyBbsList.get(i).getUserID()) %></td>
+						<td><%= MyBbsList.get(i).getBbsDate().substring(0, 11) + MyBbsList.get(i).getBbsDate().substring(11, 13) + "시" + MyBbsList.get(i).getBbsDate().substring(14, 16) + "분" %></td>
+					</tr>
+					<%
+							cnt--;
+							}
+					%>
+				</tbody>
+			</table>
+			
+			<!-- 페이징 처리 영역 -->
+				<a href="userbbs.jsp?pageNumber=<%=1 %>&userID=<%=userID %>"
+					class="btn btn-success btn-arraw-left">처음</a>
+			<%
+				if (pageNumber != 1) {
+			%>
+				<a href="userbbs.jsp?pageNumber=<%=pageNumber - 1 %>&userID=<%=userID %>"
+					class="btn btn-success btn-arraw-left">이전</a>
+			<%
+				} if (bbsDAO.myNextPage(userID, pageNumber + 1)) {
+			%>
+				<a href="userbbs.jsp?pageNumber=<%=pageNumber + 1 %>&userID=<%=userID %>"
+					class="btn btn-success btn-arraw-left">다음</a>
+			<%
+				}
+			%>
+				<a href="userbbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getMyCount(userID)/10.0) %>&userID=<%=userID %>"
+						class="btn btn-success btn-arraw-left">마지막</a>
+			
+			<!-- 글쓰기 버튼 생성 -->
+			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<a href="bbs.jsp" class="btn btn-primary pull-right">목록</a>
 		</div>
 	</div>
-	<!-- 게시판 글쓰기 양식 영역 끝 -->
+	<!-- 게시판 메인 페이지 영역 끝 -->
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
