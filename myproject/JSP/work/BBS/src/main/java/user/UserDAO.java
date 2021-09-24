@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
-import bbs.Bbs;
 
 public class UserDAO {
 	
@@ -155,4 +152,9 @@ public class UserDAO {
 		} 
 		return "";
 	}
+	
+//	public String search (String searchKey, String searchText) {
+//		sql = "select * from user where name like %?%";
+//		
+//	}
 }

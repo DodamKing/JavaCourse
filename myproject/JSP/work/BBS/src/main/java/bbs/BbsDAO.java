@@ -212,4 +212,57 @@ public class BbsDAO {
 		}
 		return -1; // 오류
 	}
+	
+	public int getSrchCount (String srchKey, String srchText) { 
+		sql = "select count(*) from bbs where bbsAvailable = 1 and " + srchKey + " like ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + srchText + "%");
+			rs = pstmt.executeQuery();
+			if (rs.next()) return rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; // 오류
+	}
+	
+	public ArrayList<Bbs> getSrchList (String srchKey, String srchText, int pageNumber) {
+		ArrayList<Bbs> searchList = new ArrayList<Bbs>();
+		sql = "select * from bbs where bbsAvailable = 1 and " + srchKey + " like ? order by bbsID desc limit ?, 10";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + srchText + "%");
+			pstmt.setInt(2, (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				searchList.add(bbs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return searchList;
+	}
+	
+	public boolean srchNextPage(String srchKey, String srchText, int pageNumber) {
+		sql = "select * from bbs where bbsAvailable = 1 and " + srchKey + " like ? order by bbsID desc limit ?, 10";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + srchText + "%");
+			pstmt.setInt(2, (pageNumber - 1) * 10);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
 }

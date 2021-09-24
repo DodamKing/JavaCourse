@@ -21,7 +21,9 @@
 </style>
 </head>
 <body style= "background-color : lightblue;">
-	<%
+	<%	
+		request.setCharacterEncoding("utf-8");
+	
 		String mid = null;
 		if(session.getAttribute("mid") != null) {
 			mid = (String) session.getAttribute("mid");
@@ -30,7 +32,21 @@
 		int pageNumber = 1; // 첫페이지 번호 1
 		if (request.getParameter("pageNumber") != null) {
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+			//System.out.println(pageNumber);
+			
 		} // 오브젝트 타입의 파라미터로 넘어온 게 존재하면 int로 형 변환 해서 세팅 
+		
+		String srchKey = null;
+		if (request.getParameter("srchKey") != null) {
+			srchKey = java.net.URLDecoder.decode(request.getParameter("srchKey"), "utf-8"); //디코딩해서 받기
+			//System.out.println(srchKey);
+		}
+		
+		String srchText = null;	
+		if (request.getParameter("srchText") != null) {
+			srchText = java.net.URLDecoder.decode(request.getParameter("srchText"), "utf-8") ;
+			//System.out.println(srchText);
+		}
 		
 	%>
 
@@ -111,38 +127,20 @@
 		</div>
 	</nav>
 	
-	<!--
-	
-	<form id="searchForm" method="post" class="pull-right" action="searchbbs.jsp">
-		<span>
-			<select class="selectpicker" name="srchKey" id="srchKey" title="조건을 선택하세요" onchange="selectBoxChange(this.value);">
-				<option class="dropdown-toggle" value="">선택</option>
-				<option value="bbsTitle">제목</option>
-				<option value="bbsContent">내용</option>
-			<option value="name">작성자</option> 
-			</select>
-		</span>
-		<input class="from-control" type="text" name="srchText" id="srchText" title="검색어를 입력하세요" maxlength="50" value="${param.srchText}">
-		<input type="submit" id="btnSearch" name="btnSearch" class="btn btn-primary" value = " 검색">
-	</form> 
-		
-	-->
-
 	<div>
 		<form method="post" class="pull-right" action="srchbbs.jsp">
 			<fieldset>
-				<label>검색분류</label>
-					<select name = "srchKey">
-						<option ${(param.srchKey == "bbsTitle")? "selected" : ""} value = "bbsTitle">제목</option>
-						<option ${(param.srchKey == "bbsContent")? "selected" : ""} value = "bbsContent">내용</option>
-					</select>
-				<label>검색어</label>
-					<input type = "text" name = "srchText" value = "${param.srchText}"/>
-					<input type = "submit" class="btn btn-primary" value = "검색">                
-			</fieldset>        
+                   <label>검색분류</label>
+                       <select name = "srchKey">
+                           <option ${(param.srchKey == "bbsTitle")? "selected" : ""} value = "bbsTitle">제목</option>
+                           <option ${(param.srchKey == "bbsContent")? "selected" : ""} value = "bbsContent">내용</option>
+                       </select>
+                   <label>검색어</label>
+                       <input type = "text" name = "srchText" value = "${param.srchText}"/>
+                       <input type = "submit" class="btn btn-primary" value = "검색">                
+               </fieldset>        
 		</form>	
 	</div>	
-	
 	
 	<div class="container">
 		<div class="row">
@@ -160,17 +158,17 @@
 						<%
 							UserDAO userDAO = new UserDAO();
 							BbsDAO bbsDAO = new BbsDAO();
-							ArrayList<Bbs> bbsList = bbsDAO.getBbsList(pageNumber);
-							int cnt = bbsDAO.getCount() - ((pageNumber - 1) * 10);
-							for (int i=0; i<bbsList.size(); i++) {
+							ArrayList<Bbs> searchList = bbsDAO.getSrchList(srchKey, srchText, pageNumber);
+							int cnt = bbsDAO.getSrchCount(srchKey, srchText) - ((pageNumber - 1) * 10);
+							for (int i=0; i<searchList.size(); i++) {
 						%>
 						<td><%= cnt %></td>
-						<td><a href="view.jsp?bbsID=<%= bbsList.get(i).getBbsID() %>">
-							<%= bbsList.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
-						<td><a href="userbbs.jsp?userID=<%= bbsList.get(i).getUserID() %>">
-							<%= userDAO.getName(bbsList.get(i).getUserID()) %></a></td>
+						<td><a href="view.jsp?bbsID=<%= searchList.get(i).getBbsID() %>">
+							<%= searchList.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></a></td>
+						<td><a href="userbbs.jsp?userID=<%= searchList.get(i).getUserID() %>">
+							<%= userDAO.getName(searchList.get(i).getUserID()) %></a></td>
 						
-						<td><%= bbsList.get(i).getBbsDate().substring(0, 11) + bbsList.get(i).getBbsDate().substring(11, 13) + "시" + bbsList.get(i).getBbsDate().substring(14, 16) + "분" %></td>
+						<td><%= searchList.get(i).getBbsDate().substring(0, 11) + searchList.get(i).getBbsDate().substring(11, 13) + "시" + searchList.get(i).getBbsDate().substring(14, 16) + "분" %></td>
 					</tr>
 					<%
 							cnt--;
@@ -180,22 +178,22 @@
 			</table>
 			
 			<!-- 페이징 처리 영역 -->
-				<a href="bbs.jsp?pageNumber=<%=1 %>"
+				<a href="srchbbs.jsp?pageNumber=<%=1 %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
 					class="btn btn-success btn-arraw-left">처음</a>
 			<%
 				if (pageNumber != 1) {
 			%>
-				<a href="bbs.jsp?pageNumber=<%=pageNumber - 1 %>"
+				<a href="srchbbs.jsp?pageNumber=<%=pageNumber - 1 %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
 					class="btn btn-success btn-arraw-left">이전</a>
 			<%
-				} if (bbsDAO.nextPage(pageNumber + 1)) {
+				} if (bbsDAO.srchNextPage(srchKey, srchText, pageNumber + 1)) {
 			%>
-				<a href="bbs.jsp?pageNumber=<%=pageNumber + 1 %>"
+				<a href="srchbbs.jsp?pageNumber=<%=pageNumber + 1 %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
 					class="btn btn-success btn-arraw-left">다음</a>
 			<%
 				}
 			%>
-				<a href="bbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getCount()/10.0) %>"
+				<a href="srchbbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getSrchCount(srchKey, srchText)/10.0) %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
 						class="btn btn-success btn-arraw-left">마지막</a>
 			
 			<!-- 글쓰기 버튼 생성 -->
