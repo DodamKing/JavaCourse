@@ -3,6 +3,7 @@ package t04_hwk;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
@@ -206,5 +207,13 @@ public class Hwk_DBConnector2 {
 			rsClose();
 		}
 		return false;
+	}
+
+	public void dbClose() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

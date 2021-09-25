@@ -57,7 +57,7 @@ public class Hwk_DBConnectorRun2 {
 				dbConnector.update(mid, password);
 			}
 			if (input.equals("5")) {
-				System.out.print("자료를 수정합니다. 아이디를 입력하세요: ");
+				System.out.print("자료를 삭제합니다. 아이디를 입력하세요: ");
 				mid = scanner.next();
 				System.out.print("비밀번호를 입력하세요: ");
 				password = scanner.next();
@@ -67,6 +67,7 @@ public class Hwk_DBConnectorRun2 {
 		}
 		
 		System.out.println("프로그램을 종료합니다.");
+		dbConnector.dbClose();
 		scanner.close();
 		
 	}
