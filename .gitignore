@@ -11,3 +11,5 @@ java/works/.metadata/
 *.class
 
 *.project
+
+portable_settings.txt
