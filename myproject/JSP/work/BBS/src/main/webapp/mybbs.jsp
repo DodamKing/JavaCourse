@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
@@ -144,6 +144,13 @@
 			</table>
 			
 			<!-- 페이징 처리 영역 -->
+			<%
+				int lastPage = 1;
+				if (bbsDAO.getMyCount(mid) > 0) {
+					lastPage = (int) Math.ceil(bbsDAO.getMyCount(mid)/10.0);
+				}
+			%>
+			
 				<a href="mybbs.jsp?pageNumber=<%=1 %>"
 					class="btn btn-success btn-arraw-left">처음</a>
 			<%
@@ -159,7 +166,7 @@
 			<%
 				}
 			%>
-				<a href="mybbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getMyCount(mid)/10.0) %>"
+				<a href="mybbs.jsp?pageNumber=<%=lastPage %>"
 						class="btn btn-success btn-arraw-left">마지막</a>
 			
 			<!-- 글쓰기 버튼 생성 -->

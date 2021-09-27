@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="user.UserDAO" %>
 <%@ page import="bbs.BbsDAO" %>
@@ -8,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/thml; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom.css">
@@ -31,14 +32,18 @@
 		
 		int pageNumber = 1; // 첫페이지 번호 1
 		if (request.getParameter("pageNumber") != null) {
-			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-			//System.out.println(pageNumber);
-			
+			if (Integer.parseInt(request.getParameter("pageNumber")) <= 0) {
+				pageNumber = 1;				
+			}
+			else {
+				pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+				//System.out.println(pageNumber);
+			}
 		} // 오브젝트 타입의 파라미터로 넘어온 게 존재하면 int로 형 변환 해서 세팅 
 		
 		String srchKey = null;
 		if (request.getParameter("srchKey") != null) {
-			srchKey = java.net.URLDecoder.decode(request.getParameter("srchKey"), "utf-8"); //디코딩해서 받기
+			srchKey = java.net.URLDecoder.decode(request.getParameter("srchKey"), "utf-8"); //디코딩해서 받기 시도 해봤으나 디코딩 해서 받아도 같은 현상 발생 그냥 디코딩 안하고 해도 됨
 			//System.out.println(srchKey);
 		}
 		
@@ -159,6 +164,7 @@
 							UserDAO userDAO = new UserDAO();
 							BbsDAO bbsDAO = new BbsDAO();
 							ArrayList<Bbs> searchList = bbsDAO.getSrchList(srchKey, srchText, pageNumber);
+							//System.out.println(searchList);
 							int cnt = bbsDAO.getSrchCount(srchKey, srchText) - ((pageNumber - 1) * 10);
 							for (int i=0; i<searchList.size(); i++) {
 						%>
@@ -178,6 +184,13 @@
 			</table>
 			
 			<!-- 페이징 처리 영역 -->
+			<%
+				int lastPage = 1;
+				if (bbsDAO.getSrchCount(srchKey, srchText) > 0) {
+					lastPage = (int) Math.ceil(bbsDAO.getSrchCount(srchKey, srchText)/10.0);
+				}
+			%>
+			
 				<a href="srchbbs.jsp?pageNumber=<%=1 %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
 					class="btn btn-success btn-arraw-left">처음</a>
 			<%
@@ -193,8 +206,8 @@
 			<%
 				}
 			%>
-				<a href="srchbbs.jsp?pageNumber=<%=(int) Math.ceil(bbsDAO.getSrchCount(srchKey, srchText)/10.0) %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
-						class="btn btn-success btn-arraw-left">마지막</a>
+				<a href="srchbbs.jsp?pageNumber=<%=lastPage %>&srchKey=<%=srchKey %>&srchText=<%=srchText %>"
+					class="btn btn-success btn-arraw-left">마지막</a>
 			
 			<!-- 글쓰기 버튼 생성 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>

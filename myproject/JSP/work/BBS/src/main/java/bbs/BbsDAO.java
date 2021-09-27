@@ -197,7 +197,7 @@ public class BbsDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1; // 오류
+		return -1; // 없음
 	}
 	
 	public int getMyCount (String UserID) { 
@@ -210,7 +210,7 @@ public class BbsDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1; // 오류
+		return -1; // 없음
 	}
 	
 	public int getSrchCount (String srchKey, String srchText) { 
@@ -223,7 +223,7 @@ public class BbsDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return -1; // 오류
+		return -1; // 없음
 	}
 	
 	public ArrayList<Bbs> getSrchList (String srchKey, String srchText, int pageNumber) {
