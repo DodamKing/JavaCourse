@@ -59,7 +59,7 @@ public class HoewonMain extends JFrame {
 		contentPane.add(btnExit);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("D:\\JavaCourse\\Java\\works\\0928_WindowBuilder\\images\\1.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("images/2.png"));
 		lblNewLabel_1.setBounds(22, 79, 686, 293);
 		contentPane.add(lblNewLabel_1);
 		
