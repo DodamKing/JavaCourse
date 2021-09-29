@@ -163,11 +163,11 @@ public class MainView extends JFrame {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "로그인에 성공 하였습니다.", "로그인 성공", JOptionPane.INFORMATION_MESSAGE);
-				CustomerVO vo = dao.setCustomer(idTxt.getText());
+				CustomerVO customerVO = dao.setCustomer(idTxt.getText());
 				idTxt.setText("");
 				pwdTxt.setText("");
-				new TicketingView(vo);
 				dispose();
+				new TicketingView(customerVO);
 			}
 		}
 	}
