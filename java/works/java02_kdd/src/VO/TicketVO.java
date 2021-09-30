@@ -5,12 +5,25 @@ public class TicketVO {
 	private String customerID; // 고객아이디
 	private String theatherNm; // 영화관이름
 	private String movieNm; // 영화이름
-	private String day; // 예매 날짜
-	private String time; // 예매 시간
+	private String day; // 예매 날짜(영화볼 날)
+	private String time; // 예매 시간(영화볼 시간)
 	private String reserveDate; // 예매한 당시 날짜
 	private String cost; // 가격
 	private String person; // 총인원
+	private int visible;
 	
+	@Override
+	public String toString() {
+		return "TicketVO [customerNm=" + customerNm + ", customerID=" + customerID + ", theatherNm=" + theatherNm
+				+ ", movieNm=" + movieNm + ", day=" + day + ", time=" + time + ", reserveDate=" + reserveDate
+				+ ", cost=" + cost + ", person=" + person + ", visible=" + visible + "]";
+	}
+	public int getVisible() {
+		return visible;
+	}
+	public void setVisible(int visible) {
+		this.visible = visible;
+	}
 	public String getCustomerNm() {
 		return customerNm;
 	}

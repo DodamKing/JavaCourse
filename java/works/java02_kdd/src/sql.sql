@@ -1,0 +1,1 @@
+select * from ticket where customerID = 'iu1234' and visible = 1 order by reserveDate desc

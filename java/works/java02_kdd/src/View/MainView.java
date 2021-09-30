@@ -37,7 +37,7 @@ public class MainView extends JFrame {
 		setSize(700, 400);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setLayout(null);
+		getContentPane().setLayout(null);
 		
 		Font font = new Font("휴먼엑스포", 0, 13);
 		
@@ -50,7 +50,7 @@ public class MainView extends JFrame {
 		iconLbl.setIcon(icon);
 		
 		titleLbl = new JLabel("DD CINEMA");
-		titleLbl.setFont(new Font("휴먼엑스포", 1, 80));
+		titleLbl.setFont(new Font("휴먼엑스포", Font.BOLD, 70));
 		
 		idTxt = new JTextField();		
 		pwdTxt = new JPasswordField();
@@ -67,7 +67,7 @@ public class MainView extends JFrame {
 		exitBtn.setFont(font);
 		
 		iconLbl.setBounds(30, 0, 200, 200);
-		titleLbl.setBounds(200, 50, 500, 100);
+		titleLbl.setBounds(200, 50, 541, 100);
 		idTxt.setBounds(50, 200, 400, 30);
 		pwdTxt.setBounds(50, 240, 400, 30);
 		loginBtn.setBounds(480, 200, 150, 70);
@@ -76,15 +76,15 @@ public class MainView extends JFrame {
 		findPwdBtn.setBounds(340, 300, 120, 30);
 		exitBtn.setBounds(460, 300, 120, 30);
 		
-		add(iconLbl);
-		add(titleLbl);
-		add(idTxt);
-		add(pwdTxt);
-		add(loginBtn);
-		add(registerBtn);
-		add(findIdBtn);
-		add(findPwdBtn);
-		add(exitBtn);
+		getContentPane().add(iconLbl);
+		getContentPane().add(titleLbl);
+		getContentPane().add(idTxt);
+		getContentPane().add(pwdTxt);
+		getContentPane().add(loginBtn);
+		getContentPane().add(registerBtn);
+		getContentPane().add(findIdBtn);
+		getContentPane().add(findPwdBtn);
+		getContentPane().add(exitBtn);
 		
 		
 		setVisible(true);
@@ -163,11 +163,11 @@ public class MainView extends JFrame {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "로그인에 성공 하였습니다.", "로그인 성공", JOptionPane.INFORMATION_MESSAGE);
-				CustomerVO customerVO = dao.setCustomer(idTxt.getText());
+				String mid = idTxt.getText();
 				idTxt.setText("");
 				pwdTxt.setText("");
 				dispose();
-				new TicketingView(customerVO);
+				new TicketingView(mid);
 			}
 		}
 	}
