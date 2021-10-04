@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.time.LocalDateTime;
-import java.util.Calendar;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
@@ -525,7 +524,6 @@ public class TicketingView extends JFrame {
 						JOptionPane.showMessageDialog(null, "데이터 베이스 오류");
 					}
 					else {
-						TicketVO vo = new TicketVO(); 
 						new TicketConfirmView(mid, ticketDAO.getLastIdt(mid));
 						dispose();
 					}
