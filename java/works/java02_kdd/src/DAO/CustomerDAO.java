@@ -85,4 +85,19 @@ public class CustomerDAO {
 		}
 		return null;
 	}
+	
+	public String getName(String mid) {
+		sql = "select name from customer where customerID = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

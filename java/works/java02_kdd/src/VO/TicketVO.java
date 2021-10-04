@@ -1,6 +1,8 @@
 package VO;
 
 public class TicketVO {
+	private int idt;
+	
 	private String customerNm; // 고객이름
 	private String customerID; // 고객아이디
 	private String theatherNm; // 영화관이름
@@ -17,6 +19,13 @@ public class TicketVO {
 		return "TicketVO [customerNm=" + customerNm + ", customerID=" + customerID + ", theatherNm=" + theatherNm
 				+ ", movieNm=" + movieNm + ", day=" + day + ", time=" + time + ", reserveDate=" + reserveDate
 				+ ", cost=" + cost + ", person=" + person + ", visible=" + visible + "]";
+	}
+	
+	public int getIdt() {
+		return idt;
+	}
+	public void setIdt(int idt) {
+		this.idt = idt;
 	}
 	public int getVisible() {
 		return visible;

@@ -20,6 +20,7 @@ import DAO.CustomerDAO;
 import VO.CustomerVO;
 
 public class MainView extends JFrame {
+	private String mid;
 	private JTextField idTxt;
 	private JPasswordField pwdTxt;
 	private JButton loginBtn, registerBtn, findIdBtn, findPwdBtn, exitBtn;
@@ -117,7 +118,9 @@ public class MainView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				if (JOptionPane.showConfirmDialog(null, "정말 종료 하시겠습니까?", "imformation", JOptionPane.OK_CANCEL_OPTION) == 0) {
+					System.exit(0);
+				}
 			}
 		});
 		
@@ -163,9 +166,7 @@ public class MainView extends JFrame {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "로그인에 성공 하였습니다.", "로그인 성공", JOptionPane.INFORMATION_MESSAGE);
-				String mid = idTxt.getText();
-				idTxt.setText("");
-				pwdTxt.setText("");
+				mid = idTxt.getText();
 				dispose();
 				new TicketingView(mid);
 			}

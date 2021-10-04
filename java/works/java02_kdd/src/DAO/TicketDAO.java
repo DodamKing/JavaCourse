@@ -1,11 +1,13 @@
 package DAO;
 
+import java.awt.GraphicsConfiguration;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import VO.TicketVO;
 
@@ -15,8 +17,6 @@ public class TicketDAO {
 	private ResultSet rs;
 	
 	private String sql;
-	TicketVO vo = new TicketVO();
-	ArrayList<TicketVO> vos = new ArrayList<TicketVO>();
 	
 	public TicketDAO() {
 		String url = "jdbc:mysql://localhost:3306/cinema";
@@ -32,8 +32,8 @@ public class TicketDAO {
 		}
 	}
 	
-	public void ticketingSave(TicketVO vo) {
-		sql = "insert into ticket values (?, ?, ?, ?, ?, ?, ?, ?, ?, default)";
+	public int ticketingSave(TicketVO vo) {
+		sql = "insert into ticket values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getCustomerNm());
@@ -45,17 +45,18 @@ public class TicketDAO {
 			pstmt.setString(7, vo.getReserveDate());
 			pstmt.setString(8, vo.getCost());
 			pstmt.setString(9, vo.getPerson());
-			pstmt.executeUpdate();
+			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return -1;
 	}
 	
-	public String getName(String mid) {
-		sql = "select customerNm from ticket where customerID = ?";
+	public String getName(int idt) {
+		sql = "select customerNm from ticket where idt = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mid);
+			pstmt.setInt(1, idt);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getString(1);
@@ -66,11 +67,11 @@ public class TicketDAO {
 		return null;
 	}
 	
-	public int countTicket(String customerID) {
+	public int countTicket(String mid) {
 		sql = "select count(*) from ticket where customerID = ? and visible = 1";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, customerID);
+			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
@@ -81,31 +82,122 @@ public class TicketDAO {
 		return -1; 
 	}
 	
-	public ArrayList<TicketVO> show(String customerID){
-		sql = "select * from ticket where customerID = ? and visible = 1 order by reserveDate desc";
+	public ArrayList<TicketVO> show(String mid){
+		ArrayList<TicketVO> vos = new ArrayList<TicketVO>();
+		sql = "select * from ticket where customerID = ? and visible = 1 order by idt desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, customerID);
+			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				TicketVO vo = new TicketVO();
-				vo.setCustomerNm(rs.getString(1));
-				vo.setCustomerID(rs.getString(2));
-				vo.setTheatherNm(rs.getString(3));
-				vo.setMovieNm(rs.getString(4));
-				vo.setDay(rs.getString(5));
-				vo.setTime(rs.getString(6));
-				vo.setReserveDate(rs.getString(7));
-				vo.setCost(rs.getString(8));
-				vo.setPerson(rs.getString(9));
-				vo.setVisible(rs.getInt(10));
+				vo.setIdt(rs.getInt(1));
+				vo.setCustomerNm(rs.getString(2));
+				vo.setCustomerID(rs.getString(3));
+				vo.setTheatherNm(rs.getString(4));
+				vo.setMovieNm(rs.getString(5));
+				vo.setDay(rs.getString(6));
+				vo.setTime(rs.getString(7));
+				vo.setReserveDate(rs.getString(8));
+				vo.setCost(rs.getString(9));
+				vo.setPerson(rs.getString(10));
+				vo.setVisible(rs.getInt(11));
 				vos.add(vo);
-				System.out.println(vo);
 			}
-			System.out.println(vos);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return vos;
 	}
+	
+//	public Vector<TicketVO> getTickets(String mid){
+//		Vector<TicketVO> vos = new Vector<TicketVO>();
+//		sql = "select * from ticket where customerID = ? and visible = 1 order by reserveDate desc";
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, mid);
+//			rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				TicketVO vo = new TicketVO();
+//				vo.setCustomerNm(rs.getString(2));
+//				vo.setCustomerID(rs.getString(3));
+//				vo.setTheatherNm(rs.getString(4));
+//				vo.setMovieNm(rs.getString(5));
+//				vo.setDay(rs.getString(6));
+//				vo.setTime(rs.getString(7));
+//				vo.setReserveDate(rs.getString(8));
+//				vo.setCost(rs.getString(9));
+//				vo.setPerson(rs.getString(10));
+//				vo.setVisible(rs.getInt(11));
+//				vos.add(vo);
+//				System.out.println(vo);
+//			}
+//			System.out.println(vos);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return vos;
+//	}
+	
+	public String getMovieNm(int idt) {
+		sql = "select movieNm from ticket where idt = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idt);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public int delTicket(int idt) {
+		sql = "update ticket set visible = 0 where idt = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idt);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; // 뭔가 잘못
+	}
+
+	public int ticketingUpdate(TicketVO vo) {
+		sql = "update ticket set theatherNm = ?, movieNm = ?, day = ?, time =?, cost = ?, person = ? where idt = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getTheatherNm());
+			pstmt.setString(2, vo.getMovieNm());
+			pstmt.setString(3, vo.getDay());
+			pstmt.setString(4, vo.getTime());
+			pstmt.setString(5, vo.getCost());
+			pstmt.setString(6, vo.getPerson());
+			pstmt.setInt(7, vo.getIdt());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; //잘못 됬지롱
+	}
+
+	public int getLastIdt(String mid) {
+		sql = "select idt from ticket where customerID = ? order by idt desc";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+			return 0; // 없음
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1; // 오류
+	}
+	
 }

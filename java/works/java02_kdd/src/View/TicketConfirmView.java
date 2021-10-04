@@ -7,22 +7,26 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import DAO.TicketDAO;
 import VO.CustomerVO;
 import VO.TicketVO;
+import javax.swing.SwingConstants;
 
 public class TicketConfirmView extends JFrame {
-	String mid;
+	String mid; 
+	int idt;
 	JLabel titleLbl1, titleLbl2;
 	JButton confirmBtn, cancelBtn, moreBtn;
 	CustomerVO customerVO = new CustomerVO();
 	TicketVO ticketVO = new TicketVO();
 	TicketDAO ticketDAO = new TicketDAO();
 	
-	public TicketConfirmView(String mid) {
+	public TicketConfirmView(String mid, int idt) {
 		super("예매 완료");
 		this.mid = mid;
+		this.idt = idt;
 		build();
 	}
 
@@ -30,31 +34,38 @@ public class TicketConfirmView extends JFrame {
 		setSize(1000, 500);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setLayout(null);
+		getContentPane().setLayout(null);
 		Font font = new Font("휴먼엑스포", 0, 13);
 		
-		titleLbl1 = new JLabel(ticketDAO.getName(mid) + "고객님 감사합니다.", JLabel.CENTER);
+		titleLbl1 = new JLabel(ticketDAO.getName(idt) + "님 감사합니다.", JLabel.CENTER);
 		titleLbl1.setFont(new Font("휴먼엑스포", 1, 30));
-//		titleLbl2 = new JLabel("예매가 성공적으로 이루어 졌습니다.", JLabel.CENTER);
-//		titleLbl2.setFont(new Font("휴먼엑스포", 1, 30));
 		confirmBtn = new JButton("예매확인");
-		confirmBtn.setFont(new Font("휴먼엑스포", 1, 25));
+		confirmBtn.setFont(new Font("Dialog", Font.BOLD, 23));
 		moreBtn = new JButton("예매더하기");
-		moreBtn.setFont(new Font("휴먼엑스포", 1, 25));
+		moreBtn.setFont(new Font("Dialog", Font.BOLD, 23));
 		cancelBtn = new JButton("종료");
-		cancelBtn.setFont(new Font("휴먼엑스포", 1, 25));
+		cancelBtn.setFont(new Font("Dialog", Font.BOLD, 23));
 		
-		titleLbl1.setBounds(110, 10, 800, 100);
-//		titleLbl2.setBounds(80, 110, 800, 100);
+		titleLbl1.setBounds(100, 10, 800, 58);
 		confirmBtn.setBounds(100, 220, 200, 200);
 		moreBtn.setBounds(400, 220, 200, 200);
 		cancelBtn.setBounds(700, 220, 200, 200);
 		
-		add(titleLbl1);
+		getContentPane().add(titleLbl1);
 //		add(titleLbl2);
-		add(confirmBtn);
-		add(cancelBtn);
-		add(moreBtn);
+		getContentPane().add(confirmBtn);
+		getContentPane().add(cancelBtn);
+		getContentPane().add(moreBtn);
+		
+		JLabel titleLbl1_1 = new JLabel(ticketDAO.getMovieNm(idt), SwingConstants.CENTER);
+		titleLbl1_1.setFont(new Font("Dialog", Font.BOLD, 30));
+		titleLbl1_1.setBounds(100, 78, 800, 58);
+		getContentPane().add(titleLbl1_1);
+		
+		JLabel titleLbl1_2 = new JLabel("예매가 정상적으로 이루어 졌습니다.", SwingConstants.CENTER);
+		titleLbl1_2.setFont(new Font("Dialog", Font.BOLD, 30));
+		titleLbl1_2.setBounds(100, 146, 800, 58);
+		getContentPane().add(titleLbl1_2);
 		
 		setVisible(true);
 		
@@ -62,7 +73,8 @@ public class TicketConfirmView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new HistoryFrame(mid);
+				new HistoryView(mid);
+				dispose();
 			}
 		});
 		
@@ -70,7 +82,9 @@ public class TicketConfirmView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				if (JOptionPane.showConfirmDialog(null, "정말 종료 하시겠습니까?", "imformation", JOptionPane.OK_CANCEL_OPTION) == 0) {
+					System.exit(0);
+				}
 			}
 		});
 		

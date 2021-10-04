@@ -28,7 +28,7 @@ import VO.CustomerVO;
 import VO.TicketVO;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 
-public class TicketingView extends JFrame {
+public class TicketChangingView extends JFrame {
 	private String customerNm, customerID, theatherNm, movieNm, day, time, reserveDate, imgSlt, imgUrl;
 	int aPerson, yPerson, person = 0, cost = 0;
 	private JLabel customerNmLbl, movieSltLbl, theaterSltLbl, dateSltLbl, timeSltLbl, personSltLbl, adultLbl, youthLbl;
@@ -48,9 +48,11 @@ public class TicketingView extends JFrame {
 	private JButton confirmBtn;
 	
 	
-	public TicketingView(String mid) {
+	
+	public TicketChangingView(TicketVO vo) {
 		super("티켓 예매");
-		this.mid = mid;
+		ticketVO = vo;
+		mid = ticketVO.getCustomerID();
 		build();
 		getDate();
 	}
@@ -142,7 +144,7 @@ public class TicketingView extends JFrame {
 		JScrollPane tPn = new JScrollPane(theaterList);
 		
 		// 버튼
-		reserveBtn = new JButton("예매하기");
+		reserveBtn = new JButton("수정");
 		reserveBtn.setFont(font);
 		exitBtn = new JButton("종료");
 		exitBtn.setFont(font);
@@ -288,7 +290,6 @@ public class TicketingView extends JFrame {
 			}
 		});
 		
-		
 		movieList.addListSelectionListener(new ListSelectionListener() { // 영화 이름 저장
 			
 			@Override
@@ -311,7 +312,6 @@ public class TicketingView extends JFrame {
 				check();
 			}
 		});
-		
 		
 		timeRb1.addItemListener(new ItemListener() { // 라디오버튼 시간 저장
 			
@@ -516,17 +516,13 @@ public class TicketingView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (JOptionPane.showConfirmDialog(null, "이대로 예매 하시겠습니까?", "imformation", JOptionPane.OK_CANCEL_OPTION) == 0) {
-					ticketVO.setCustomerNm(customerDAO.getName(mid));
-					ticketVO.setCustomerID(mid);
-					ticketVO.setReserveDate(LocalDateTime.now().toString());
-					int result = ticketDAO.ticketingSave(ticketVO);
+				if (JOptionPane.showConfirmDialog(null, "이대로 예매를 수정 하시겠습니가?", "imformation", JOptionPane.OK_CANCEL_OPTION) == 0) {
+					int result = ticketDAO.ticketingUpdate(ticketVO);
 					if (result == -1) {
 						JOptionPane.showMessageDialog(null, "데이터 베이스 오류");
 					}
 					else {
-						TicketVO vo = new TicketVO(); 
-						new TicketConfirmView(mid, ticketDAO.getLastIdt(mid));
+						new TicketConfirmView(mid, ticketVO.getIdt());
 						dispose();
 					}
 				}
