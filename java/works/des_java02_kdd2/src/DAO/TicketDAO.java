@@ -11,32 +11,29 @@ import VO.TicketVO;
 
 public class TicketDAO {
 	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
 	
 	private String sql;
 	
 	public TicketDAO() {
-		String url = "jdbc:sqlite:save.db";
+		PreparedStatement pstmt;
+		String url = "jdbc:sqlite:ticket.db";
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection(url);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		sql = "create table ticket('idt' integer not null default 'auto_increment' primary key), 'customerNm' VARCHAR(50) not null, 'customerID' VARCHAR(50) not null, 'theatherNm' VARCHAR(50) not null, 'movieNm' VARCHAR(50) not null, 'day' VARCHAR(50) not null, 'time' VARCHAR(50) not null, 'reserveDate' VARCHAR(50) not null, 'cost' VARCHAR(50) not null, 'person' VARCHAR(50) not null, 'visible' integer default 1";
-		try {
+			sql = "CREATE TABLE if not exists ticket ('idt' integer NOT NULL DEFAULT 'auto_increment', 'customerNm' VARCHAR(50) NOT NULL, 'customerID' VARCHAR(50) NOT NULL, 'theatherNm'VARCHAR(50) NOT NULL, 'movieNm' VARCHAR(50) NOT NULL, 'day' VARCHAR(50) NOT NULL, 'time' VARCHAR(50) NOT NULL, 'reserveDate' DATETIME NOT NULL, 'cost' VARCHAR(50) NOT NULL, 'person' VARCHAR(50) NOT NULL, 'visible' integer DEFAULT 1, PRIMARY KEY(idt))";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public int ticketingSave(TicketVO vo) {
-		sql = "insert into ticket values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)";
+		PreparedStatement pstmt = null;
+		sql = "insert into ticket values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getCustomerNm());
@@ -52,10 +49,19 @@ public class TicketDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return -1;
 	}
 	
 	public String getName(int idt) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		sql = "select customerNm from ticket where idt = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -67,10 +73,21 @@ public class TicketDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		return null;
 	}
 	
 	public int countTicket(String mid) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		sql = "select count(*) from ticket where customerID = ? and visible = 1";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -82,10 +99,20 @@ public class TicketDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return -1; 
 	}
 	
 	public ArrayList<TicketVO> show(String mid){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		ArrayList<TicketVO> vos = new ArrayList<TicketVO>();
 		sql = "select * from ticket where customerID = ? and visible = 1 order by idt desc";
 		try {
@@ -109,6 +136,13 @@ public class TicketDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return vos;
 	}
@@ -143,6 +177,8 @@ public class TicketDAO {
 //	}
 	
 	public String getMovieNm(int idt) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		sql = "select movieNm from ticket where idt = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -153,11 +189,19 @@ public class TicketDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
 
 	public int delTicket(int idt) {
+		PreparedStatement pstmt = null;
 		sql = "update ticket set visible = 0 where idt = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -165,11 +209,18 @@ public class TicketDAO {
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return -1; // 뭔가 잘못
 	}
 
 	public int ticketingUpdate(TicketVO vo) {
+		PreparedStatement pstmt = null;
 		sql = "update ticket set theatherNm = ?, movieNm = ?, day = ?, time =?, cost = ?, person = ? where idt = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -183,11 +234,19 @@ public class TicketDAO {
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return -1; //잘못 됬지롱
 	}
 
 	public int getLastIdt(String mid) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		sql = "select idt from ticket where customerID = ? order by idt desc";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -199,8 +258,14 @@ public class TicketDAO {
 			return 0; // 없음
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return -1; // 오류
 	}
-	
 }

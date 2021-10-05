@@ -18,13 +18,11 @@ public class CustomerDAO {
 	CustomerVO vo = new CustomerVO();
 	
 	public CustomerDAO() {
-		String url = "jdbc:sqlite:save.db";
+		String url = "jdbc:sqlite:customer.db";
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection(url);
-			System.out.println("connection DB");
-			sql = "create table customer('name' VARCHAR(50) not null, 'customerID' VARCHAR(50) not null unique privarykey, 'password' VARCHAR(50) not null, 'email' VARCHAR(50) not null, 'phoneNum' VARCHAR(50) not null)";
-			System.out.println("create customer");
+			sql = "create table if not exists customer ('name' VARCHAR(50) not null, 'customerID' VARCHAR(50) not null unique primary key, 'password' VARCHAR(50) not null, 'email' VARCHAR(50) not null, 'phoneNum' VARCHAR(50) not null)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) {

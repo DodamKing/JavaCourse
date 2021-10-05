@@ -6,8 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.time.LocalDateTime;
-import java.util.Calendar;
+import java.net.URL;
 
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
@@ -29,7 +28,8 @@ import VO.TicketVO;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 
 public class TicketChangingView extends JFrame {
-	private String customerNm, customerID, theatherNm, movieNm, day, time, reserveDate, imgSlt, imgUrl;
+	private String customerNm, customerID, theatherNm, movieNm, day, time, reserveDate, imgSlt; 
+	private URL imgUrl;
 	int aPerson, yPerson, person = 0, cost = 0;
 	private JLabel customerNmLbl, movieSltLbl, theaterSltLbl, dateSltLbl, timeSltLbl, personSltLbl, adultLbl, youthLbl;
 	private JLabel iconLbl, theater, sltTheater, date, sltDate, number, sltPerson, amount, sltAmount;
@@ -67,7 +67,8 @@ public class TicketChangingView extends JFrame {
 		Font fontB = new Font("휴먼엑스포", 1, 13);
 		
 		// 이미지
-		ImageIcon temp_icon = new ImageIcon("img/2.png");
+		imgUrl = this.getClass().getClassLoader().getResource("2.png");
+		ImageIcon temp_icon = new ImageIcon(imgUrl);
 		Image temp_img = temp_icon.getImage();
 		Image img = temp_img.getScaledInstance(230, 280, Image.SCALE_SMOOTH);
 		ImageIcon icon = new ImageIcon(img);
@@ -533,45 +534,45 @@ public class TicketChangingView extends JFrame {
 	
 	public void getImg() {
 		if (imgSlt.equals("007 노 타임 투 다이")) {
-			imgUrl = "img/007.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("007.jpg"); 
 		}
 		else if (imgSlt.equals("보이스")) {
-			imgUrl = "img/보이스.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("보이스.jpg");
 		}
 		else if (imgSlt.equals("기적")) {
-			imgUrl = "img/기적.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("기적.jpg");
 		}
 		else if (imgSlt.equals("샹치와 텐 링즈의 전설")) {
-			imgUrl = "img/샹치와 텐 링즈의 전설.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("샹치와 텐 링즈의 전설.jpg");
 		}
 		else if (imgSlt.equals("모가디슈")) {
-			imgUrl = "img/모가디슈.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("모가디슈.jpg");
 		}
 		else if (imgSlt.equals("스틸워터")) {
-			imgUrl = "img/스틸워터.png";
+			imgUrl = this.getClass().getClassLoader().getResource("스틸워터.png");
 		}
 		else if (imgSlt.equals("캔디맨")) {
-			imgUrl = "img/캔디맨.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("캔디맨.jpg");
 		}
 		else if (imgSlt.equals("극장판 짱구는 못말려: 격돌! 낙서왕국과 얼추 네 명의 용사들")) {
-			imgUrl = "img/짱구.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("짱구.jpg");
 		}
 		else if (imgSlt.equals("인질")) {
-			imgUrl = "img/인질.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("인질.jpg");
 		}
 		else if (imgSlt.equals("극장판 포켓몬스터: 정글의 아이, 코코")) {
-			imgUrl = "img/포켓몬.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("포켓몬.jpg");
 		}
 		else if (imgSlt.equals("해리 포터와 마법사의 돌")) {
-			imgUrl = "img/해리포터.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("해리포터.jpg");
 		}
 		else if (imgSlt.equals("말리그넌트")) {
-			imgUrl = "img/말리그넌트.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("말리그넌트.jpg");
 		}
 		else if (imgSlt.equals("미드나이트")) {
-			imgUrl = "img/미드나이트.jpg";
+			imgUrl = this.getClass().getClassLoader().getResource("미드나이트.jpg");
 		}
-		else imgUrl = "img/2.png"; 
+		else imgUrl = this.getClass().getClassLoader().getResource( "2.png");
 			
 		
 		ImageIcon temp_icon = new ImageIcon(imgUrl);

@@ -17,8 +17,8 @@ public class TicketDAO {
 	private String sql;
 	
 	public TicketDAO() {
-		String url = "jdbc:mysql://localhost:3306/cinema";
-		String id = "atom";
+		String url = "jdbc:mysql://localhost:3306/java02_kdd";
+		String id = "root";
 		String pwd = "1234";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
