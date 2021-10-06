@@ -108,34 +108,6 @@ public class TicketDAO {
 		return vos;
 	}
 	
-//	public Vector<TicketVO> getTickets(String mid){
-//		Vector<TicketVO> vos = new Vector<TicketVO>();
-//		sql = "select * from ticket where customerID = ? and visible = 1 order by reserveDate desc";
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, mid);
-//			rs = pstmt.executeQuery();
-//			while (rs.next()) {
-//				TicketVO vo = new TicketVO();
-//				vo.setCustomerNm(rs.getString(2));
-//				vo.setCustomerID(rs.getString(3));
-//				vo.setTheatherNm(rs.getString(4));
-//				vo.setMovieNm(rs.getString(5));
-//				vo.setDay(rs.getString(6));
-//				vo.setTime(rs.getString(7));
-//				vo.setReserveDate(rs.getString(8));
-//				vo.setCost(rs.getString(9));
-//				vo.setPerson(rs.getString(10));
-//				vo.setVisible(rs.getInt(11));
-//				vos.add(vo);
-//				System.out.println(vo);
-//			}
-//			System.out.println(vos);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return vos;
-//	}
 	
 	public String getMovieNm(int idt) {
 		sql = "select movieNm from ticket where idt = ?";

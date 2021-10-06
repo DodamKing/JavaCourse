@@ -16,7 +16,7 @@ public class TicketDAO {
 	
 	public TicketDAO() {
 		PreparedStatement pstmt;
-		String url = "jdbc:sqlite:ticket.db";
+		String url = "jdbc:sqlite:save.db";
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection(url);

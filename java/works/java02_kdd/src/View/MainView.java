@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -42,7 +43,8 @@ public class MainView extends JFrame {
 		
 		Font font = new Font("휴먼엑스포", 0, 13);
 		
-		ImageIcon temp_icon = new ImageIcon("img/2.png");
+		URL url = this.getClass().getClassLoader().getResource("2.png");
+		ImageIcon temp_icon = new ImageIcon(url);
 		Image temp_img = temp_icon.getImage();
 		Image img = temp_img.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 		ImageIcon icon = new ImageIcon(img);

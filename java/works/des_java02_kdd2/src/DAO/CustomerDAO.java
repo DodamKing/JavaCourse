@@ -18,7 +18,7 @@ public class CustomerDAO {
 	CustomerVO vo = new CustomerVO();
 	
 	public CustomerDAO() {
-		String url = "jdbc:sqlite:customer.db";
+		String url = "jdbc:sqlite:save.db";
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection(url);
