@@ -70,12 +70,13 @@
             </tr>
         </tbody>
         <tfooter></tfooter>
-        <caption align="bottom">설명</caption> 
+        <caption align="bottom">설명</caption>
     </table>
     </p>
     <p>
     <h2>테이블 연습3</h2>
-    <table border="10" bordercolor="red" cellpadding="20" cellspacing="10"> <!-- 패딩 -->
+    <table border="10" bordercolor="red" cellpadding="20" cellspacing="10">
+        <!-- 패딩 cellpadding: 테이블 여백, cellspacing: 셀 여백-->
         <thead>
             <!-- 테이블 제목 로우 -->
             <td>관 계</td>
@@ -109,7 +110,9 @@
     <table width="500" border="0" cellpadding="15" cellspacing="0">
         <thead align="center">
             <!-- 테이블 제목 로우 -->
-            <td bgcolor="gray"><font color="blue">관 계</font></td> <!-- 글자색은 폰트로, 셀 색은 bgcolor로 -->
+            <td bgcolor="gray">
+                <font color="blue">관 계</font>
+            </td> <!-- 글자색은 폰트로, 셀 색은 bgcolor로 -->
             <td>이 름</td>
             <td>나 이</td>
         </thead>
@@ -159,54 +162,112 @@
                 <td>요기</td>
                 <td>조기</td>
             </tr>
-            <tr><td colspan="3">비고</td></tr>
+            <tr>
+                <td colspan="3">비고</td>
+            </tr>
         </tbody>
         <tfooter></tfooter>
     </table>
     </p>
+    <p>
     <h2>테이블 연습6</h2>
-    <table border="">
-        <thead>
+    <table border="1" cellspacing=0 width=320>
+        <thead align="center" backcolor="gray">
             <!-- 테이블 제목 로우 -->
-            <td>관 계</td>
-            <td>이 름</td>
-            <td>나 이</td>
+            <th>관 계</th>
+            <th>이 름</th>
+            <th>나 이</th>
+            <th>사 진</th>
+            <th>주 소</th>
         </thead>
-        <tbody>
+        <tbody align="center">
             <!-- 테이블 내용 -->
             <tr>
                 <!-- 테이블 로우 -->
                 <td>아버지</td> <!-- 테이블 데이터 -->
                 <td>홍장군</td>
                 <td>65</td>
+                <td><a href="../img/3.png" target="_blank"><img src="../img/3.png" width="100"></a></td>
+                <td rowspan="2">주소주소</td>
             </tr>
             <tr>
                 <td>어머니</td>
                 <td>김말숙</td>
                 <td>61</td>
+                <td><a href="../img/4.png" target="_blank"><img src="../img/4.png" width="100"></a></td>
             </tr>
             <tr>
                 <td>안녕</td>
                 <td>요기</td>
                 <td>조기</td>
+                <td>요기조기</td>
+                <td></td>
             </tr>
         </tbody>
         <tfooter></tfooter>
     </table>
     </p>
+    <p>
     <h2>테이블 연습7</h2>
-    <table border="">
-        <thead>
+    <table border="" cellpadding="10" align="center">
+        <thead align="center">
             <!-- 테이블 제목 로우 -->
-            <td>관 계</td>
-            <td>이 름</td>
-            <td>나 이</td>
+            <th>관 계</th>
+            <th>이 름</th>
+            <th>생 일</th>
         </thead>
-        <tbody>
+        <tbody align="center">
             <!-- 테이블 내용 -->
             <tr>
                 <!-- 테이블 로우 -->
                 <td>아버지</td> <!-- 테이블 데이터 -->
+                <td>홍장군</td>
+                <td align="left">
+                    <table border="1" cellpadding="5" cellspacing="0">
+                        <tr>    
+                            <td> 양력: 1950. 10. 7 </td>
+                        </tr>
+                        <tr>    
+                            <td> 음력: 1950. 11. 9 </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>어머니</td>
+                <td>김말숙</td>
+                <td align="left">
+                    <table border="1" cellpadding="5" cellspacing="0">
+                        <tr>
+                            <td>양력: 1950. 10. 7</td>
+                        </tr>
+                        <tr>
+                            <td>음력: 1950. 11. 20</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>안녕</td>
+                <td>요기</td>
+                <td align="left">조기</td>
+            </tr>
+        </tbody>
+        <tfooter></tfooter>
+    </table>
+    </p>
+    <p>
+    <h2>테이블 연습n</h2>
+    <table border="0">
+        <caption>가족 테이블</caption>
+        <thead align="center">
+            <th width=80>관 계</th>
+            <th width=80>이 름</th>
+            <th width=80>나 이</th>
+        </thead>
+        <tbody align="center">
+            <tr>
+                <td>아버지</td>
                 <td>홍장군</td>
                 <td>65</td>
             </tr>
