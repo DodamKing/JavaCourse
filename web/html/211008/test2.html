@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form태그</title>
+</head>
+
+<body>
+    <!-- form name="폼이름" method="전송방식" action="받을곳(여기로 input으로 받으 거 보낼꺼임)" -->
+    <h2>form 태그 양식 태그</h2>
+    <form name="myform" method="get" action="test3.html">
+        <p>입력처리 태그</p>
+        <p>
+            텍스트 박스 (text box)<br />
+            예) 성명을 입력하세요 <input type="text" name="irum" placeholder="성명을 입력하세요" /><br />
+            <!-- placeholder 미리 보여 주는 내용 -->
+        </p>
+        <p>
+            1.나이 <input type="text" name="age1" autofocus /><br /> <!-- 커서 이리와 -->
+            <label for="age2">2.나이 </label><input type="number" name="age2" id="age2" /><br /> <!-- 라벨 인풋 연결 -->
+            3.나이 <input type="text" name="age3" size="3" /><br /> <!-- 박스 크기 -->
+            4.나이 <input type="text" name="age4" maxlength="3" /><br /> <!-- 글자 제한 -->
+            5.나이 <input type="number" name="age5" min="1" /><br /> <!-- 최대, 최소 제한 -->
+
+        </p>
+        <p>
+            수량 <input type="number" name="item" min="0" max="20" step="5" /><br /> <!-- 기본단위 지정 -->
+        </p>
+        <p>생일 <input type="date" name="birth" /> </p>
+        <p>출근 시간<input type="time" name="start" /></p>
+        <p>지각<input type="time" name="start1" value="09:20" readonly /></p>
+        <div class="radio">
+            <p>
+                라디오버튼<br />성별:
+                <!-- checked를 쓰면 디폴트값 설정 -->
+                남자<input type="radio" name="gender" value="남자" /> <!-- value값을 넘김 -->
+                여자<input type="radio" name="gender" value="여자" />
+            </p>
+        </div>
+        <div class="check">
+            <p>
+                체크박스(checkbox)<br />취미:
+                등산<input type="checkbox" name="hobby" value="등산" />
+                낚시<input type="checkbox" name="hobby" value="낚시" />
+                영화<input type="checkbox" name="hobby" value="영화" />
+                자전거<input type="checkbox" name="hobby" value="자전거" />
+                바둑<input type="checkbox" name="hobby" value="바둑" />
+            </p>
+        </div>
+        <div class="combo">
+            <p>
+                콤보박스<br />가고싶은:
+                <select name="wana">
+                    <!-- 마찬가지로 value 값이 넘어가며 value를 쓰지 않으면 배열로 넘어감 -->
+                    <option value="백두산">백두산</option>
+                    <option value="지라산">지라산</option>
+                    <option value="한라산">한라산</option>
+                    <option value="태백산">태백산</option>
+                    <option value="속리산">속리산</option>
+                    <option value="울산">울산</option>
+                </select>
+            </p>
+        </div>
+        <div align="center" class="list">
+            <p>
+                리스트박스 음식 선택 <br /> <!-- seleced를 주면 기본값 설정 -->
+                <select name="food" size="5">
+                    <!-- 사이즈를 주면 리스트 박스 -->
+                    <option value="짜장면">짜장면</option>
+                    <option value="짬뽕">짬뽕</option>
+                    <option value="우동">우동</option>
+                    <option value="탕수육">탕수육</option>
+                    <option value="피자" selected>피자</option>
+                    <option value="햄버거" selected>햄버거</option>
+                </select>
+            </p>
+        </div>
+        <div align="center" class="memo">
+            <p>
+            <h3>메모</h3>
+            <table>
+                <tr>
+                    <td>자기소개</td>
+                    <td><textarea rows="5" cols="50" name="content">자기소개</textarea></td>
+                </tr>
+            </table>
+            </p>
+        </div>
+        <diV>
+            <p>
+                <label for="email">이메일</label>
+                <input type="email" name="eamil" id="eamil" />
+            </p>
+        </diV>
+        <div>
+            <p>
+                색상
+                <input type="color" name="color" />
+            </p>
+        </div>
+        <div>
+            <p>
+                <!-- value를 지정하기 않는다 전송형식이 다름 (enctype="multipart/form-data") -->
+                첨부파일
+                <input type="file" name="fname" />
+            </p>
+        </div>
+        <div class="group">
+            <p>
+                옵션그룹
+                <select name="class">
+                    <optgroup label="공과대학">
+                        <option value="토목공학과">토목공학과</option>
+                        <option value="화학공학과">화학공학과</option>
+                        <option value="컴퓨터공학과">컴퓨터공학과</option>
+                        <option value="건축공학과">건축공학과</option>
+                    </optgroup>
+                    <optgroup label="인문대학">
+                        <option value="사회학과">사회학과</option>
+                        <option value="철학과">철학과</option>
+                        <option value="어문학과">어문학과</option>
+                        <option value="정치학과">정치학과</option>
+                    </optgroup>
+                </select>
+            </p>
+        </div>
+        <div class="set">
+            <p>
+            <fieldset>
+                <legend>신상정보</legend>
+                <label for="nm">성명: </label> <input type="text" name="nm" id="nm" placeholder="이름을 입력하세요." />
+                나이: <input type="number" name="age10" id="age10" placeholder="나이를 입력하세요." /><br />
+                생일: <input type="date" name="birth" id="birth" /><br />
+            </fieldset>
+            </p>
+        </div>
+        <div class="meter">
+            <p> <!-- 미터기 -->
+                사용량 30%
+                <meter value="130" min="0" max="200" high="100"></meter><br />
+                사용량 130%
+                <meter value="30" min="0" max="200" low="50"></meter>
+            </p>
+        </div>
+        <div class="progress">
+            <p> <!-- 로딩창 같은 느낌 -->
+                진행상황 <br />
+                진행중: <progress></progress><br />
+                진행율 10% <progress value="10" max="100"></progress><br />
+                진행율 70% <progress value="70" max="100"></progress><br />
+            </p>
+        </div>
+        <hr />
+        <div>
+            <p>
+                <figcaption>이미지</figcaption>
+                <p align="center">
+                    <img src="../naver/t2l.jpg" width="500" />
+                    <figcaption align="center">이미지 설명</figcaption>
+                </p>
+            </p>
+        </div>
+
+        <hr />
+        <!-- 버튼 (전송, 취소, 걍, 이미지) -->
+        <div class="sub">
+            전송버튼<br />
+            <p align="right">
+                <input type="submit" value="확인" />
+                <input type="reset" value="취소" />
+                <input type="button" value="Go to Naver" onclick="location.href='http://www.naver.com'"/>
+                <input type="image" src="../1.png" title="전송버튼" /> <!-- 그림버튼 제출됨 -->
+            </p>
+            <p align="right">
+                <button type="submit">회원가입</button>
+                <button type="reset">가입취소</button>
+                <button type="button" onclick="location.href='http://www.naver.com'">go to naver</button>
+            </p>
+        </div>
+    </form>
+</body>
+
+</html>

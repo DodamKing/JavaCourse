@@ -1,0 +1,16 @@
+확장 플러그인
+open in browser
+indent rainbow
+css peek
+live server
+material icon theme
+auto rename tag
+Bracket Pair Colorizer
+JavaScript (ES6) code snippets
+
+추가
+Beautify
+vscode-icons
+Auto Close Tag
+Color Highlight
+Lorem ipsum

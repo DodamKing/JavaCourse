@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시맨틱태그</title>
+    <style>
+        body {
+            text-align: center;
+            color: blanchedalmond;
+            width: 900px;
+        }
+
+        content {
+            width: 100%;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        header, footer, nav, aside, section {
+            border: 1px solid rebeccapurple;
+        }
+
+        header{
+            height: 180px;
+            margin: auto;
+            background-color: rgb(180, 172, 172);
+        }
+
+        nav, section, aside {
+            float: left;
+            height: 200px;
+        }
+
+        nav {
+            background-color: darkgrey;
+            width: 200px;
+        }
+        
+        section {
+            background-color: darkkhaki;
+            width: 696px;
+        }
+
+        aside {
+            background-color: darksalmon;
+            width: 200px;
+        }
+
+        footer {
+            clear: both;
+            background-color: dimgrey;
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 헤더 -->
+        <header>
+            <p>헤더부분임돵!</p>
+            <div>내용내용내용</div>
+            <div>내용넣어라</div>
+            <div>클래스도 주고</div>
+        </header>
+        <!-- 네비게이션 -->
+        <nav>
+            <p>여긴 네비게이션임</p>
+            <ol>
+                <li><a href="#">네비</a></li>
+                <li><a href="#">리스트</a></li>
+                <li><a href="#">메뉴</a></li>
+            </ol>
+        </nav>
+        <!-- 컨텐츠 영역 -->
+        <section id="sec1">
+            <p>여기는 컨텐츠의 섹션</p>
+            <article>
+                <p>아티클 1번이죠</p>
+            </article>
+            <article>
+                <p>아티클 2번이죠</p>
+            </article>
+            <article>
+                <p>아티클 3번이죠</p>
+            </article>
+        </section>
+        <section id="sec2">
+            <p>여기는 컨텐츠의 섹션 2번이 되겠네</p>
+            <article>
+                <p>섹션 2번의 아티클 1번이죠</p>
+            </article>
+            <article>
+                <p>섹션 2번의 아티클 2번이죠</p>
+            </article>
+            <article>
+                <p>섹션 2번의 아티클 3번이죠</p>
+            </article>
+        </section>
+        <!-- 사이드바 -->
+        <aside>
+            <p>사이드쪽내용</p>
+            <div><a href="#">베너광고1</a></div>
+            <div><a href="#">베너광고2</a></div>
+            <div><a href="#">베너광고3</a></div>
+            <div><a href="#">베너광고4</a></div>
+            <div><a href="#">베너광고5</a></div>
+        </aside>
+        <!-- 푸터 -->
+        <footer>
+            <p>푸터내용</p>
+            <p>
+                <address>주소라는데?</address>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
