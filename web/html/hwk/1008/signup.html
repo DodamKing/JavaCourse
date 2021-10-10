@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <title>회원가입</title>
+    <style>
+        input::placeholder {
+            color: gray;
+            font-size: 20px;
+        }
+
+        textarea::placeholder{
+            color: gray;
+            font-size: 15px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        function signup(from) {
+            if (signupform.id.value != " ") {
+                alert('회원가입 되었습니다.');
+                location.href = 'main.html';
+            }
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        <div align="center">
+            <div style="padding: 20px; width: 450px; border: 1px solid;">
+                <form method="post" name="signupform" action="#" onsubmit="return signup(signupform)" style="margin-bottom: 20px;">
+                    <h3 align="right" style="margin-right: 45px; margin-top: 0px;"><a href="main.html"><img style="width: 20px; vertical-align: middle;" src="letter-d.png" /><img style="width: 20px; vertical-align: middle;" src="letter-d.png" /> <span style="vertical-align: middle;">Music</span></h3></a>
+                    <h1 align="center" style="margin-left: 45px;">회원가입</h3>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="id" type="text" placeholder="아이디" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fas fa-id-card" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="pwd" type="password" placeholder="비밀번호" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fas fa-key" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="pwdc" type="password" placeholder="비밀번호 확인" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fas fa-check" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="name" type="text" placeholder="이름" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fa fa-user-circle" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="nick" type="text" placeholder="닉네임" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fa fa-user" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px; margin-left: -5px;"><font color="red">*</font><input required type="number" placeholder="휴대폰번호(- 제외)" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fas fa-mobile-alt" style="position: relative; right: 350px;"></i></div>
+                    <div style="padding: 10px;"><font color="red">*</font><input required name="email" type="email" placeholder="이메일주소" style="width: 320px; height: 30px; margin-left: 20px; border-left: 0px; border-top: 0px; border-right: 0px; padding-left: 30px; background: none;" /><i class="fas fa-envelope" style="position: relative; right: 350px;"></i></div>
+                    <div>
+                        <fieldset style="margin-top: 20px; border-top: 1 solid; border-left: 0; border-right: 0; border-bottom: 0; width: 350px;">
+                            <legend align="center"><font color="red">&nbsp;&nbsp;&nbsp;* </font>는 필수사항 입니다.&nbsp;&nbsp;&nbsp;</legend>
+                        </fieldset>
+                    </div>
+                    <div style="font-size: 18px; margin: 10px;">
+                        관심분야 : 
+                        <input type="checkbox" value="게임" /> 게임
+                        <input type="checkbox" value="프로그래밍" /> AI
+                        <input type="checkbox" value="사업" /> 사업
+                        <input type="checkbox" value="연구" /> 연구
+                    </div>
+                    <div style="font-size: 18px; margin-left: 10px; margin-top: 20px;">
+                        직업 : 
+                        <select style="font-size: 18px; width: 280px; margin: 10px;">
+                            <option value="프로그래머">프로그래머</option>
+                            <option value="의사">의사</option>
+                            <option value="검사">검사</option>
+                            <option value="변호사">변호사</option>
+                            <option value="기사">기사</option>
+                            <option value="가수">가수</option>
+                            <option value="개그맨">개그맨</option>
+                            <option value="회사원">회사원</option>
+                        </select>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <textarea placeholder="자기소개를 입력해 주세요." style="width: 350px; height: 100px;"></textarea>
+                    </div>
+                    <div style="padding: 10px; margin-top: 20px;"><input type="submit" value="회원가입" style="width: 350px; height: 35px; font-size: 20px; background-color: #fee500" /></div>
+                    <div style="padding: 10px;"><input type="reset" value="취소" style="width: 350px; height: 35px; font-size: 20px; background-color: #e7e7e7;" /></div>
+                </form>
+                <div style="display: grid;">
+                    <div style="justify-items: stretch;">
+                        <a href="login.html">로그인</a> |
+                        <a href="#">계정찾기</a> |
+                        <a href="#">비밀번호</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

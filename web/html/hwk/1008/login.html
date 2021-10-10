@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 버전 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+    <!-- 버전 5 -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <title>로그인</title>
+
+    <style>
+        input::placeholder {
+            color: gray;
+            font-size: 15px;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        function login(from) {
+            if (loginform.id.value != "" && loginform.pwd.value != "") {
+                if (loginform.id.value == "admin") {
+                    if (loginform.pwd.value == "admin") {
+                        alert('로그인 되었습니다.');
+                        location.href = 'main.html';
+                    }
+                    else {
+                        alert('비밀번호를 잘못 입력하셨습니다.')
+                        loginform.pwd.focus();
+                    }
+                }
+                else {
+                    alert('아이디를 잘못 입력하였거나 없는 아이디 입니다.')
+                    loginform.id.focus();
+                }
+            }
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        <div align="center" style="padding: 50px;">
+            <div style="padding: 20px; width: 450px; border: 1px solid;">
+                <form method="post" action="#" name="loginform" style="margin-bottom: 20px;" onsubmit="return login(loginform)">
+                    <h3 align="right" style="margin-top: 0px; margin-right: 45px;"><a href="main.html"><img style="width: 20px; vertical-align: middle;" src="letter-d.png" /><img style="width: 20px; vertical-align: middle;" src="letter-d.png" /> <span style="vertical-align: middle;">Music</span></h3></a>
+                    <h1 align="center">로그인</h1>
+                    <div style="padding: 10px;">
+                        <input type="text" id="id" name="id" placeholder="ID" style="width: 350px; height: 30px; border: none; background: none; border-bottom: 2px solid;" required/>
+                    </div>
+                    <div style="padding: 10px;">
+                        <input type="password" id="pwd" name="pwd" placeholder="PW" style="width: 350px; height: 30px; border: none; background: none; border-bottom: 2px solid;" required />
+                    </div>
+                    <div align="left" style="margin-left: 45px; margin-top: 20px;">
+                        <input type="checkbox" name="check" value="true"> 로그인 상태 유지
+                    </div>
+                    <div style="padding: 10px; margin-top: 20px;"><input type="submit" value="로그인" style="width: 350px; height: 35px; font-size: 18px; background-color: #fee500;" /></div>
+                    <div>
+                        <fieldset style="border-top: 1 solid; border-left: 0; border-right: 0; border-bottom: 0; width: 350px; margin-top: 10px;">
+                            <legend align="center">또는</legend>
+                        </fieldset>
+                    </div>
+                    <div style="padding: 10px;"><i class="fas fa-qrcode" style="position: relative; left: 90px;"></i><input type="button" value="QR코드 로그인" style="margin-left: -15px; width: 350px; height: 35px; font-size: 18px; background-color: #e7e7e7;" /></div>
+                </form>
+                <div style="display: table-row;">
+                    <a href="signup.html">회원가입</a> |
+                    <a href="#">계정찾기</a> |
+                    <a href="#">비밀번호</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
