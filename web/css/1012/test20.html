@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼태그</title>
+
+    <style>
+        .tit {
+            border: 1px solid;
+            width: 200px;
+        }
+        .btn {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>폼태그와 css</h2>
+    <form action="">
+        <p>
+            <span class="tit">아이디</span> <input type="text" id="id" name="id" placeholder="아이디" autofocus required />
+        </p>
+        <p>
+            <span class="tit">비밀번호</span> <input type="password" id="pwd" name="pwd" placeholder="비밀번호" required />
+        </p>
+        <p>
+            <span class="tit">나이</span> <input type="number" id="age" name="age" size="3" maxlength="3" required />
+        </p>
+        <p>
+            <input type="submit" value="확 인" class="btn" />
+            <input type="reset" value="취소" class="btn" />
+        </p>
+        </p>
+    </form>
+</body>
+</html>
