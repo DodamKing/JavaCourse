@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5.html</title>
+  <style>
+    body {
+      margin: 0px;
+      background-color: rgb(187, 255, 255);
+    }
+    #box1 {
+      background-image: url("../../images/4.jpg");
+      border: 10px solid red;
+      margin: 0px 20px;
+      padding: 0px 50px;
+    }
+    #box2 {
+      width: 500px;
+      height: 200px;
+      background-color: royalblue;
+      margin: 0 auto;   /* 레이어 가운데 정렬하기 */
+      text-align: center;
+    }
+    #box3 {
+      background-image: url("../../images/3.jpg");
+      width: 500px;
+      height: 200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #box3-1 {
+      position: relative;
+      top: 90px;
+    }
+    #box4 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: seagreen;
+      width: 500px;
+      height: 200px;
+      text-align: center;
+    }
+    #box4-1 {
+      position: relative;
+      top: 90px;
+    }
+    #box5 {
+      position: absolute;
+      left: 200px;
+      top: 300px;
+      width:250px;
+      height: 250px;
+      background-color: springgreen;
+      text-align: center;
+    }
+    #box5-1 {
+      position: relative;
+      top: 115px;   /* 'height:250px' - '글자크기(16px)' = '117px' */
+    }
+  </style>
+</head>
+<body>
+  연습
+  <h2>레이아웃 연습(UI : User Interface)</h2>
+  <div id="box1">
+    Box1레이어입니다.<br/>
+    <p>연습1</p>
+    <p>연습1</p>
+    <p>연습1</p>
+    <p>연습1</p>
+    <p>연습1</p>
+  </div>
+  <div id="box2">연습2</div>
+  <div id="box3">
+    <span id="box3-1">연습3</span>
+  </div>
+  <div id="box4">
+    <span id="box4-1">연습4</span>
+  </div>
+  <div id="box5">
+    <span id="box5-1">연습5</span>
+  </div>
+</body>
+</html>

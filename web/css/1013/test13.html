@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test13.html</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    #container {
+      margin: 0 auto;
+      width: 800px;
+    }
+    div {
+      width: 200px;
+      height: 150px;
+      border: 1px solid gray;
+      background-color: lightpink;
+    }
+    div:nth-child(5) {
+      background-color: red;
+    }
+    div:nth-child(2n) {
+      background-color: rgb(212, 253, 137);
+    }
+    div:nth-child(2n+1) {
+      background-color: rgb(14, 146, 140);
+      background-image: url("../../images/2.jpg");
+    }
+    div:first-child {
+      background-color: rgb(255, 196, 0);
+    }
+    /* div:last-child {
+      background-color: rgb(230, 36, 248);
+    } */
+    #lastDiv {
+      background-color: rgb(230, 36, 248);
+    }
+    #div4 {
+      /* position: absolute; */
+      text-align: center;
+    }
+    #div4-1 {
+      position: relative;
+      top: 55px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div id="div4">
+      <span id="div4-1">
+        I &nbsp; D : <input type="text" name="mid" id="mid" size="6"/><br/>
+        pwd : <input type="text" name="mid" id="mid" size="6"/>
+      </span>
+    </div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div id="lastDiv">13</div>
+  </div>
+</body>
+</html>

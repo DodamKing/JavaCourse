@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video-js.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video.min.js"></script>
+    <title>vidoe.js</title>
+</head>
+<body>
+    <video id="myPlayer" class="video-js vjs-default-skin" webkit-playsinline></video>
+    <script>
+        var player = videojs("myPlayer",{
+            sources : [
+                {src : "_OFFICIAL_AUDIO_임영웅_사랑은_늘_도망가_신사와_아가씨_Young_.mp3", type : "vidoe/mp4"},
+                {src : "aespa_에스파_Savage_MV.mp3", type : "video/mp4"},
+            ],
+            poster : "",
+            controls : true,
+            playsinline : true,
+            preload : "auto",
+            controlBar : {
+                PlayToggle : false,
+                PictureInPictureToggle : false,
+                remainingTimeDisplay : false,
+                progressControl : true
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>벅스</title>
+
+    <style>
+        body {
+            font-family: "나눔바른고딕";
+            font-weight: 400;
+            color: #3a3635;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: #878685;
+        }
+
+        ul,
+        li {
+            list-style-type: none;
+            margin: 5px;
+        }
+
+        #header {
+            top: 0px;
+            left: 0px;
+            border-bottom: 1px solid #878685;
+            position: fixed;
+            height: 120px;
+            width: 100%;
+            min-width: 960px;
+            z-index: 710;
+            background-color: white;
+        }
+
+        #nav {
+            top: 120px;
+            left: 0px;
+            height: 100%;
+            position: fixed;
+            width: 220px;
+            border-right: 1px solid #d9d9d9;
+            background-color: #fff;
+            z-index: 500;
+        }
+
+        #srch {
+            background-color: none;
+            border: 0px;
+            margin-left:
+                15px;
+            width:
+                250px;
+        }
+
+        #main {
+            position: relative;
+            min-height: 470px;
+            min-width: 1020px;
+            z-index: 1;
+            left: 230px;
+            top: 130px;
+        }
+
+        .top {
+            margin: 0 10px;
+        }
+
+        .slogan {
+            float: left;
+            padding: 0 10px;
+        }
+
+        .rightGroup {
+            float: right;
+            padding: 10px;
+        }
+        
+        .header {
+            clear: both;
+            margin: 10px;
+            margin-top: 50px;
+        }
+
+        .log {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .search {}
+
+        .input {
+            border: 2px solid red;
+            border-radius: 30px;
+            width: 350px;
+        }
+
+        .panel {
+            position: absolute;
+            left: -45px;
+        }
+
+        input[type=text] {
+            padding: 1px 10px 0 10px;
+            font-size: 13px;
+            line-height: 33px;
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <div class="top">
+                <div>
+                    <a class="slogan" href="#">슈퍼사운드벅스</a>
+                    <a class="slogan" href="#">웹 플레이어</a>
+                    <a class="slogan" href="#">벅스 플레이어</a>
+                </div>
+                <div>
+                    <a class="rightGroup" href="#">고객센터</a>
+                    <a class="rightGroup" href="#">게임</a>
+                    <a class="rightGroup" href="#">COMICO</a>
+                    <a class="rightGroup" href="#">티켓링크</a>
+                    <a class="rightGroup" href="#">hangame</a>
+                </div>
+            </div>
+            <div class="header">
+                <div>
+                    <div class="log">
+                        <a href="#"><img src="1.png" alt="Bugs!"></a>
+                    </div>
+                    <div class="log">
+                        <div class="input">
+                            <input type="text" name="" id="srch" placeholder="바스락거리는 가을 셔츠를 입고서" />
+                            <button style="border: 0; background-color: none;">검색</button>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- 로그인 구현 영역 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav">
+            <div>
+                <div style="margin-top:15px;">
+                    <a href="#">벅스 VIP 멤버십 안내</a>
+                </div>
+                <a href="#">이용권 구매</a>
+                <a href="#">상품권 등록</a>
+            </div>
+            <div class="navContainer">
+                <div class="panel">
+                    <ul>
+                        <li><a href="#">벅스차트</a></li>
+                        <li><a href="#">최신음악</a></li>
+                        <li><a href="#">뮤직4U</a></li>
+                        <li><a href="#">장르</a></li>
+                        <li><a href="#">뮤직포스트</a></li>
+                        <li>
+                            <a href="#">테마</a>
+                            <ul>
+                                <li><a href="#">뮤직PD 앨범</a></li>
+                                <li><a href="#">추천앨범 리뷰</a></li>
+                                <li><a href="#">연도별</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">커넥트</a></li>
+                        <li><a href="#">라디오</a></li>
+                        <li><a href="#">벅스TV</a>
+                            <ul><a href="#">스페셜 라이브</a></ul>
+                        </li>
+                        <li>
+                            <a href="#">내음악</a>
+                            <ul>
+                                <li><a href="#">최근 들은 곡</a></li>
+                                <li><a href="#">가장 많이 들은 곡</a></li>
+                                <li><a href="#">구매한 음악</a></li>
+                                <li><a href="#">좋아한 음악</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container">
+            <div>
+                <div>
+                    <div style="display: table-row;">
+                        <a href="#" style="margin-right: 10px;">최신음악</a>
+                        <a href="#" style="margin-right: 10px;">전체</a>
+                        <a href="#" style="margin-right: 10px;">국내</a>
+                        <a href="#" style="margin-right: 10px;">해외</a>
+                        <a href="#" style="margin-right: 10px;">커넥트</a>
+                    </div>
+                    <div>
+                        <img src="2.png" alt="메인화면">
+                    </div>
+                    <div style="width: 1000px;">
+                        <div style="display: table-row;">
+                            <div style="display: table-cell; vertical-align: top;">
+                                <table style="width: 600px;">
+                                    <caption>곡 차트</caption>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tamed-Dashed</td>
+                                        <td>ENHTPEN</td>
+                                        <td><img src="4.png" alt=""></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="display: table-cell;">
+                                <img src="5.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="3.png" alt="메인화면 2번">
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+
+</html>

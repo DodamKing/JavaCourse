@@ -195,7 +195,7 @@
                                                         src="https://cdnimg.melon.co.kr/cm2/album/images/107/31/792/10731792_20211005145407_500.jpg/melon/quality/80/resize/48/optimize;" /></a>
                                             </div>
                                             <div style="display: table-cell; padding: 10px; vertical-align: middle; ">
-                                                <a href="#">Savage</a><br />
+                                                <a href="data/1.mp3">Savage</a><br />
                                             </div>
                                             <div style="display: table-cell; padding: 10px; vertical-align: middle; ">
                                                 <a href="#">aespa</a>
@@ -348,7 +348,69 @@
 
                                         <div style="display: table-row;">
                                             <div align="center" style="display: table-cell; padding: 10px;">
-                                                <img src="3.jpg" style="width: 450px; height: 10;">
+                                                <div style="width: 450px">
+                                                    <audio class="audio" controls>
+                                                        <source id="source" src="" /> 
+                                                    </audio>
+                                                </div>
+                                                <div id="name" style="width: 450px;"></div>
+                                                <div style="width: 450px">
+                                                    <select name="audio" id="audio" size="3" style="width: 300px;">
+                                                        <option value="./data/1.mp3">Savage - aespa</option>
+                                                        <option value="./data/사랑은 늘 도망가 - 임영웅.mp3">사랑은 늘 도망가 - 임영웅</option>
+                                                        <option value="./data/하루만 더 - 빅마마(Big Mama).mp3">하루만 더 - 빅마마</option>
+                                                    </select>
+                                                </div>
+                                                <div style="display: table; width: 450px;">
+                                                    <div style="display: table-row; width: 400px;">
+                                                        <div style="display: table-cell;"><button id="play" name="play">play</button></div>
+                                                        <div style="display: table-cell;"><button id="pause" name="pause">pause</button></div>
+                                                        <div style="display: table-cell;"><button id="next" name="next">next</button></div>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    let audio = document.querySelector('.audio');
+                                                    let play = document.getElementById('play');
+                                                    let pause = document.getElementById('pause');
+                                                    let next = document.getElementById('next');
+                                                    let select = document.getElementById('audio');
+                                                    let name = document.getElementById('name');
+
+                                                    let src = ["./data/1.mp3", "./data/사랑은 늘 도망가 - 임영웅.mp3", "./data/하루만 더 - 빅마마(Big Mama).mp3"]; //곡 이름 순서대로 저장
+                                                    let title = ['Savage - aespa', '사랑은 늘 도망가 - 임영웅', '하루만 더 - 빅마마']
+
+                                                    play.addEventListener('click', play_click); //play 버튼 클릭시 실행
+                                                    pause.addEventListener('click', pause_click); 
+                                                    next.addEventListener('click', next_click); //next 버튼 클릭시 실행
+                                                    audio.addEventListener('ended', nextPlay);  //곡이 끝날때 실행
+
+                                                    function play_click() {
+                                                        audio.src = select.options[(select.selectedIndex) % 3].value; //해당 값을 src에 변경
+                                                        audio.play();                       //해당 곡 실행
+                                                        name.innerHTML = title[(select.selectedIndex) % 3] // 실행 파일 출력
+                                                    }
+                                                    
+                                                    function pause_click() {
+                                                        audio.pause();                       //해당 곡 실행
+                                                    }
+
+                                                    function next_click() {
+                                                        if (select.options[select.selectedIndex] == undefined)  // 선택을 하지않고 눌렀다면 오류 언급
+                                                            alert('원하는 곡을 선택 후 클릭하세요')
+                                                        else {                                    //선택을 하고 눌렀다면 해당 선택한 것의 다음 노래를 가져와서 play한다.
+                                                            audio.src = select.options[(select.selectedIndex + 1) % 3].value;
+                                                            audio.play();
+                                                            name.innerHTML = title[(select.selectedIndex + 1) % 3]
+                                                        }
+                                                    }
+
+                                                    function nextPlay() {
+                                                        num = (select.selectedIndex + 1) % 3;     // 곡이 끝나고 num의 값을 증가 시킨 후 해당 배열의 값으로 src를 변경시킨다. (다음 곡 연주를 위해서)
+                                                        audio.src = select.options[num].value;
+                                                        play_click();
+                                                    }
+                                                </script>
+
                                             </div>
                                         </div>
 

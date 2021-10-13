@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test16.html</title>
+  <style>
+    #boxForm {
+      background-color: #ddd;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input[type=text], input[type=number], input[type=password], input[type=submit], select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px 0;
+      border: 1px solid #ccc;
+      font-size: 1.2em;
+    }
+    input[type=text]:hover, input[type=number]:hover, input[type=password]:hover, input[type=submit]:hover, select:hover {
+      background-color: rgb(174, 212, 191);
+    }
+    input[type=submit] {
+      background-color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div id="boxForm">
+    <form name="myform">
+      <label for="name">성명</label>
+      <input type="text" name="name" id="name" placeholder=""이름을 입력하세요" autofocus required />
+      <label for="age">나이</label>
+      <input type="number" namge="age" id="age" value="20"/>
+      <label for="pwd">비밀번호</label>
+      <input type="password" namge="pwd" id="pwd"/>
+      <label for="job">직업</label>
+      <select name="job" id="job">
+        <option value="">직업선택</option>
+        <option value="학생">학생</option>
+        <option value="회사원">회사원</option>
+        <option value="공무원">공무원</option>
+        <option value="군인">군인</option>
+        <option value="기타">기타</option>
+      </select>
+      <input type="submit" value="회원가입"/>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test11-2.html</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    #layer1, #layer2, #layer3, #layer4, #layer5, #layer6 {
+      width: 200px;
+      height: 250px;
+    }
+    #layer1:hover, #layer2:hover, #layer3:hover, #layer4:hover, #layer5:hover, #layer6:hover {
+      background-color: gray;
+    }
+    #container {
+      width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      /* background-color: khaki; */
+      background-image: url("../../images/3.jpg");
+      height: 100px;
+      text-align: center;
+    }
+    #content1 {
+      /* background-color: green; */
+      float: left;
+      width: 200px;
+    }
+    #content2 {
+      /* background-color: rgb(104, 20, 153); */
+      float: left;
+      width: 600px;
+    }
+    #content3 {
+      /* background-color: rgb(206, 178, 223); */
+      float: right;
+      width: 200px;
+    }
+    footer {
+      background-color: rgb(100, 123, 144);
+      height: 100px;
+      clear: both;
+    }
+    #layer1 {
+      background-color: rgb(200, 255, 0);
+      /* clear: both; */
+      float:left
+    }
+    #layer2 {
+      background-color: rgb(43, 255, 0);
+      /* clear: both; */
+      float:left
+    }
+    #layer3 {
+      background-color: rgb(0, 4, 255);
+      /* clear: both; */
+      float:left
+    }
+    #layer6 {
+      background-color: rgb(7, 194, 251);
+      float: left;
+    }
+    #layer4 {
+      background-color: rgb(163, 4, 102);
+      float: left;
+    }
+    #layer5 {
+      background-color: rgb(199, 106, 18);
+      float: left;
+    }
+    #layer4-1, #layer4-2, #layer4-3, #layer4-4 {
+      float:left;
+      width: 230px;
+      height: 310px;
+      margin: 15px;
+      padding: 20px;
+      line-height: 2.0;
+    }
+    #layer4-1 {
+      background-color: burlywood;
+    }
+    #layer4-2 {
+      background-color: rgb(238, 165, 70);
+    }
+    #layer4-3 {
+      background-color: rgb(233, 152, 206);
+      clear: both;
+    }
+    #layer4-4 {
+      background-color: rgb(250, 102, 213);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <span style="font-size:20pt; font-weight: bolder;">레이아웃 패치</span>
+    </header>
+    <div id="content">
+      <div id="content1">
+        <div id="layer1">연습1</div>
+        <div id="layer2">연습2</div>
+        <div id="layer3">연습3</div>
+      </div>
+      <div id="content2">
+        <div id="layer4-1">
+          <b>공지사항</b><br/>
+          1.연습4-1-1<br/>
+          2.연습4-1-2<br/>
+          3.연습4-1-3<br/>
+          4.연습4-1-4<br/>
+          5.연습4-1-5<br/>
+        </div>
+        <div id="layer4-2">
+          <b>신입회원</b><br/>
+          1.연습4-2-1<br/>
+          2.연습4-2-2<br/>
+          3.연습4-2-3<br/>
+          4.연습4-2-4<br/>
+        </div>
+        <div id="layer4-3">
+          연습4-3-1<br/>
+          연습4-3-2<br/>
+          연습4-3-3<br/>
+          연습4-3-4<br/>
+          연습4-3-5<br/>
+        </div>
+        <div id="layer4-4">
+          연습4-4-1<br/>
+          연습4-4-2<br/>
+          연습4-4-3<br/>
+          연습4-4-4<br/>
+          연습4-4-5<br/>
+        </div>
+      </div>
+      <div id="content3">
+        <div id="layer5">연습5</div>
+        <div id="layer6">연습6</div>
+      </div>
+    </div>
+    <footer>
+      <div>푸터(바닥글)</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test4.html(테이블연습)</title>
+  <style>
+    table {
+      width: 500px;
+      height: 500px;
+      border-collapse: collapse;  /* 선과 선사이의 간견 무시 */
+    }
+    th, td {
+      border: 1px solid rgb(197, 197, 197);
+      text-align: center;
+    }
+    /* table {background: linear-gradient(to right, pink, green)} */
+    /* table {background: radial-gradient(circle, pink, green)} */
+    #tr1, #layer1 {background: linear-gradient(to right, red, blue)}
+    #tr2, #layer2 {background: linear-gradient(to bottom, red, blue)}
+    #tr3, #layer3 {background: linear-gradient(45deg, red, blue)}
+    #tr4, #layer4 {background: radial-gradient(green 30%, red 20%, blue 50%)}
+    #tr5, #layer5 {background: linear-gradient(to left top, red 5%, blue 25%)}
+    #layer1, #layer2, #layer3, #layer4, #layer5 {
+      width:400px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>테이블에 CSS적용하기</h2>
+  <br/>
+  <div>
+    <table>
+      <tr id="tr1">
+        <th>1</th>
+        <th class="td2">2</th>
+        <th>3</th>
+        <th>4</th>
+      </tr>
+      <tr id="tr2">
+        <td>1</td>
+        <td class="td2">2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr id="tr3">
+        <td>1</td>
+        <td class="td2">2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr id="tr4">
+        <td>1</td>
+        <td class="td2">2</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr id="tr5">
+        <td colspan="4">1</td>
+        <!-- <td class="td2">2</td>
+        <td>3</td>
+        <td>4</td> -->
+      </tr>
+    </table>
+  </div>
+  <br/>
+  <div id="layer1"></div>
+  <div id="layer2"></div>
+  <div id="layer3"></div>
+  <div id="layer4"></div>
+  <div id="layer5"></div>
+</body>
+</html>
