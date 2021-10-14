@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btnGroup .btn {
+            background-color: teal;
+            padding: 10px 30px;
+            margin: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            color: red;
+        }
+
+        #btnGroup .btn:hover {
+            background-color: gray;
+        }
+
+        #btnGroup .btn2 {
+            background-color: pink;
+        }
+
+        #btnGroup .btn:first-child {
+            margin-left: 50px;
+        }
+        
+        #btnGroup .btn:nth-child(4) {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>버튼 그룹 처리</h2>
+    <div id="btnGroup" style="display: inline-block; width: 1000px;">
+        <input class="btn btn1" type="button" value="인풋버튼" onclick="" />
+        <button class="btn btn1" onclick="">버튼1</button>
+        <button class="btn btn2" onclick="">버튼2</button>
+        <button class="btn btn3" onclick="">버튼3</button>
+        <button class="btn btn4" onclick="">버튼4</button>
+        <button class="btn btn5" onclick="">버튼5</button>
+    </div>
+</body>
+</html>

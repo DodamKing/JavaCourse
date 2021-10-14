@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {margin: 20px;}
+        .container {
+            border: 1px solid red;
+            text-align: center;
+        }
+        .aa2 {display: none;}
+        .aa5, .aa6 {
+            width: 600px;
+            border: 1px solid;
+            display: inline-block;
+        }
+        .aa11 {
+            display: inline;
+            width: 100px;
+            border: 3px solid blue;
+            margin: 10px;
+            padding: 15px;
+        }
+        
+        .aa14 {
+            display: inline;
+            width: 100px;
+            border: 3px solid blue;
+            margin: 10px;
+            padding: 15px;
+        }
+        
+        .bb2{
+            display: inline-block;
+            width: 600px;
+            border: 3px solid blue;
+            margin: 10px;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h2>디스플레이 속성</h2>
+    <p>이것은 각가의 요소를 어떻게 보여줄까?</p>
+    <p>속성 처리 값 : visibility, hidden</p>
+    <p>
+        none <br /> 
+        block : 블락 박스 <br />
+        inline : 인라인 박스 문단 같은 느낌 <br />
+        inline-block : 난 둘다 <br />
+    </p>
+
+    <h2>example</h2>
+    <div class="aa1">1. 안녕하십니까</div>
+    <div class="aa2">2. 안녕하십니까</div>
+    <div class="aa3">3. 안녕하십니까</div>
+    <div class="aa4">4. 안녕하십니까</div>
+    <hr />
+    <h3>block</h3>
+    <div class="container">
+        <div class="aa5">
+            5. block 입니다만!!~~ 
+            <div class="aa11">@@@@@@@@@</div>
+            <div class="aa12">@@@@@@@@@</div>
+            <div class="aa13">@@@@@@@@@</div>
+        </div>
+    </div>
+    <h3>inline</h3>
+    <div class="aa6">
+        6. inline 입니다만!!~~ 
+        <span class="aa14"> @@@@@@@@@</span>
+        <span class="aa15"> @@@@@@@@@</span>
+        <span class="aa16"> @@@@@@@@@</span>
+    </div>
+    <h3>inline-block</h3>
+    <div class="bb1">
+        7. inline-block 이지이요오~~
+        <span class="bb2">@@@@@@@@@@@@@@@@@</span>
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@
+    </div>
+
+    <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body, ul, li {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+
+        ul > li {
+            float: left;
+            background-color: gray;
+            padding: 30px 20px;
+            position: relative;
+            width: 80px;
+            text-align: center;
+        }
+        
+        ul > li:hover {
+            background-color: greenyellow;
+        }
+
+        ul > li > ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0px;
+        }
+
+        ul > li:hover > ul {
+            display: block;
+        }
+
+        ul > li > ul > li:hover {
+            background-color: khaki;
+        }
+
+        ul > li > ul > li {
+            padding: 10px 20px;
+            clear: both;
+        }
+
+        .import {
+            background-color: hotpink;
+        }
+        
+
+        
+
+
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li class="import">
+                <a href="hwk_test.html">홈으로</a>
+            </li>
+            <li>
+                <a href="#">상품소개</a>
+                <ul>
+                    <li><a href="#">상품소개1</a></li>
+                    <li><a href="#">상품소개2</a></li>
+                    <li><a href="#">상품소개3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">회사소개</a>
+                <ul>
+                    <li><a href="#">회사소개1</a></li>
+                    <li><a href="#">회사소개2</a></li>
+                    <li><a href="#">회사소개3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">고객전용</a>
+                <ul>
+                    <li><a href="#">고객전용1</a></li>
+                    <li><a href="#">고객전용2</a></li>
+                    <li><a href="#">고객전용3</a></li>
+                </ul>
+            </li>
+            <li class="import" style="float: right;">
+                <a href="test1.html">도움말</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
