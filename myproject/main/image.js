@@ -9,4 +9,3 @@ function changeImg() {
         imgIndex = 0;
     }
 }
-setInterval(changeImg, 3000)
