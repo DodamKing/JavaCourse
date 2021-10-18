@@ -60,7 +60,7 @@
             </nav>
             <div class="header_content">
                 <img id="mainImg" src="img/m1.jpg" alt="화면이지미">
-                <script>
+                <!-- <script>
                     var myImg = document.getElementById("mainImg");
                     var imgArr = ["img/m1.jpg", "img/m2.jpg", "img/m3.jpg", "img/m4.jpg", "img/m5.jpg", "img/m6.jpg", "img/m7.jpg", "img/m8.jpg", "img/m9.jpg", "img/m10.jpg"];
                     var imgIndex = 0;
@@ -72,8 +72,8 @@
                             imgIndex = 0;
                         }
                     }
-                    setInterval(changeImg, 3000)
-                </script>
+                    setInterval(changeImg, 3000);
+                </script> -->
             </div>
         </header>
         <section id="section">
@@ -87,35 +87,56 @@
                 <div class="copyright">
                     Copyright ⓒ Double D. All rights reserved.
                 </div>
+                <!-- 리스트 -->
+                <!-- <div id="play_list" class="play_list">
+                    <div id="list_imgBox" class="list_imgBox">
+                        <img id="list_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="">
+                    </div>
+                    <div id="music_list" class="music_list">
+                        <div>이어지는 노래</div>
+                        <div>
+                            <div class="album_img"><a href="#"><img id="list_album_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
+                            <div class="song_info">
+                                <div id="list_songTitle" class="song_title"><a href="#">그대가 분다</a></div>
+                                <div id="list_artist" class="artist">엠씨더맥스(M.C the max)<a href="#"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </section>
         <footer id="footer">
             <div class="player_lcontrol">
                 <div class="info">
-                    <div class="album_img"><a href="#"><img src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
+                    <div class="album_img"><a href="#"><img id="album_img" src="https://static-s.aa-cdn.net/img/ios/1483884129/6b5ad591f81f6b4ce6d78aa4796f8833?v=1" alt="" style="width: 100%;"></a></div>
                     <div class="song_info">
-                        <div class="song_title"><a href="#">그대가 분다</a></div>
-                        <div class="artist"><a href="#">엠씨더맥스(M.C the max)</a></div>
+                        <div id="song_title" class="song_title"><a href="#"></a></div>
+                        <div id="artist" class="artist"><a href="#"></a></div>
                     </div>
                     <div class="player_icon">
-                        <button type="button" class="player_btn"><i class="fa-regular fa-heart"></i></button> <!-- 빈하트 -->
-                        <button type="button" class="player_btn"><i class="fa-solid fa-heart"></i></button> <!-- 찬하트 -->
+                        <button type="button" id="heart1_btn" class="player_btn"><i class="fa-regular fa-heart fa-lg"></i></button> <!-- 빈하트 -->
+                        <button type="button" id="heart2_btn" class="player_btn" style="display: none;"><i class="fa-solid fa-heart fa-lg"></i></button> <!-- 찬하트 -->
                         가사
-                        <button type="button" class="player_btn"><i class="fa-solid fa-ellipsis"></i></button>
+                        <button type="button" class="player_btn"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
                     </div>
                 </div>
             </div>
             <div class="player_control">
-                <button type="button" class="player_btn"><i class="fa-solid fa-backward-step fa-2x"></i></button>
-                <button type="button" class="player_btn"><i class="fa-solid fa-play fa-2x"></i></button> <!-- play -->
-                <!-- <button type="button" class="player_btn"><i class="fa-solid fa-pause fa-2x"></i></button> --> <!-- pause -->
-                <button type="button" class="player_btn"><i class="fa-solid fa-forward-step fa-2x"></i></button>
+                <button type="button" id="back_btn" class="player_btn"><i class="fa-solid fa-backward-step fa-2x"></i></button>
+                <button type="button" id="play_btn" class="player_btn"><i class="fa-solid fa-play fa-2x"></i></button> <!-- play -->
+                <button type="button" id="pause_btn" class="player_btn" style="display: none;"><i class="fa-solid fa-pause fa-2x"></i></button> <!-- pause -->
+                <button type="button" id="next_btn" class="player_btn"><i class="fa-solid fa-forward-step fa-2x"></i></button>
             </div>
-            <div class="play_list">
-                <button type="button" class="player_btn"><i class="fa-solid fa-eject fa-2x"></i></button>
+            <div class="play_listIcon">
+                <button type="button" id="list_btn" class="player_btn"><i class="fa-solid fa-eject fa-2x"></i></button>
             </div>
-            <audio src=""></audio>
+            <audio id="player">
+                <source id="mp3_url" src="">
+            </audio>
         </footer>
     </div>
+
+    <script src="image.js"></script>
+    <script src="player.js"></script>
 </body>
 </html>
