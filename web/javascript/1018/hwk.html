@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWork</title>
+
+</head>
+
+<body>
+    두 수를 계산해 봅시다!
+    <form action="#" name="myform">
+        <div>
+            첫번째 수: <input type="number" id="su1" name="su" min="0" max="999"> <br>
+            두번째 수: <input type="number" id="su2" name="su" min="0" max="999"> <br>
+        </div>
+        <div>
+            <input type="button" value="두수의합" onclick="add()">
+            <input type="button" value="두수의차" onclick="sub()">
+            <input type="button" value="두수의곱" onclick="mul()">
+            <input type="button" value="두수의몫" onclick="div()">
+        </div>
+        <div id="demo" style="color: red;"></div>
+        <div id="demo2" style="display: none;">
+            다시하시겠습니까?
+            <input type="button" name="" id="btn" value="확인">
+        </div>
+    </form>
+
+    <script src="cal.js"></script>
+</body>
+
+</html>

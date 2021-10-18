@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HomeWork</title>
     <script>
         function add() {
             var su1 = myform.su1.value;
@@ -58,13 +58,14 @@
 </head>
 <body>
     <form action="#" name="myform">
-        1 수: <input type="number" name="su1" min="0" max="999"> <br>
-        2 수: <input type="number" name="su2" min="0" max="999"> <br>
+        1 수: <input type="number" id="su1" name="su1" min="0" max="999"> <br>
+        2 수: <input type="number" id="su2" name="su2" min="0" max="999"> <br>
         <input type="button" value="두수의합" onclick="add()">
         <input type="button" value="두수의차" onclick="sub()">
         <input type="button" value="두수의곱" onclick="mul()">
         <input type="button" value="두수의몫" onclick="div()">
         <div id="demo" style="color: red;"></div>
     </form>
+
 </body>
 </html>
