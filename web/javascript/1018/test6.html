@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function atom() {
+            var address = document.getElementById("address").value;
+            demo.innerHTML = "<a href = '" + address + "'>" + address + "</a>";
+        }
+
+        function atom2() {
+            var address = document.getElementById("address").value;
+            demo.innerHTML = "";
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" name="myform">
+        <div>
+            <p>성명 : <input type="text" id="address" name="address"></p>
+            <p>나이 : <input type="number" id="age" name="age" value="20" min="1" max="99"></p>
+        </div>
+        <div>
+            <input type="submit" value="전송">
+            <input type="reset" value="취소">
+            <input type="button" value="이동" onclick="atom()">
+            <input type="button" value="삭제" onclick="atom2()">
+        </div>
+    </form>
+    <div id="demo">
+
+    </div>
+</body>
+
+</html>

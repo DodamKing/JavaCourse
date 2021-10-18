@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fCheck() {
+            if (document.getElementsByName("gender")[0].checked) {
+                var gender = "남자";
+            }
+            else {
+                gender = "여자";
+            }
+            console.log(gender);
+        }
+
+        function p() {
+            ff = document.getElementsByName("gender")[0].value;
+            console.log(ff);
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        <input type="button" value="체크" onclick="p()" />
+    </div>
+    <div>
+        남자 <input type="text" id="gender1" name="gender" />
+        <!-- 여자 <input type="radio" id="gender2" name="gender" value="여자" /> -->
+    </div>
+</body>
+</html>

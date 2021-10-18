@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>회원가입</h2>
+        <p>필수</p>
+        <form action="/action_page.php">
+            <div class="form-group">
+                <label for="userId">아이디:</label>
+                <input type="text" class="form-control" id="userId" name="userId">
+            </div>
+            <div class="form-group">
+                <label for="pwd">비밀번호:</label>
+                <input type="password" class="form-control" id="pwd" name="pwd">
+            </div>
+            <div class="form-group">
+                <label for="repwd">비밀번호 확인:</label>
+                <input type="password" class="form-control" id="repwd" name="repwd">
+            </div>
+            <div class="form-group">
+                <label for="username">이름:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="age">나이:</label>
+                <input type="text" class="form-control" id="age" name="age">
+            </div>
+            <div class="form-check-inline">
+                <label for="gender" class="form-check-label">
+                    성별:
+                    <input type="radio" class="form-check-input" name="gender">남 자
+                    <input type="radio" class="form-check-input" name="gender">여 자
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <form>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+            </form>
+
+            <script>
+                // Add the following code if you want the name of the file appear on select
+                $(".custom-file-input").on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+            </script>
+            <button type="submit" class="btn btn-primary">회원가입</button>
+            <input type="file" class="form-control-file border">
+        </form>
+    </div>
+</body>
+
+</html>

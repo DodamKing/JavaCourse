@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function f() {
+        var yn = confirm("계속?");
+        if (yn) {
+            alert("작업을 계속 진행합니다.");
+        }
+        else {
+            alert("작업을 종료 합니다.");
+        }
+    }
+
+    function f2() {
+        var name = prompt("이름을 입력하세요.");
+        alert(name);
+    }
+</script>
+<body>
+    <h2>연습</h2>
+    <div>
+        <input type="button" value="confirm" onclick="f()">
+        <input type="button" value="prompt" onclick="f2()">
+    </div>
+</body>
+</html>
