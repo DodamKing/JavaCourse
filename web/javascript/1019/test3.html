@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2 class="bg-info text-white">반복문</h2>
+    <div class="container">
+        <p><input type="button" name="" id="" class="btn btn-dark" value="홀수/짝수 합" onclick="atom1()"></p>
+        <p><input type="button" name="" id="" class="btn btn-dark" value="10항 씩의 합" onclick="atom2()"></p>
+        <p><input type="button" name="" id="" class="btn btn-dark" value="10째 마다 합" onclick="atom3()"></p>
+    </div>
+    <div class="row">
+        <div class="container p-3 my-3 bg-dark col text-white" id="result1"></div>
+        <div class="container p-3 my-3 bg-dark text-white col" id="result2"></div>
+        <div class="container p-3 my-3 bg-dark text-white col" id="result3"></div>
+    </div>
+
+    <script>
+        function atom1() {
+            var i=0; var odd =0; var even = 0;
+            
+            while (i<100) {
+                i++;
+                odd += i;
+                i++;
+                even += i;
+            }
+
+            result1.innerHTML = "홀수합: " + odd + " 짝수합: " + even;
+        }
+
+        function atom2() {
+            let tot = 0;
+            let res = "";
+            let i = 0;
+            while (i<100) {
+                i++;
+                tot += i;
+                if (i % 10 == 0) {
+                    res += tot + "\n"
+                    tot = 0;
+                }
+            }
+            result2.innerHTML = "10개 씩 합은: " + res;
+        }
+
+        function atom3() {
+            let tot = 0;
+            let res = "";
+            let i = 0;
+            while (i<100) {
+                i++;
+                tot += i;
+                if (i % 10 == 0) {
+                    res += tot + "\n"
+                }
+            }
+            result3.innerHTML = "10개 씩 부분합은: " + res;
+        }
+    </script>
+</body>
+</html>

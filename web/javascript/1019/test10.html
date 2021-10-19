@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>계산기</h2>
+        <form action="">
+            <p>첫번째 수: <input type="number" id="su1" size="3"></p>
+            <p>
+                연산자
+                <select name="" id="op">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">÷</option>
+                    <option value="%">%</option>
+                </select>
+            </p>
+            <p>두번째 수: <input type="number" id="su2" size="3"></p>
+            <button class="btn btn-primary" type="button" onclick="calc()">확인</button>
+        </form>
+        <div id="demo"></div>
+    </div>
+
+    <script>
+        function calc() {
+            let res;
+            switch(op.value) {
+                case "+": 
+                res = parseInt(su1.value) + parseInt(su2.value);
+                break;
+                case "-": 
+                res = parseInt(su1.value) - parseInt(su2.value);
+                break;
+                case "*": 
+                res = parseInt(su1.value) * parseInt(su2.value);
+                break;
+                case "/": 
+                res = parseInt(su1.value) / parseInt(su2.value);
+                break;
+                case "%": 
+                res = parseInt(su1.value) % parseInt(su2.value);
+            }
+
+            // let res = s1.value + op.value + su2.value;
+            demo.innerHTML = res;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+        <div id="demo3"></div>
+        <div id="demo4"></div>
+    </div>
+</body>
+<script>
+    function showMessage(message, name) {
+        demo1.innerHTML = message + " : " + name
+    }
+    
+    function showMessage2(message = 'hi', name, message2) {
+        demo2.innerHTML = (`${message}~ ${name}, ${message2}!`)
+    }
+    
+    function showMessage3(name, message2, message = 'hello') {
+        demo3.innerHTML = (`${message}~ ${name}, ${message2}!`)
+        demo4.innerHTML = ("<input type='button' value='네이버' onclick='location=`http://www.naver.com`;' />")
+    }
+
+    showMessage('hi', 'chulsu');
+    showMessage2('hi', 'chulsu', 'nice to meet you');
+    showMessage3('chulsu', 'nice to meet you');
+
+</script>
+
+</html>

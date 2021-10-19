@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>반복문</h2>
+    <div class="container">
+        <p><input type="button" name="" id="" class="btn btn-dark" value="시그마 100" onclick="atom1()"></p>
+        <p><input type="button" name="" id="" class="btn btn-dark" value="뽝수!" onclick="atom2()"></p>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        function atom1() {
+            let tot = 0;
+            for (var i = 1; i <= 100; i++) {
+                tot += i;
+            }
+            result.innerHTML = "결과는: " + tot;
+        }
+
+        function atom2() {
+            let ans = "";
+            for (var i = 1; i<=100; i++) {
+                if (i % 3 == 0) {
+                    var res = "'짝' ";
+                    ans += res;
+                }
+                else if (i % 5 == 0) {
+                    var res = "'짝짝' ";
+                    ans += res;
+                }
+                else if (i % 7 == 0) {
+                    var res = "'짝짝짝' ";
+                    ans += res;
+                }
+                else {
+                    var res ="'" + i + "' ";
+                    ans += res;
+                }
+                result.innerHTML = ans;
+            }
+        }
+    </script>
+</body>
+
+</html>

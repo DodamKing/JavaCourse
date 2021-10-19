@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>익명함수</h2>
+    <div class="container">
+        <div id="demo1" class="btn btn-secondary"></div>
+        <div id="demo2" class="btn btn-secondary"></div>
+        <div>
+            <br>
+            <input class="btn btn-primary" type="button" value="계속" onclick="anonyFunc('Y', ansYes, ansNo)">
+            <input class="btn btn-primary" type="button" value="그만" onclick="anonyFunc('n', ansYes, ansNo)">
+        </div>
+        <br>
+        <div id="demo3" class="btn btn-secondary"></div>
+        <div id="demo4" class="btn btn-secondary"></div>
+        <div id="demo5" class="btn btn-secondary"></div>
+    </div>
+</body>
+
+<script>
+    function msgPrint1(){
+        demo1.innerHTML = "여기는 일반함수"
+    }
+
+    let msgPrint2 = function () {
+        demo2.innerHTML = "이거는 익명함수지롱!"
+    }
+
+    function anonyFunc(answer, ansYes, ansNo) {
+        if (answer == "Y" || answer =="y") {
+            ansYes();
+        }
+        else {
+            ansNo();
+        }
+    }
+
+    let ansYes = function () {
+        demo3.innerHTML = "작업을 계속 진행합니다."
+    }
+    let ansNo = function () {
+        demo3.innerHTML = "작업을 마칩니다."
+    }
+
+    msgPrint1();
+    msgPrint2();
+</script>
+
+</html>

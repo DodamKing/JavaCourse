@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>배열</h2>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <div id="demo1"></div>
+                <div id="demo2"></div>
+                <div id="demo3"></div>
+                <div id="demo4"></div>
+                <div id="demo5"></div>
+                <div id="demo6"></div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let arr1 = new Array();
+        let fruits = [" 사과", " 배", " 바나나", " 딸기", " watermelon"];
+
+        demo1.innerHTML = "1. " + fruits;
+        demo2.innerHTML = "2. 개수:  " + fruits.length + "개";
+        demo3.innerHTML = "3. fruits[0]:  " + fruits[0];
+        demo4.innerHTML = "4. fruits[5]:  " + fruits[fruits.length-1];
+
+        var res = "5. "
+        for (let fruit of fruits) {
+            res += "<br>" + fruit;
+        }
+        demo5.innerHTML = res;
+
+        fruits.forEach(function(fruit, index, Array) {
+            document.write(fruit);
+            document.write(index);
+            document.write(Array);
+            document.write("<br />");
+        });
+
+        fruits.forEach((fruit, index) => document.write(index + ". " + fruit + "<br>"))
+
+        fruits.forEach((fruit)=> {
+            document.write(fruit);
+        });
+
+
+        fruits.push(" 참외", " 키위", " 앵두");
+        document.write("<br>" + fruits + "<br>");
+        
+        fruits.unshift(" 자두", " 망고");
+        document.write("<br>" + fruits + "<br>");
+        
+        a = fruits.pop();
+        document.write("<br>" + fruits + "<br>" + a);
+        b = fruits.shift();
+        document.write("<br>" + fruits + "<br>" + b);
+        
+        c = fruits.splice(2, 2); /* (index, cnt) */
+        document.write("<br>" + fruits + "<br>" + c);
+
+    </script>
+</body>
+
+</html>

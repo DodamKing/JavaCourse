@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>여러가지 for문</h2>
+
+    <script>
+        function forExam1(...args) {
+            for (let i=0; i<args.length; i++) {
+                console.log(args[i]);
+            }
+        }
+        
+        function forExam2(...args) {
+            for (let arg of args) {
+                console.log(arg);
+            }
+        }
+
+        function forExam3 (...args) {
+            console.log("");
+            args.forEach(arg => {
+                console.log(arg);
+                console.log(arg+100);
+            });
+        }
+
+        forExam1('하나', '둘', 3, '넷', 5);
+        forExam2('하나', true, 3, '넷', 5, false);
+        forExam3('하나', true, 3, '넷', 5, false, '7');
+
+
+    </script>
+</body>
+</html>

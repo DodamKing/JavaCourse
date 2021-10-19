@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>중첩 반복문</h2>
+    <form action="" name="myform">
+        <h3>구구단</h3>
+        <div>
+            몇 단 필요해?
+            <input type="number" name="" id="dan" min="2" max="9"> <br>
+            <input class="btn btn-primary" type="button" value="출력" onclick="gugudan()">
+        </div>
+        <div>
+            <div class="row">
+                몇 단 부터 몇 단?
+                <input type="number" name="" id="start" min="2" max="99"> <br>
+                <input type="number" name="" id="end" min="2" max="99"> <br>
+            </div>
+            <input class="btn btn-primary" type="button" value="출력" onclick="gugudan2()">
+            <div>
+                <div class="row">
+                    구구단 표
+                    <input type="number" name="" id="dan1" min="2" max="99"> <br>
+                    <input type="number" name="" id="dan2" min="2" max="99"> <br>
+                </div>
+                <input class="btn btn-primary" type="button" value="출력" onclick="gugudan3()">
+            </div>
+        </div>
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="result3"></div>
+
+    </form>
+    <script>
+        function gugudan() {
+            if (dan.value == "") {
+                alert("수를 입력하세요")
+            } else {
+                var intDan = parseInt(dan.value);
+                var res;
+                res = intDan + "단";
+                for (var i = 1; i < 10; i++) {
+                    res += "<br />" + intDan + " * " + i + " = " + intDan * i
+                }
+                result1.innerHTML = res;
+            }
+        }
+
+        function gugudan2() {
+            var intStart = parseInt(start.value);
+            var intEnd = parseInt(end.value);
+            var res;
+            var temp;
+
+            res = intStart + "단 부터 " + intEnd + "단";
+            for (var i = intStart; i <= intEnd; i++) {
+
+                for (var j = 1; j < 10; j++) {
+                    res += "<br>" + i + " * " + j + " = " + i * j;
+                }
+            }
+            result2.innerHTML = res;
+        }
+
+        function gugudan3() {
+            var start = parseInt(dan1.value);
+            var end = parseInt(dan2.value);
+            var res;
+            var cnt = 0;
+
+            res = start + "단 부터 " + end + "단" + "<table border><tr>";
+            for (var i = start; i <= end; i++) {
+                if (cnt != 0 && cnt % 3 == 0) {
+                    res += "<tr>"
+                }
+                res += "<td>"
+                for (var j = 1; j < 10; j++) {
+                    res += i + " * " + j + " = " + i * j + "<br/>";
+                }
+                res += "</td>"
+                if (cnt != 2 && cnt % 3 == 2) {
+                    res += "</tr>"
+                }
+                cnt++;
+            }
+            result2.innerHTML = res + "</tr></table>";
+            console.log(res);
+
+        }
+    </script>
+</body>
+
+</html>

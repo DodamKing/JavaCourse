@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매개변수</title>
+</head>
+
+<body>
+    <h2>매개변수 연습</h2>
+    <form action="#" id="" name="myform">
+        <p>
+            <input type="button" name="" id="" value="변수호출" onclick="fCheck(10)">
+            <input type="button" name="" id="" value="변수호출" onclick="fCheck2(10, 20)">
+        </p>
+    </form>
+    <script>
+        function fCheck(a) {
+            console.log("매개변수 출력: " + a);
+        }
+        function fCheck2(a, b) {
+            console.log("첫번째: " + a);
+            console.log("두번째: " + b);
+            console.log("합: " + a + b);
+        }
+    </script>
+</body>
+
+</html>

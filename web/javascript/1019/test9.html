@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>switch</h2>
+    <div class="container">
+        <form action="" id="myfrom">
+            <div>
+                점수
+                <input type="number" id="jumsu">
+                <input class="btn btn-primary" type="button" value="학점" onclick="fCheck()">
+            </div>
+        </form>
+        <div id="demo"></div>
+    </div>
+
+    <script>
+        function fCheck() {
+            let intJumsu = parseInt(jumsu.value);
+            console.log(intJumsu);
+            let jum = parseInt(intJumsu/10);
+
+            let grade;
+            switch(jum) {
+                case 10: 
+                case 9: 
+                    grade = "A";
+                    break
+                case 8: 
+                    grade = "B";
+                    break
+                case 7: 
+                    grade = "C";
+                    break
+                case 6: 
+                    grade = "D";
+                    break
+                default: 
+                    grade = "F";
+            }
+            demo.innerHTML = "입력된 점수: " + intJumsu + "<br> 학점: " + grade + "<br><input type='button' value='다시하기' onclick='jumsu.focus()'>"
+        }
+    </script>
+</body>
+
+</html>

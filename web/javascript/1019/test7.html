@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button type="button" onclick="output()">출력1</button>
+        <button type="button" onclick="output2()">출력2</button>
+        <button type="button" onclick="output3()">출력3</button>
+        <button type="button" onclick="er()">지우개</button>
+    </div>
+    <p id="demo1">자바스크립트</p>
+    <p id="demo2"></p>
+
+    <script>
+        function output(){
+            var item = "삽입되는 문서";
+            demo2.innerHTML = item;
+        }
+        function output2(){
+            var item = demo1.innerHTML;
+            demo2.innerHTML = item;
+        }
+        function output3(){
+            var item = demo2.innerHTML;
+            demo2.innerHTML += item + "<br><hr>";
+        }
+        function er() {
+            demo2.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
