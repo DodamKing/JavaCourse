@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>입력창 추가</h2>
+    <form action="" name="myform" id="myform">
+        <p><input type="button" value="입력창추가" onclick="inputBox()"></p>
+        <p><input type="button" value="all Clear" onclick="location.reload()"></p>
+        <p id="demo"></p>
+    </form>
+    <script>
+        "use strict"
+        let idx = 0;
+        function inputBox() {
+            idx++;
+            let txt = demo.innerHTML;
+            let newTxt = txt + idx + " <input type='text' name='pummok' id='pummok_"+ idx + " ' /> <input type='button' value='삭제' id='btn_"+idx+"' onclick=''/ ><br /><br />"
+            demo.innerHTML = newTxt;
+        }
+
+
+    </script>
+</body>
+</html>

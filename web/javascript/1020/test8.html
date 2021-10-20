@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        const user1 = {name:"홍길동", age:22, gender:"남자", job:"학생"};
+        const user2 = user1;
+        document.write(user1.name, user1.age, user1.gender, user1.job);
+        document.write("<br>")
+        document.write(user2.name, user2.age, user2.gender, user2.job);
+        document.write("<br>")
+        
+        const user3 = {};
+        for (let key in user1) {
+            user3[key] = user1[key];
+        }
+        document.write(user3.name, user3.age, user3.gender, user3.job);
+        document.write("<br>")
+        
+        const user4 = {}
+        user4.name = "소나무";
+        user4.age = 55;
+        document.write(user4.name, user4.age);
+        document.write("<br>")
+        
+        user4.job = "학생";
+        document.write(user4.name, user4.age, user4.gender, user4.job);
+        document.write("<br>")
+        
+        </script>
+</body>
+</html>

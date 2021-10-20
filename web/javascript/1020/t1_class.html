@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>클래스</h2>
+    <script>
+        const obj = new Object();
+        obj.name = "이기자";
+        obj.age = 44;
+        obj.jumsu = [70, 80, 90];
+        obj.imfor = {
+            tel : "010-1234-4567",
+            address : "서울시 동작구 노량진동"
+        };
+        obj.atom = function() {
+            console.log("이름: " + this.name);
+        }
+        console.log(obj);
+
+    </script>
+</body>
+</html>

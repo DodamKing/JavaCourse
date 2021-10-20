@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>클래스</h2>
+    <script>
+        "use strict";
+
+        class Shape {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            getArea() {
+                return this.width * this.height;
+            }
+        }
+
+        const shape = new Shape(10, 20);
+        let area = shape.getArea();
+        document.write(area);
+        document.write("<br>");
+
+        class ChildShape extends Shape {
+            getArea() {
+                return this.width * this.height / 2; 
+            }
+        }
+
+        const child = new ChildShape(15, 35);
+        area = child.getArea();
+        document.write(area);
+
+    </script>
+</body>
+
+</html>

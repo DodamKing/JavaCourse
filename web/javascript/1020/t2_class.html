@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>클래스</h2>
+    <script>
+    "use strict";
+
+    class Member {
+        // name;
+        // age;
+
+        /* constructor() {
+
+        } */
+
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        memberPrint() {
+            document.write("이름: " + this.name + ", 나이: " + this.age + "<br>");
+        }
+    }
+
+    const member = new Member("홍길동", 25)
+    document.write(member.name);
+    document.write("<br>");
+    document.write(member.age);
+    document.write("<br>");
+    member.memberPrint();
+
+    </script>
+</body>
+</html>

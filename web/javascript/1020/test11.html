@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>함수 연습</h2>
+    <p>
+        문자열 <input type="text" name="str" id="str" size="50" value="Welcome to My Homepage!" />
+        <input type="button" value="결과보기" onclick="result()" />
+    </p>
+    <p id="demo"></p>
+
+    <script>
+        "use strict"
+        function result() {
+            let str1 = "안녕하세요."
+            str1 = str.value;
+            let len = str1.length;
+            // str = document.getElementById("str").value;
+            let str2 = str1.indexOf("O");
+            demo.innerHTML = str1;
+            demo.innerHTML = "길이: " + len;
+            demo.innerHTML = str2;
+            
+            str2 = str1.charAt(4);
+            demo.innerHTML = str2;
+            
+            str2 = str1.match("my");
+            demo.innerHTML = str2;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>콘솔확인</h2>
+    <script>
+        var obj1 = {
+            name : "홍길동",
+            age : 25,
+            gender : true,
+            jumsu : [10, 20, 30],
+            infor : {
+                tel : "010-1234-5678",
+                address : "청주시 흥덕구 사창동 123 번지"
+            },
+            atom : function() {
+                console.log(this.name + "의 나이는 " + this.age);
+            }
+        }
+
+        console.log("1: " + obj1);
+        console.log("2: " , obj1);
+        console.log("3: " + JSON.stringify(obj1));
+        console.log("4: " + obj1.name);
+        obj1.atom();
+
+        obj1.name = "김말숙";
+        obj1.age = 50;
+        obj1.atom();
+
+        obj1.job = "학생";
+        console.log("6: " , obj1);
+        
+        delete obj1.name;
+        console.log("7: " , obj1);
+
+    </script>
+</body>
+</html>
