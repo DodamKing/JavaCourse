@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h2 class="bg-dark text-white text-center" style="font-size: 4em;"><a href="main.html">Up and Down</a></h2>
+            <div class="container p-3 my-3 bg-dark text-white">
+                <h4>숫자를 맞춰 보세요! 기회는 다섯번 입니다.</h4>
+                1 이상 50 이하의 숫자입니다.
+                <button id="re" class="btn btn-warning" style="float: right;" onclick="location.reload()">다시하기</button>
+                <div class="row mt-5" style="width: 99%; margin: auto;">
+                    <input class="col form-control mr-1" type="text" id="inputBox" autofocus required>
+                    <input class="col-2 btn btn-secondary ml-1" type="button" id="confirm_btn" value="Confirm">
+                </div>
+                <div class="container p-3 my-3 border" id="demo" align="center"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        "use strict"
+
+        let cnt = 1;
+        let answer = parseInt(50 * Math.random()) + 1;
+        let show = "";
+        console.log(answer);
+
+        function conf() {
+            if (isNaN(inputBox.value) || inputBox.value == "") {
+                alert("1 이상 50 이하의 숫자를 입력하세요!!!");
+            }
+            else if (cnt == 6) {
+                if (confirm("기회를 모두 소진 하였습니다. 다시 하시겠습니까?")) {
+                    location.reload();
+                }
+                else {
+                    return;
+                }
+            }
+            else {
+                let guess = parseInt(inputBox.value);
+                if (answer > guess) {
+                    show += "<p class='alert alert-info' id='" + cnt + "'><strong>Result</strong> : " + guess + " 보다 큽니다! <button style='border: none; background: none; color: black' onclick='del(" + cnt + ")'>X</button></p>";
+                    demo.innerHTML = show;
+                }
+                else if (answer < guess) {
+                    show += "<p class='alert alert-info' id='" + cnt + "'><strong>Result</strong> : " + guess + " 보다 작습니다! <button style='border: none; background: none; color: black' onclick='del(" + cnt + ")'>X</button></p>";
+                    demo.innerHTML = show;
+                }
+                else if (answer == guess) {
+                    show += "<p class='alert alert-info' id='" + cnt + "'><strong>Result</strong> : 정답입니다! <button style='border: none; background: none; color: black' onclick='del(" + cnt + ")'>X</button></p>";
+                    demo.innerHTML = show;
+                }
+                cnt++;
+            }
+            inputBox.value = "";
+            inputBox.focus();
+        }
+
+        confirm_btn.addEventListener("click", conf);
+
+        function del(cnt) {
+            if (confirm("이 줄을 삭제 하시겠습니까?")) {
+                let lbl = document.getElementById(cnt);
+                lbl.remove();
+            }
+        }
+
+        inputBox.addEventListener("keyup", () => {
+            if (event.keyCode == 13) {
+                conf();
+            }
+        });
+
+    </script>
+</body>
+
+</html>

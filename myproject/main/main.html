@@ -5,10 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DD Music</title>
-    <link rel="stylesheet" href="main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <!-- 리스트 -->
+    <div id="play_list" class="play_list"  data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+        <div id="music_list" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top music_list">
+            <div class="navbar-nav">이어지는 노래</div>
+            <div class="list-group ">
+                <div class="list-group-item-dark">
+                    <div class="album_img"><a href="#"><img id="list_album_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
+                    <div class="song_info">
+                        <div id="list_songTitle" class="song_title"><a href="#">그대가 분다</a></div>
+                        <div id="list_artist" class="artist">엠씨더맥스(M.C the max)<a href="#"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="list-group-item-dark">
+                    <div class="album_img"><a href="#"><img id="list_album_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
+                    <div class="song_info">
+                        <div id="list_songTitle" class="song_title"><a href="#">그대가 분다</a></div>
+                        <div id="list_artist" class="artist">엠씨더맥스(M.C the max)<a href="#"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="list-group-item-dark">
+                    <div class="album_img"><a href="#"><img id="list_album_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
+                    <div class="song_info">
+                        <div id="list_songTitle" class="song_title"><a href="#">그대가 분다</a></div>
+                        <div id="list_artist" class="artist">엠씨더맥스(M.C the max)<a href="#"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="container">
         <header id="header">
             <div id="menu_box" class="menu_box">
@@ -59,7 +96,7 @@
                 <div></div>
             </nav>
             <div class="header_content">
-                <img id="mainImg" src="img/m1.jpg" alt="화면이지미">
+                <img id="mainImg" src="../img/m1.jpg" alt="화면이지미">
                 <!-- <script>
                     var myImg = document.getElementById("mainImg");
                     var imgArr = ["img/m1.jpg", "img/m2.jpg", "img/m3.jpg", "img/m4.jpg", "img/m5.jpg", "img/m6.jpg", "img/m7.jpg", "img/m8.jpg", "img/m9.jpg", "img/m10.jpg"];
@@ -82,27 +119,11 @@
                     이미지 왕창 들어감
                 </div>
                 <div>
-                    <img src="img/content_sample.png" alt="" style="width: 100%">
+                    <img src="../img/content_sample.png" alt="" style="width: 100%">
                 </div>
                 <div class="copyright">
                     Copyright ⓒ Double D. All rights reserved.
                 </div>
-                <!-- 리스트 -->
-                <!-- <div id="play_list" class="play_list">
-                    <div id="list_imgBox" class="list_imgBox">
-                        <img id="list_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="">
-                    </div>
-                    <div id="music_list" class="music_list">
-                        <div>이어지는 노래</div>
-                        <div>
-                            <div class="album_img"><a href="#"><img id="list_album_img" src="https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611" alt="" style="width: 100%;"></a></div>
-                            <div class="song_info">
-                                <div id="list_songTitle" class="song_title"><a href="#">그대가 분다</a></div>
-                                <div id="list_artist" class="artist">엠씨더맥스(M.C the max)<a href="#"></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
         <footer id="footer">

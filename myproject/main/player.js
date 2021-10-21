@@ -4,6 +4,7 @@ const file = document.getElementById('mp3_url');
 let album_img = document.getElementById('album_img');
 let song_title = document.getElementById('song_title');
 let artist = document.getElementById('artist');
+// let play_list = document.getElementById("play_list");
 
 let play_btn = document.getElementById('play_btn');
 let pause_btn = document.getElementById('pause_btn');
@@ -13,7 +14,7 @@ let back_btn = document.getElementById('back_btn');
 let next_btn = document.getElementById('next_btn');
 
 
-let listArr = ["sample_music/그대가 분다 - 엠씨더맥스(M.C the max).mp3", "sample_music/고백 - 멜로망스.mp3"];
+let listArr = ["../sample_music/그대가 분다 - 엠씨더맥스(M.C the max).mp3", "../sample_music/고백 - 멜로망스.mp3"];
 let album_imgArr = [
     "https://musicmeta-phinf.pstatic.net/album/000/410/410380.jpg?type=r100Fll&v=20200318183611",
     "https://cdnimg.melon.co.kr/cm2/album/images/106/95/590/10695590_20210827162225_500.jpg?dcfb56aca4a0dbfa8bd50fc0b97d9078/melon/resize/260/quality/80/optimize"
@@ -119,6 +120,15 @@ function back() {
     player.play();
 }
 
+function toggle_list() {
+    if (play_list.style.display == "none") {
+        play_list.style.display = "inline-block";
+    }
+    else {
+        play_list.style.display = "none";
+    }
+}
+
 
 
 play_btn.addEventListener('click', play);
@@ -127,6 +137,7 @@ heart1_btn.addEventListener("click", heart1_click);
 heart2_btn.addEventListener("click", heart2_click);
 next_btn.addEventListener('click', next);
 back_btn.addEventListener('click', back);
+list_btn.addEventListener("click", toggle_list)
 
 player.addEventListener("ended", continuous);
 
