@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="결과보기" onclick="result()" />
+    <p id="demo"></p>
+
+    <script>
+        // let str = document.getElementById("demo").value;
+        let str = demo.value;
+        let str1;
+        str1 = Math.round(4.4);
+        str1 = Math.round(-4.4);
+        str1 = Math.round(-4.6);
+        str1 = Math.round(12.1234);
+
+        str1 = (34.4554).toFixed(0);
+        str1 = (34.4554).toFixed(1);
+        str1 = (34.4554).toFixed(2);
+
+        function result() {
+            demo.innerText = str1;
+        }
+    </script>
+</body>
+</html>
