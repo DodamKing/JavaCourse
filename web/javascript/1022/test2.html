@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>라디오버튼연습</h2>
+    <form action="" name="myform">
+        <p>좋아하는 계절은?</p>
+        <p>
+            봄<input type="radio" name="season" value="봄" checked>
+            여름<input type="radio" name="season" value="여름" checked>
+            가을<input type="radio" name="season" value="가을" checked>
+            겨울<input type="radio" name="season" value="겨울" checked>
+        </p>
+        <p>
+            <input type="button" value="선택" onclick="fCheck()">
+            <input type="reset" value="취소">
+        </p>
+    </form>
+
+    <script>
+        "use strict"
+
+        function fCheck() {
+            let season = myform.season.value;
+            console.log(season);
+            alert(season);
+        }
+    </script>
+</body>
+</html>

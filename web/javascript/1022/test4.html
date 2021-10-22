@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>콤보상자 연습</h2>
+    <form action="" name="myform">
+        <p>좋아하는 과일은?</p>
+        <select name="fruit" id="fruit" size="5" multiple onchange="fruitCheck(this)">
+            <option value="사과">사과</option>
+            <option value="배">배</option>
+            <option value="바나나">바나나</option>
+            <option value="포도">포도</option>
+            <option value="수박">수박</option>
+            <option value="딸기">딸기</option>
+            <option value="참외">참외</option>
+            <option value="키위">키위</option>
+            <option value="복숭아">복숭아</option>
+        </select>
+        <input type="button" value="확인" onclick="fCheck()">
+        <input type="reset" value="취소">
+    </form>
+    <p id="demo"></p>
+    <p id="valueBox"></p>
+    <p id="textBox"></p>
+</body>
+
+<script>
+    function fruitCheck(e) {
+        const values = [];
+        const texts = [];
+
+        for (var i=0; i<e.options.length; i++) {
+            const fruit = e.options[i];
+            if (fruit.selected) {
+                values.push(fruit.value);
+                texts.push(fruit.text);
+            }
+        }
+        valueBox.innerHTML = values;
+        textBox.innerHTML = texts;
+    }
+
+</script>
+
+</html>

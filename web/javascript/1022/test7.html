@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>인터넷 시계</h2>
+    <p>
+        <input type="button" value="시작" onclick="timeStart()">
+        <input type="button" value="멈춤" onclick="timeStop()">
+    </p>
+    <p id="demo"></p>
+    <script>
+        var myTime;
+        function time() {
+            var today = new Date();
+            var hour = today.getHours();
+            var min = today.getMinutes();
+            var sec = today.getSeconds();
+            var time = hour + "시 " + min + "분 " + sec + "초"; 
+            demo.innerHTML = time;
+        }
+
+        function timeStart() {
+            time();
+            myTime = setInterval(time, 1000);
+        }
+
+        function timeStop() {
+            clearInterval(myTime);
+        }
+    </script>
+</body>
+</html>

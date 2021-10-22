@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        <input type="text" name="mid" id="mid" autofocus placeholder="아이디" />
+    </p>
+    <button onclick="receive()">넘어온값</button>
+    <button onclick="send()">값넘기기</button>
+    <button onclick="clo()">창닫기</button>
+    <script>
+        
+        function receive() {
+            mid.value = opener.mid.value;
+        }
+        function send() {
+        }
+        function clo() {
+            opener.mid2.value = mid.value;
+            close();
+            opener.pwd.focus();
+        }
+    </script>
+</body>
+
+</html>

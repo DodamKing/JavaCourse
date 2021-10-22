@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>screen을 이용한 해상도 가져오기</h2>
+
+    <script>
+        document.write("해상도 가로:" + screen.width + "<br>");
+        document.write("해상도 세로:" + screen.height + "<br>");
+        document.write("해상도 실제가로:" + screen.availWidth + "<br>");
+        document.write("해상도 실제세로:" + screen.availHeight + "<br>");
+        document.write("표현가능 색상수:" + Math.pow(2, screen.colorDepth) + "<br>");
+        document.write("픽셀당 색상수:" + Math.pow(2, screen.pixelDepth) + "<br>");
+    </script>
+</body>
+</html>

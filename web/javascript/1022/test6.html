@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>시간에 관한 함수</h2>
+    <p>
+        <input type="button" value="증가" onclick="play('up')">
+        <input type="button" value="감소" onclick="play('down')">
+        <input type="button" value="멈춤" onclick="play('pause')">
+    </p>
+    <p id="demo"></p>
+
+    <script>
+        "use strict"
+        let no = 0;
+        let txt;
+        let timeControl;
+
+        function play(sel) {
+            if (sel == "up") {
+                no++;
+                txt = no;
+                clearTimeout(timeControl);
+                timeControl = setTimeout("play('up')", 1000);
+            }
+            else if (sel == "down") {
+                no--;
+                txt = no;
+                clearTimeout(timeControl);
+                timeControl = setTimeout("play('down')", 1000);
+            }
+            else if (sel == "pause") {
+                clearTimeout(timeControl);
+            }
+            demo.innerHTML = no;
+        }
+
+    </script>
+</body>
+</html>
