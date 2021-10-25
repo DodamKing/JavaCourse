@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test21_계산출력.html(가격계산출력)</title>
+</head>
+<body>
+  <form name="myform">
+    <p>상품명 : <input type="text" name="product" value="잠바" autofocus /></p>
+    <p>사이즈 :
+      <select name="price" id="price">
+        <option value="5000">1.s Size(5000)</option>
+        <option value="10000">2.m Size(10000)</option>
+        <option value="15000">3.L Size(15000)</option>
+        <option value="20000">4.XL Size(20000)</option>
+        <option value="25000">5.XXL Size(25000)</option>
+      </select>원 , &nbsp;
+      수량<input type="number" name="ea" id="ea" value="1" min="1"/>개
+    </p>
+    <input type="button" value="가격" onclick="priceCalc()"/>
+    <input type="button" value="VAT" onclick="vatCalc()"/>
+    <input type="button" value="총가격(price+vat)" onclick="totalCalc()"/> 
+  </form>
+  <p>가격(단가*수량) : <span id="demo1"></span></p>
+  <p>VAT('가격'의 10%) : <span id="demo2"></span></p>
+  <p>총판매가격(VAT포함가격) : <span id="demo3"></span></p>
+
+  <script>
+    function numberWithCommas(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+    function numOutput(num) {
+        return parseInt(num.replace(/[^0-9]+/g , ""));
+    }
+
+    function priceCalc() {
+      let res = price.value * ea.value;
+      demo1.innerHTML = numberWithCommas(res) + "원";
+    }
+
+    function vatCalc() {
+      let res = demo1.innerHTML;
+      let result = numOutput(res);
+      result *= 0.1;
+      demo2.innerHTML = numberWithCommas(result) + "원";
+    }
+
+    function totalCalc() {
+      let res = numOutput(demo1.innerHTML);
+      let result = numOutput(demo2.innerHTML);
+      let total = res + result;
+      demo3.innerHTML = numberWithCommas(total) + "원";
+    }
+  </script>
+</body>
+</html>

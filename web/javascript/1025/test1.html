@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" name="btn1" id="btn1" value="버튼1">
+    <input type="button" name="btn2" id="btn2" value="버튼2">
+    <div id="demo1"></div>
+    <div id="demo2"></div>
+    <script>
+        var cnt1 = 0;
+        var cnt2 = 0;
+
+        btn1.addEventListener("click" , () => {
+            cnt1++;
+            demo1.innerHTML = cnt1;;
+            if (cnt1 % 10 == 0) {
+                btn2.click();
+            }
+        });
+        btn2.addEventListener("click", () => {
+            cnt2++; 
+            demo2.innerHTML = cnt2;
+            if (cnt2 % 5 == 0) {
+                btn1.click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>리스트 박스 추가 삭제 수정</h2>
+    <form action="" name="myform" id="myfrom">
+        <p>
+            리스트박스
+            <select name="listBox" id="listBox" size="5" multiple>
+            </select>
+            <p>
+                <input type="text" name="fruit" id="fruit">
+                <input type="button" id="add_btn" value="과일추가">
+                <input type="button" id="del_btn" value="과일삭제">
+                <input type="button" id="upd_btn" value="과일수정">
+            </p>
+        </p>
+    </form>
+
+    <script>
+        add_btn.addEventListener("click", () => {
+            var listBoxLen = listBox.length;
+            if (fruit.value == "") {
+                alert("입력하세요.");
+                return;
+            }
+            
+            var optText = new Option(fruit.value);
+            listBox.append(optText);
+            // listBox.options[listBoxLen] = optText;
+            fruit.value = "";
+            fruit.focus();
+        });
+        
+        del_btn.addEventListener("click", () => {
+            var listBoxLen = listBox.length;
+            for (let i=0; i<listBoxLen; i++) {
+                if (listBox.options[i].selected) {
+                    listBox.options[i].remove();
+                }
+            }
+        });
+
+        upd_btn.addEventListener("click", () => {
+            var listBoxLen = listBox.length;
+
+            if (fruit.value == "") {
+                alert("입력하세요.");
+                return;
+            }
+            
+            for (let i=0; i< listBoxLen; i++) {
+                if (listBox.options[i].selected) {
+                    listBox.options[i].text = fruit.value;
+                }
+            }
+        });
+
+        listBox.addEventListener("click" , () => {
+            var listBoxLen = listBox.length;
+
+            for (let i=0; i< listBoxLen; i++) {
+                if (listBox.options[i].selected) {
+                    fruit.value = listBox.options[i].value;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

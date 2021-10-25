@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>쉼표</h2>
+    <form action="">
+        <p>
+            숫자 <input type="text" name="num" id="num" autofocus>
+            <input id="comma_btn" type="button" value="쉼표넣기">
+            <input id="comma_btn2" type="button" value="정규식쉼표넣기">
+            <input id="comma_btn3" type="button" value="정규식쉼표빼기">
+        </p>
+    </form>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <script>
+        function commaInput() {
+            if (num.value == "" || isNaN(num.value)) {
+                alert("수를 입력하세요.");
+                num.select();
+                return;
+            }
+
+            demo.innerHTML = comma(num.value);
+        }
+
+        function comma(num) {
+            let numLen, numPoint, numStr;
+
+            numStr = num + "";
+            numLen = num.length;
+            numPoint = numLen % 3
+            numStr = num.substring(0, numPoint);
+
+            while (numPoint < numLen) {
+                if (numStr !="") numStr += ",";
+                numStr += num.substring(numPoint, numPoint + 3);
+                numPoint += 3;
+            }
+
+            return numStr;
+        }
+
+        function commaInput2() {
+            if (num.value == "" || isNaN(num.value)) {
+                alert("수를 입력하세요.");
+                num.select();
+                return;
+            }
+
+            demo2.innerHTML = numberWithCommas(num.value);
+        }
+        
+        function numberWithCommas(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function numOutput() {
+            demo3.innerHTML = demo.innerHTML.replace(/[^0-9]+/g , "");
+        }
+
+        comma_btn.addEventListener("click", commaInput);
+        comma_btn2.addEventListener("click", commaInput2);
+        comma_btn3.addEventListener("click", numOutput);
+    </script>
+</body>
+</html>
