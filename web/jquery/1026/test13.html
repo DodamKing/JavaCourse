@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="">
+            <div class="card-body" id="content">
+                <div class="input-group">
+                    <select class="custom-select" name="foods" id="foods">
+                        <option value="">음식 분류</option>
+                        <option value="한식">1. 한식</option>
+                        <option value="중식">2. 중식</option>
+                        <option value="양식">3. 양식</option>
+                        <option value="일식">4. 일식</option>
+                        <option value="분식">5. 분식</option>
+                    </select>
+                    <div class="input-group-append">
+                        <input class="btn btn-secondary" name="food_btn" id="food_btn" type="button" value="조회">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class="card-body" id="con_res">
+            선택결과: <input class="form-control" type="text" name="result" id="result" disabled>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(food_btn).click(function(){
+            let food = $("#foods option:selected").val();
+            if (food == "") {
+                alert("음식을 선택하세요!");
+                return;
+            }
+
+            $("input[name='result']").val(food);
+        });
+        // $(food_btn).click(function(evt){
+
+        // });
+    </script>
+</body>
+
+</html>

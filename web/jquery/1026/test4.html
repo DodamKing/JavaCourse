@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>상품가격 계산</h2>
+        <p>
+            상품가격: <input type="text" name="cost" id="cost" autofocus />
+        </p>
+        <p>
+            상품수량: <input type="text" name="qty" id="qty" />
+        </p>
+        <p>
+            <input type="button" id="total_btn" value="계산" />
+        </p>
+        <p id="demo"></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $.noConflict();
+        
+        jQuery("#total_btn").click(() => {
+            jQuery("#demo").html("<font color='red'>버튼1</font>")
+        });
+    </script>
+</body>
+</html>

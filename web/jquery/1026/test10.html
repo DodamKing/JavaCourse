@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>즐겨 찾는 음식</h3>
+        <table class="table table-hover" id="foods">
+            <tr class="">
+                <th>번호</th>
+                <th>분류</th>
+                <th>음식</th>
+            </tr>
+            <tr>
+                <td>1</td><td>중식</td><td>짜장면</td>
+            </tr>
+            <tr>
+                <td>2</td><td>중식</td><td>짬뽕</td>
+            </tr>
+            <tr>
+                <td>3</td><td>한식</td><td>불고기비빔밥</td>
+            </tr>
+            <tr>
+                <td>4</td><td>한식</td><td>된장찌개백반</td>
+            </tr>
+            <tr>
+                <td>5</td><td>양식</td><td>돈가스</td>
+            </tr>
+            <tr>
+                <td>6</td><td>양식</td><td>파스트</td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <div class="table table-hover" id="one">
+            <div class="card-body row">
+                <div class="col-3">번호</div>
+                <div class="col-3">분류</div>
+                <div class="col-6">음식</div>
+            </div>
+            <div class="card-body row">
+                <div class="col-3">7</div>
+                <div class="col-3">중식</div>
+                <div class="col">탕수육</div>
+            </div>
+            <div class="card-body row">
+                <div class="col-3">8</div>
+                <div class="col-3">중식</div>
+                <div class="col">유산슬</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $("*").css("color", "white");
+        $(".container").css("background-color", "black");
+        $("table").css("text-align", "center");
+        $("#foods th").css("color", "blue");
+        $("#foods th").css("background-color", "gray");
+
+        $("#one").css("background-color", "gray");
+        $("#one").css("border", "3px solid red");
+        $("#one > div").css("border", "3px solid yellow");
+        $("#one + div").css("background-color", "blue");
+        $("#one ~ div").css("background-color", "green");
+    </script>
+</body>
+</html>
