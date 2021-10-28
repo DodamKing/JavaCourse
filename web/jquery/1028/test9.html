@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <button class="btn btn-primary" id="btn1">숨기기</button>
+    <button class="btn btn-primary" id="btn2">보이기</button>
+    <button class="btn btn-primary" id="btn3">숨/보</button>
+    <button class="btn btn-primary" id="btn4">애니</button>
+    <h2>내용</h2>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#btn1").click(() => {
+        $("h2").fadeOut(500);
+    });
+    $("#btn2").click(() => {
+        $("h2").show(500);
+    });
+    $("#btn3").click(() => {
+        $("h2").fadeToggle(500);
+    });
+    
+    
+</script>
+
+</html>

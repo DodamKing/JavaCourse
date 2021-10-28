@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="card-body" id="content">
+        <h2>할인률 계산</h2>
+        갤럭시탭 : <input type="text" name="item" id="a" value="1000000" class="form-control">
+        아이패드 : <input type="text" name="item" id="b" value="1500000" class="form-control">
+        맥북프로 : <input type="text" name="item" id="c" value="2000000" class="form-control">
+        노 트 북 : <input type="text" name="item" id="d" value="2500000" class="form-control">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary ml-4" id="btn1">추가</button>
+        <button class="btn btn-primary" onclick="location.reload()">취소</button>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let sales = [
+    {"amount":1000000, "discount":0.05},
+    {"amount":1500000, "discount":0.1},
+    {"amount":2000000, "discount":0.15},
+    {"amount":2500000, "discount":0.2}
+    ];
+
+    $("#btn1").click(() => {
+        $("input[name='item']").prop("value", (i, item) => {
+            let disc = sales[i].amount - (sales[i].amount * sales[i].discount);
+            return parseInt(item) + disc;
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="card-body" id="content">
+        아이디: <input type="text" name="mid" id="mid" value="hkd1234" class="form-control">
+        비밀번호: <input type="text" name="pwd" id="pwd" value="1234" class="form-control">
+        성 명: <input type="text" name="name" id="name" value="홍길동" class="form-control">
+        <button class="btn btn-primary m-1" id="btn1" style="display: none;">활성화</button>
+        <button class="btn btn-primary m-1" id="btn2">비활성화</button>
+        <div>
+            <button class="btn btn-primary m-1" id="btn3">토글</button>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#btn1").click(() => {
+        $("#btn1").hide();
+        $("#btn2").show();
+
+        $("input[type='text']").prop("disabled", false);
+    });
+    
+    $("#btn2").click(() => {
+        $("#btn1").show();
+        $("#btn2").hide();
+
+        $("input[type='text']").prop("disabled", "disabled");
+    });
+
+    $("#btn3").click(() => {
+        if ($("input").is(":enabled")) {
+            $("input").prop("disabled", "enabled");
+        }
+        else {
+            $("input").prop("disabled", false);
+        }
+    });
+</script>
+</html>

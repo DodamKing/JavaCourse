@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="card-body">
+        <button id="btnBold">텍스트검색후 볼드체로 변환</button>
+        <hr />
+        <div id="content">
+            <div>진달래꽃</div>
+            <div>나보기가 역겨워 가실때에는</div>
+            <div>말없이 고이보내 드리오리다.</div>
+            <div>영변에 약산 진달래꽃</div>
+            <div>아름따다 가실길에 뿌리오리다.</div>
+        </div>
+        <hr style="border-color: blue;">
+        <div id="one">
+            <div>진달래꽃</div>
+            <div>나보기가 역겨워 가실때에는</div>
+            <div>말없이 고이보내 드리오리다.</div>
+            <div>영변에 약산 진달래꽃</div>
+            <div>아름따다 가실길에 뿌리오리다.</div>
+        </div>
+        <hr style="border-color: red;">
+        <div id="two">
+            <div>진달래꽃</div>
+            <div>나보기가 역겨워 가실때에는</div>
+            <div>말없이 고이보내 드리오리다.</div>
+            <div>영변에 약산 진달래꽃</div>
+            <div>아름따다 가실길에 뿌리오리다.</div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#content div").each((i, elem) => {
+        $(elem).wrap("<font color=red><b><i>")
+    });
+
+    $("#one div").css({color:"orange"}).each((i, elem) => {
+        console.log(i);
+        if (i == 0) {
+            $(elem).css({backgroundColor:"pink"});
+        }
+        
+        if (i == $("#one div").length - 1) {
+            $(elem).css({backgroundColor:"red", color:"white"});
+        }
+    });
+    
+    let two = $("#two div").css({color:"green"});
+    $.each(two, (i, elem) => {
+        if (i == 0) {
+            $(elem).css({backgroundColor:"pink"});
+        }
+        
+        if (i == $("#two div").length - 1) {
+            $(elem).css({backgroundColor:"blue", color:"white"});
+        }
+    });
+</script>
+</html>

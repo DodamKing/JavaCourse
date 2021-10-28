@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="card-body" id="content">
+        <input class="btn btn-secondary" type="button" value="1번째버튼" id="btn1">
+        <input class="btn btn-secondary" type="button" value="2번째버튼" id="btn2">
+        <input class="btn btn-secondary" type="button" value="3번째버튼" id="btn3">
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("input").each((i, elem) => {
+        $(elem).on("click", () => {
+            if (i == 0) {
+                console.log($(elem).next().val());
+                first();
+            }
+            else if (i == 1) second();
+            else if (i == 2) third();
+            else alert("끝!");
+        });
+    })
+
+    function first() {
+        alert("1번 버튼 클릭!");
+    }
+    function second() {
+        alert("2번 버튼 클릭!");
+    }
+    function third() {
+        alert("3번 버튼 클릭!");
+    }
+</script>
+</html>

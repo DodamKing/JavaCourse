@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="card-body" id="content">
+        <div class="row m-1">
+            <div style="width: 200px; height: 120px">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div style="width: 200px; height: 120px">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div style="width: 200px; height: 120px">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        <div class="row m-1">
+            <div style="width: 200px; height: 120px;">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div style="width: 200px; height: 120px;">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+            <div style="width: 200px; height: 120px;">
+                <img src="noimage.jpg" alt="" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let imgs = [
+        {image:"../../img/p1.jpg", title:"개1"},
+        {image:"../../img/p2.jpg", title:"개2"},
+        {image:"../../img/p3.jpg", title:"개3"},
+        {image:"../../img/p4.jpg", title:"개4"}
+    ];
+
+    // $("#content img:first").prop("src", imgs[0].image);
+
+    $("img").each((i, elem) => {
+        if (i < imgs.length) {
+            $(elem).prop("src", imgs[i].image);
+            $(elem).prop("title", imgs[i].title);
+        }
+        else {
+            $(elem).prop("title", "이미지 없음");
+        }
+    });
+
+
+</script>
+</html>

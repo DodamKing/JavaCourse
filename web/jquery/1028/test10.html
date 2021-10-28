@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>풀다운메뉴연습</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".menu li").mouseover(function () {
+                $(">ul", this).stop().slideDown();
+            });
+            $(".menu li").mouseout(function () {
+                $(">ul", this).stop().slideUp();
+            });
+        });
+    </script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-size: 1em;
+        }
+
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .menu li {
+            float: left;
+            width: 160px;
+            position: relative;
+        }
+        
+        .menu li a {
+            display: block;
+            height: 20px;
+            padding: 6px 8px;
+            background-color: #333;
+            color: #fff;
+            height: 100%;
+        }
+
+        .menu li a:hover {
+            background-color: burlywood;
+            color: darkblue;
+            text-align: center;
+        }
+
+
+        .menu ul {
+            position: absolute;
+            list-style: none;
+            left: 0px;
+            padding: 0px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="menu">
+            <li>
+                <a href="#">Java Programming</a>
+                <ul>
+                    <li><a href="#">객체지향언어</a></li>
+                    <li><a href="#">멀티스레드</a></li>
+                    <li><a href="#">동적메모리</a></li>
+                    <li><a href="#">풍부한API</a></li>
+                    <li><a href="#">다형성</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Web Programming</a>
+                <ul>
+                    <li><a href="#">JSP</a></li>
+                    <li><a href="#">ASP</a></li>
+                    <li><a href="#">PHP</a></li>
+                    <li><a href="#">SpringFramework</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Android</a>
+                <ul>
+                    <li><a href="#">Mobile OS</a></li>
+                    <li><a href="#">Linux기반</a></li>
+                    <li><a href="#">오프소스</a></li>
+                    <li><a href="#">Network</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div>
+        본문이에용 아무말 아무말
+    </div>
+</body>
+
+</html>

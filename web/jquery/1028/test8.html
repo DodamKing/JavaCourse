@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        div.menu,
+        div.menu2 {
+            margin: 5px;
+            border: 1px solid gray;
+            width: 200px;
+            text-align: center;
+        }
+        
+        button.default {
+            margin: 2px;
+            width: 100px;
+            border: 1px solid gray;
+            background-color: purple;
+            color: white;
+        }
+        
+        .menu button:hover {
+            background-color: white;
+            color: purple;
+        }
+        
+        .userH {
+            background-color: white;
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-body">
+        <p><a href="">Google</a></p>
+        <div class="card-body menu">
+            <button class="default">회사소개</button>
+            <button class="default">CEO소개</button>
+            <button class="default">사업영역</button>
+            <button class="default">제품소개</button>
+        </div>
+        <div class="card-body menu2" id="two">
+            <button class="default">회사소개</button>
+            <button class="default">CEO소개</button>
+            <button class="default">사업영역</button>
+            <button class="default">제품소개</button>
+        </div>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // $("#two button").on("mouseenter", (e) => {
+    //     $(e.target).addClass("userHover");
+    // });
+
+    $("#two button").mouseenter((e) => {
+        $(e.target).addClass("userH");
+    });
+    
+    $("#two button").mouseleave((e) => {
+        $(e.target).removeClass("userH");
+    });
+
+    $("#two button").click((e) => {
+        if ($(e.target).hasClass("userH")) {
+            $(e.target).removeClass("userH");
+        }
+        else {
+            $(e.target).addClass("userH");
+        }
+    });
+</script>
+
+</html>
