@@ -53,13 +53,13 @@ $("#playlistDown_btn").click((e) => {
 // 땅찍어서 닫기
 $(document).click((e) => {
     $(".my-group").hide();
-    if ($(e.target).attr("id") != "play_listBox") {
+    /*if ($(e.target).attr("id") != "play_listBox") {
         $("#play_listBox").animate({top:"100%"}, 200);
         if ($("#playlistUp_btn").css("display") == "none") {
             $("#playlistUp_btn").show();
             $("#playlistDown_btn").hide();
         }
-    }
+    }*/
 });
 
 // 음소거

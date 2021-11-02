@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>리스트박스 연습</h2>
+    <form action="<%=request.getContextPath()%>" method="post">
+        <p>
+            좋아하는 스포츠
+            <select name="sports" id="" size="5" multiple onchange="otherSport()">
+                <option value="축구">축구</option>
+                <option value="야구">야구</option>
+                <option value="농구">농구</option>
+                <option value="배구">배구</option>
+                <option value="수구">수구</option>
+                <option value="탁구">탁구</option>
+                <option value="정구">정구</option>
+                <option value="골프">골프</option>
+                <option value="핸드볼">핸드볼</option>
+                <option value="럭비">럭비</option>
+                <option value="기타">기타</option>
+            </select>
+            &nbsp;기타 <input type="text" name="otherSports" id="">
+        </p>
+        <p>
+            <input type="button" value="전송" onclick="fCheck()">
+            <input type="reset" value="취소" >
+        </p>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function otherSport() {
+            if($("select[name='sports']").val().match("기타")) {
+                $("input[name='otherSports']").focus();
+            }
+        }
+    </script>
+</body>
+</html>
