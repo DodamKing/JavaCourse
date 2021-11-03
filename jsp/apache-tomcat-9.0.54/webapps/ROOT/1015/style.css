@@ -1,0 +1,299 @@
+/* 기본값: pc화면 1024 * ~ */
+
+/* 공통사항 */
+body {
+    margin: 0px;
+    font-family: "나눔 고딕", "맑은 고딕", "고딕", "돋음", "궁서";
+    font-size: 1em;
+    background: linear-gradient(to bottom, skyblue, white 50%);
+    background-attachment: fixed;
+}
+
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+
+
+/* pc 모드(1024) */
+#container {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#mainHeader {
+    height: 640px;
+    margin-top: 0px;
+    background-image: url("images/h111.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+}
+
+#mainHeader h1 {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.header1 a {
+    color: red;
+    font-size: 3em;
+    text-shadow: 5px 10px 5px #000;
+}
+
+#mainNav {
+    width: 960px;
+    height: 60px;
+    background-color: #060;
+}
+
+#mainNav ul {
+    text-align: right;
+}
+
+#mainNav ul li {
+    /* float: left; */
+    display: inline-block;
+    width: 130px;
+    height: 400px;
+    font-size: 1.15em;
+    padding: 20px;
+    text-align: center;
+}
+
+#mainNav a {
+    color: white;
+    font-weight: 900;
+    padding: 10px 15px;
+    /* display: inline-block; */
+}
+
+#mainNav a:hover {
+    color: yellow;
+    background-color: tomato;
+}
+
+#content {
+    width: 720px;
+    display: inline-block;
+    background-color: white;
+    padding-left: 10px;
+}
+
+.active {
+    background-color: blue;
+}
+
+.notice li {
+    list-style-type: circle;
+    margin-left: 50px;
+}
+
+#sidebar {
+    width: 180px;
+    margin: 0px;
+    padding: 20px 0px 20px 20px;
+    display: inline-block;
+    text-align: right;
+}
+
+#sidebar img {
+    border: 2px solid #aaa  ;
+}
+
+#sidebar img:hover {
+    border: 2px solid black;
+    opacity: 80%;
+}
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 0px 20px;
+}
+
+
+.img_table {
+    /* display: table; */
+    width: 100%;
+}
+
+.img_row {
+    /* display: table-row; */
+    /* width: 100%; */
+    margin-bottom: 15px;
+}
+
+.img_cell {
+    display: table-cell;
+    /* width: 100%; */
+}
+
+.as_img {
+    width: 100%;
+}
+
+
+
+
+/* 테블릿 모드(600) */
+@media screen and (min-width:600px) and (max-width:1023px) {
+    #container {
+        width: 580px;
+    }
+    
+    #mainHeader {
+        height: 380px;
+        margin-top: 0px;
+        background-image: url("images/h111.jpg");
+    }
+    
+    #mainHeader h1 {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+    
+    .header1 a {
+        color: red;
+        font-size: 1.5em;
+        text-shadow: 5px 10px 5px #000;
+    }
+    
+    #mainNav {
+        width: 580px;
+        height: 40px;
+    }
+    
+    #mainNav ul {
+        text-align: center;
+    }
+    
+    #mainNav ul li {
+        display: inline-block;
+        width: 90px;
+        height: 200px;
+        font-size: 0.7em;
+        padding: 9px;
+        text-align: center;
+    }
+    
+    #content {
+        width: 560px;
+    }
+    
+    #sidebar {
+        width: 540px;
+        display: inline-block;
+    }
+    
+    #footer {
+        font-size: 0.8em;
+    }
+    
+    
+    .img_table {
+        width: 100%;
+    }
+    
+    .img_row {
+        margin-bottom: 0px;
+        margin-right: 10px;
+        width: 30%;
+        display: inline-block;
+    }
+    
+    .img_cell {
+        display: table-cell;
+    }
+    
+    .as_img {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/* 모바일 모드 */
+@media screen and (max-width:599px) {
+    #container {
+        width: 360px;
+    }
+    
+    #mainHeader {
+        height: 240px;
+        background-image: url("images/h111.jpg");
+    }
+    
+    #mainHeader h1 {
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    
+    .header1 a {
+        color: red;
+        font-size: 0.7em;
+        text-shadow: 2px 4px 2px #000;
+    }
+    
+    #mainNav {
+        width: 360px;
+        height: 410px;
+        background-color: lightcyan;
+        padding: 10px 0px;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    #mainNav ul {
+        text-align: center;
+    }
+    
+    #mainNav ul li {
+        display: inline-block;
+        width: 280px;
+        height: 25px;
+        font-size: 1em;
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    #mainNav ul li a {
+        color: brown;
+    }
+    
+    #content {
+        width: 340px;
+    }
+    
+    #sidebar {
+        width: 320px;
+    }
+    
+    #footer {
+        font-size: 0.5em;
+    }
+    
+    .img_row {
+        margin-top: 10px;
+        margin-right: 0px;
+        width: 100%;
+        display: inline-block;
+    }
+}
