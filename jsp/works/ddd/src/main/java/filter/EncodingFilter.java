@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("*")
+//@WebFilter("*")
 public class EncodingFilter implements Filter {
 
 	@Override
@@ -18,10 +18,8 @@ public class EncodingFilter implements Filter {
 		response.setCharacterEncoding("utf-8");
 		request.setCharacterEncoding("utf-8");
 		
-		System.out.println("이곳은 필터 수행 전");
 		
 		chain.doFilter(request, response);
-		System.out.println("이곳은 필터 수행 후");
 		
 	}
 	

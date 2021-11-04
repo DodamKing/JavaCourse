@@ -14,6 +14,5 @@ public class Data extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] title = request.getParameterValues("title");
 		System.out.println(title);
-		System.out.println(request.getParameterValues("title"));
 	}
 }
