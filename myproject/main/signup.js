@@ -11,14 +11,13 @@ let interest = document.getElementsByName("interests");
 let interests = "";
 
 function pilsuC() {
-    if (userId.value == "" || pwd.value == "" || email.value == "" || phone.value == "") {
+    if (userId.value == "" || pwd.value == "" || userNm.value == "") {
         pilsu.style.display = "inline-block";
     }
     else {
         pilsu.style.display = "none";
     }
 }
-
 
 userId.addEventListener("keyup", () => {
     if (idPattern.test(userId.value)) {
@@ -40,45 +39,12 @@ pwd.addEventListener("keyup", () => {
     pilsuC();
 });
 
-email.addEventListener("keyup", () => {
-    if (!emailPatter.test(email.value)) {
-        demo3.innerHTML = "이메일 주소를 확인하세요.";
-    }
-    else { 
-        demo3.innerHTML = "";
-    }
-    pilsuC();
-});
-
-phone.addEventListener("keyup", () => {
-    if (!phonePatter.test(phone.value)) {
-        demo4.innerHTML = "휴대폰 번호를 확인하세요.";
-    }
-    else {
-        demo4.innerHTML = "";
-    }
-    pilsuC();
-});
-
 userNm.addEventListener("keyup", () => {
     if (namePatter.test(userNm.value)) {
         demo5.innerHTML = "이름은 한글만 가능합니다.";
     }
     else {
         demo5.innerHTML = "";
-    }
-});
-
-all_check.addEventListener("click", () => {
-    if (all_check.checked == true) {
-        for (let i=0; i<interest.length; i++) {
-            interest[i].checked = true;
-        }
-    }
-    else {
-        for (let i=0; i<interest.length; i++) {
-            interest[i].checked = false;
-        }
     }
 });
 
@@ -91,27 +57,3 @@ typeChange.addEventListener("click", () => {
     }
 });
 
-signup_btn.addEventListener("click", () => {
-    if (document.getElementsByName("gender")[0].checked == true) {
-        gender = document.getElementsByName("gender")[0].value;
-    }
-    else {
-        gender = document.getElementsByName("gender")[1].value;
-    }
-
-    for (let i=0; i<interest.length; i++) {
-        if(interest[i].checked == true) {
-            interests += interest[i].value + ", ";
-        }
-    }
-
-    opener.demo.innerHTML = "안녕하세요 " + userNm.value +"님 회원가입이 완료되었습니다.<br>" + 
-    "아이디: " + userId.value + 
-    "<br>이메일: " + email.value + 
-    "<br> 휴대폰 번호: " + phone.value +
-    "<br> 생년월일: " + year.value + " " + month.value + "월 " + date.value + "일" + 
-    "<br> 성별: " + gender + 
-    "<br> 관심분야: " + interests +
-    "<br>자기소개<br>" + coment.value;
-    close();
-});

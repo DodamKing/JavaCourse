@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>t1_CookiesMain.jsp</title>
-  <%@ include file="../include/bs4.jsp" %>
 </head>
 <body>
 <div class="container">

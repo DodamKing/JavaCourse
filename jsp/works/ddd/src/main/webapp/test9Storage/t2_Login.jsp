@@ -18,7 +18,6 @@
 <head>
   <meta charset="UTF-8">
   <title>t2_Login.jsp</title>
-  <%@ include file="../include/bs4.jsp" %>
   <script>
     function fCheck() {
     	myform.submit();
