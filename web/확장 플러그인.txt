@@ -13,4 +13,4 @@ Beautify
 vscode-icons
 Auto Close Tag
 Color Highlight
-Lorem ipsum
+Lorem ipsum -> 더미 텍스트
